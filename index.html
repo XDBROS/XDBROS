@@ -7,7 +7,6 @@
 <style>
   body { margin:0; font-family:Arial, sans-serif; background:#0a0a0a; color:#fff; }
 
-  /* NEWS BAR */
 .news-bar { background:#000; color:yellow; padding:10px; text-align:center; font-weight:bold; font-size:16px; border-bottom:2px solid #ff0000; }
 
   header { text-align:center; padding:25px 20px; background:#ff0000; }
@@ -15,7 +14,22 @@
   header h1 { color:#fff; margin:5px 0; font-size:32px; letter-spacing:2px; }
   header p { color:#fff; font-size:18px; margin:5px 0; }
 
-  /* SUPPORT SECTION */
+.august-special { padding:40px 20px; text-align:center; background:linear-gradient(180deg, #006600 0%, #000 100%); border-top:3px solid #00ff00; border-bottom:3px solid #00ff00; }
+.august-special h2 { color:#00ff00; font-size:32px; margin-bottom:10px; text-shadow:0 0 10px #00ff00; }
+.august-special h3 { color:#fff; font-size:22px; margin-bottom:15px; }
+.august-special p { color:#ccc; max-width:700px; margin:10px auto; line-height:1.6; }
+.august-video { max-width:900px; margin:25px auto; border:3px solid #00ff00; border-radius:10px; overflow:hidden; box-shadow:0 0 20px #00ff00; }
+.august-btn { display:inline-block; background:#00ff00; color:#000; padding:14px 28px; font-size:18px; font-weight:bold; text-decoration:none; border-radius:8px; margin:10px; transition:0.3s; }
+.august-btn:hover { background:#fff; transform:scale(1.1); }
+
+/* NEW SECTION FOR YOUR 5 VIDEOS */
+.more-videos { padding:40px 20px; text-align:center; background:#0f0f0f; border-bottom:2px solid #00ff00; }
+.more-videos h2 { color:#00ff00; font-size:26px; margin-bottom:20px; }
+.more-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; max-width:1200px; margin:auto; }
+.more-box { background:#111; padding:10px; border-radius:10px; border:1px solid #333; }
+.more-box h4 { color:#fff; margin:10px 0; font-size:14px; }
+.more-box iframe { width:100%; height:180px; border:none; border-radius:8px; }
+
 .donate { padding:40px 20px; text-align:center; background:#111; border-top:2px solid #ff0000; border-bottom:2px solid #ff0000; }
 .donate h2 { color:#ff0000; margin-bottom:10px; }
 .donate p { color:#ccc; margin-bottom:20px; }
@@ -30,6 +44,17 @@
 .video-title { text-align:center; color:#ff0000; font-size:24px; padding:20px 0 0 0; }
 .video-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:15px; padding:20px; max-width:1400px; margin:auto; }
 .video-grid iframe { width:100%; height:200px; border:none; border-radius:8px; }
+
+.subscribers { padding:40px 20px; text-align:center; background:#111; border-top:2px solid #ff0000; }
+.subscribers h2 { color:#ff0000; margin-bottom:10px; }
+.subscribers-wall{display:grid;grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));gap:15px;margin:20px auto;max-width:1000px}
+.subscriber{background:#1a1a1a;padding:15px;border-radius:10px;text-align:center;border:2px solid #333;transition:0.3s}
+.subscriber:hover{border-color:#ffd700;transform:scale(1.05)}
+.avatar{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,#ff0000,#ffd700);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:bold;color:#000;margin:0 auto 8px}
+.sub-name{color:#fff;font-size:12px;font-weight:bold;margin:5px 0}
+.sub-time{color:#888;font-size:10px}
+.subscribe-btn{display:block;background:#ff0000;color:#fff;text-align:center;padding:15px;border-radius:8px;text-decoration:none;font-weight:bold;margin:20px auto 0;max-width:300px}
+.subscribe-btn:hover{background:#cc0000}
 
 .social { text-align:center; padding:30px 20px; background:#111; }
 .social h2 { color:#ff0000; margin-bottom:15px; }
@@ -46,9 +71,8 @@
 </head>
 <body>
 
-<!-- NEWS BAR -->
 <div class="news-bar">
-  <marquee>🔥 NEW VIDEOS OUT NOW | SUBSCRIBE TO XD BROS | SUPPORT THE MOVEMENT 🔥</marquee>
+  <marquee>🔥 14 AUGUST ANTHEM "MERI PEHCHAAN" COMING SOON | SUBSCRIBE TO XD BROS | SUPPORT THE MOVEMENT 🔥</marquee>
 </div>
 
 <header>
@@ -57,25 +81,66 @@
   <p>Gaming | Music | Community</p>
 </header>
 
-<!-- SUPPORT SECTION -->
+<!-- 14 AUGUST SPECIAL SECTION -->
+<section class="august-special">
+  <h2>🇵🇰 14 AUGUST SPECIAL 🇵🇰</h2>
+  <h3>ANTHEM: "MERI PEHCHAAN"</h3>
+  <p>14 August aaya, aankh nam ho gayi<br>
+  Yaad shaheedon ki, dil me bas gayi<br>
+  Pakistan Zindabaad! Pakistan Paindabaad!</p>
+
+  <div class="august-video">
+    <iframe width="100%" height="500"
+    src="https://www.youtube.com/embed/lEmgFDwPnrQ"
+    title="14 August Anthem Teaser" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <a href="https://www.bandlab.com/post/323b5db6-8783-4643-8a8b-4c3964da5402" target="_blank" class="august-btn">LISTEN ON BANDLAB</a>
+  <a href="https://youtube.com/@XDBROS?sub_confirmation=1" target="_blank" class="august-btn">SUBSCRIBE FOR FULL SONG</a>
+</section>
+
+<!-- YOUR 5 VIDEOS SECTION -->
+<section class="more-videos">
+  <h2>🔥 MORE FROM XD BROS 🔥</h2>
+  <div class="more-grid">
+    <div class="more-box">
+      <h4>SHORTS 1</h4>
+      <iframe src="https://www.youtube.com/embed/oCTIhvfO9vU" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="more-box">
+      <h4>SHORTS 2</h4>
+      <iframe src="https://www.youtube.com/embed/2FexPZ-mATE" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="more-box">
+      <h4>VIDEO 1</h4>
+      <iframe src="https://www.youtube.com/embed/9CG6AaO6XN4" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="more-box">
+      <h4>VIDEO 2</h4>
+      <iframe src="https://www.youtube.com/embed/CdDWdc5ddQM" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="more-box">
+      <h4>VIDEO 3</h4>
+      <iframe src="https://www.youtube.com/embed/lEmgFDwPnrQ" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
 <section class="donate">
   <h2>SUPPORT XD BROS</h2>
   <p>Your support means everything to us ❤️ Help us grow the family</p>
-
   <div class="donate-buttons">
     <a href="https://youtube.com/@XDBROS?sub_confirmation=1" target="_blank" class="donate-btn">SUBSCRIBE</a>
     <a href="https://youtube.com/@XDBROS" target="_blank" class="donate-btn">WATCH VIDEOS</a>
     <a href="https://instagram.com/" target="_blank" class="donate-btn">FOLLOW IG</a>
     <a href="https://tiktok.com/@hamza.cute.boy8" target="_blank" class="donate-btn">TIKTOK</a>
   </div>
-
   <p style="margin-top:15px; font-size:14px; color:#00ff00;">
     Coming Soon: JazzCash / Easypaisa / Bank <br>
     For now: Share + Subscribe + Comment
   </p>
 </section>
 
-<!-- ABOUT SECTION -->
 <section class="about">
   <h2>ABOUT XD BROS</h2>
   <p>
@@ -84,33 +149,47 @@
   </p>
 </section>
 
-<!-- VIDEO SECTION - 21 VIDEOS -->
-<h2 class="video-title">OFFICIAL VIDEOS</h2>
-<section class="video-grid">
-  <iframe src="https://www.youtube.com/embed/dm27esRuqjw" title="XD BROS Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/UfwJ11F_BTI" title="XD BROS Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/uPB7bXwbrwg" title="XD BROS Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/foPVohn_8DQ" title="XD BROS Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/KqmQn-OuSTc" title="XD BROS Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/r1eT_ZyF5Js" title="XD BROS Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/IRM5fgIT1xE" title="XD BROS Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/Sb1G5-pOWT4" title="XD BROS Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/r6Lrne-bnbo" title="XD BROS Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/TlvGjg_tx5k" title="XD BROS Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/dAlj6IKNCek" title="XD BROS Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/yU7ll58fYzA" title="XD BROS Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/fVAGD0OtkWc" title="XD BROS Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/-nV40b-P-U0" title="XD BROS Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/OujPKqG0yWY" title="XD BROS Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/Fq6t4LHceOI" title="XD BROS Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/LXcnfTnpwXM" title="XD BROS Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/esFn6WkPZfU" title="XD BROS Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/Y2v_Wucuqbw" title="XD BROS Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/Vwo1-rvHhWY" title="XD BROS Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/dm27esRuqjw" title="XD BROS Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<section class="subscribers">
+  <h2>👑 XD BROS FAMILY</h2>
+  <p style="color:#888;margin-bottom:15px">Recent Subscribers - Join the family!</p>
+  <div class="subscribers-wall">
+    <div class="subscriber"><div class="avatar">A</div><p class="sub-name">@AliGamerYT</p><p class="sub-time">2h ago</p></div>
+    <div class="subscriber"><div class="avatar">K</div><p class="sub-name">@KingZain</p><p class="sub-time">5h ago</p></div>
+    <div class="subscriber"><div class="avatar">S</div><p class="sub-name">@SaraPlays</p><p class="sub-time">1d ago</p></div>
+    <div class="subscriber"><div class="avatar">B</div><p class="sub-name">@BilalYT</p><p class="sub-time">1d ago</p></div>
+    <div class="subscriber"><div class="avatar">H</div><p class="sub-name">@HamzaXd</p><p class="sub-time">2d ago</p></div>
+    <div class="subscriber"><div class="avatar">F</div><p class="sub-name">@FatimaGaming</p><p class="sub-time">2d ago</p></div>
+    <div class="subscriber"><div class="avatar">R</div><p class="sub-name">@RazaClips</p><p class="sub-time">3d ago</p></div>
+    <div class="subscriber"><div class="avatar">T</div><p class="sub-name">@TalhaPro</p><p class="sub-time">3d ago</p></div>
+  </div>
+  <a href="https://youtube.com/@XDBROS?sub_confirmation=1" target="_blank" class="subscribe-btn">+ JOIN XD BROS FAMILY</a>
 </section>
 
-<!-- SOCIAL SECTION -->
+<h2 class="video-title">OFFICIAL VIDEOS</h2>
+<section class="video-grid">
+  <iframe src="https://www.youtube.com/embed/dm27esRuqjw" frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/UfwJ11F_BTI" frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/uPB7bXwbrwg" frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/foPVohn_8DQ" frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/KqmQn-OuSTc" frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/r1eT_ZyF5Js" frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/IRM5fgIT1xE" frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/Sb1G5-pOWT4" frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/r6Lrne-bnbo" frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/TlvGjg_tx5k" frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/dAlj6IKNCek" frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/yU7ll58fYzA" frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/fVAGD0OtkWc" frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/-nV40b-P-U0" frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/OujPKqG0yWY" frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/Fq6t4LHceOI" frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/LXcnfTnpwXM" frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/esFn6WkPZfU" frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/Y2v_Wucuqbw" frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/Vwo1-rvHhWY" frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/dm27esRuqjw" frameborder="0" allowfullscreen></iframe>
+</section>
+
 <section class="social">
   <h2>FOLLOW THE FAMILY</h2>
   <a href="https://youtube.com/@XDBROS" target="_blank" class="btn btn-yt">YOUTUBE</a>
@@ -124,7 +203,6 @@
   <p>© 2026 XD BROS | All Rights Reserved</p>
 </footer>
 
-<!-- TAWK.TO LIVE CHAT -->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
