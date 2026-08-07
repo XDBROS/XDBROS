@@ -1,201 +1,250 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>XD BROS - Official Website | MERA PEHCHAAN 14 August Anthem 2026</title>
-<meta name="description" content="XD BROS - MERA PEHCHAAN 14 August Anthem 2026. Quaid e Azam Speech Tribute. Pakistan Independence Day Song. Gaming Music Community">
-<meta name="keywords" content="xd bros, mera pehchaan, 14 august song, pakistan zindabad, quaid e azam speech, pakistani anthem 2026, hamza cute boy, zoya faizan">
+<meta name="description" content="XD BROS - MERA PEHCHAAN 14 August Anthem 2026. Quaid e Azam Speech Tribute. Pakistan Independence Day Song">
 <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/197/197374.png">
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXX');</script>
+
 <style>
-  body { margin:0; font-family:Arial, sans-serif; background:#0a0a0a; color:#fff; }
-.news-bar { background:#000; color:yellow; padding:10px; text-align:center; font-weight:bold; font-size:16px; border-bottom:2px solid #ff0000; }
-header { text-align:center; padding:25px 20px; background:#ff0000; }
+:root{ --bg:#0a0a0a; --card:#111; --text:#fff; --accent:#00ff00; --accent2:#ff0000; }
+body.light{ --bg:#f5f5f5; --card:#fff; --text:#000; --accent:#01411C; --accent2:#ff0000; }
+body { margin:0; font-family:Arial, sans-serif; background:var(--bg); color:var(--text); transition:0.3s; }
+.news-bar { background:#000; color:yellow; padding:10px; text-align:center; font-weight:bold; border-bottom:2px solid var(--accent2); }
+header { text-align:center; padding:25px 20px; background:var(--accent2); position:relative; }
 .logo { width:180px; height:180px; border-radius:50%; border:4px solid #000; object-fit:cover; margin-bottom:10px; }
-header h1 { color:#fff; margin:5px 0; font-size:32px; letter-spacing:2px; }
-header p { color:#fff; font-size:18px; margin:5px 0; }
+header h1 { color:#fff; margin:5px 0; font-size:32px; }
+#themeBtn{position:absolute; top:20px; right:20px; background:var(--accent); color:#000; border:none; padding:10px 15px; border-radius:8px; font-weight:bold; cursor:pointer;}
 
-.countdown-box { background:linear-gradient(180deg, #01411C 0%, #000 100%); padding:30px 20px; text-align:center; border-bottom:3px solid #00ff00; }
-.countdown-box h2 { color:#00ff00; font-size:28px; margin-bottom:10px; text-shadow:0 0 10px #00ff00; }
-#countdown { font-size:36px; font-weight:bold; color:#fff; letter-spacing:2px; }
+.countdown-box { background:linear-gradient(180deg, #01411C 0%, #000 100%); padding:30px 20px; text-align:center; border-bottom:3px solid var(--accent); }
+#countdown { font-size:36px; font-weight:bold; color:var(--accent); }
 
-.share-section { background:#111; padding:20px; text-align:center; border-bottom:2px solid #00ff00; }
-.share-section h3 { color:#00ff00; margin-bottom:15px; }
-.share-btn { display:inline-block; padding:12px 18px; margin:5px; border-radius:8px; text-decoration:none; color:#fff; font-weight:bold; transition:0.3s; }
-.share-btn:hover { transform:scale(1.1); }
-.btn-wa { background:#25D366; }
-.btn-tt { background:#000; border:1px solid #fff; }
-.btn-fb { background:#1877F2; }
-.btn-ig { background:#E1306C; }
-.btn-copy { background:#00ff00; color:#000; }
+/* SUGGESTION 1: FOLLOW ALL APPS */
+.follow-section { padding:40px 20px; text-align:center; background:linear-gradient(180deg, #ff0000 0%, #000 100%); border:3px solid var(--accent); }
+.follow-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:15px; max-width:900px; margin:auto; }
+.follow-btn { display:flex; align-items:center; gap:10px; padding:14px 22px; border-radius:10px; text-decoration:none; color:#fff; font-weight:bold; font-size:16px; transition:0.3s; min-width:180px; justify-content:center; }
+.follow-btn:hover { transform:scale(1.08); }
+.btn-yt { background:#ff0000; }.btn-tt { background:#000; border:2px solid #fff; }
+.btn-ig { background:linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); }
+.btn-fb { background:#1877F2; }.btn-th { background:#000; }
 
-.august-special { padding:40px 20px; text-align:center; background:linear-gradient(180deg, #006600 0%, #000 100%); border-top:3px solid #00ff00; border-bottom:3px solid #00ff00; }
-.august-special h2 { color:#00ff00; font-size:32px; margin-bottom:10px; text-shadow:0 0 10px #00ff00; }
-.august-special h3 { color:#fff; font-size:22px; margin-bottom:15px; }
-.august-special p { color:#ccc; max-width:700px; margin:10px auto; line-height:1.6; }
-.august-video { max-width:900px; margin:25px auto; border:3px solid #00ff00; border-radius:10px; overflow:hidden; box-shadow:0 0 20px #00ff00; }
-.august-btn { display:inline-block; background:#00ff00; color:#000; padding:14px 28px; font-size:18px; font-weight:bold; text-decoration:none; border-radius:8px; margin:10px; transition:0.3s; }
-.august-btn:hover { background:#fff; transform:scale(1.1); }
+/* SUGGESTION 2: EMAIL COLLECT */
+.email-box { padding:40px 20px; text-align:center; background:var(--card); border:2px solid var(--accent); }
+.email-box input { padding:14px; width:70%; max-width:350px; border-radius:8px; border:none; margin:10px; }
+.email-box button { padding:14px 25px; background:var(--accent); border:none; border-radius:8px; font-weight:bold; cursor:pointer; }
 
-.more-videos { padding:40px 20px; text-align:center; background:#0f0f0f; border-bottom:2px solid #00ff00; }
-.more-videos h2 { color:#00ff00; font-size:26px; margin-bottom:20px; }
+.share-section { background:var(--card); padding:20px; text-align:center; }
+.share-btn { display:inline-block; padding:12px 18px; margin:5px; border-radius:8px; text-decoration:none; color:#fff; font-weight:bold; }
+.btn-wa { background:#25D366; }.btn-fb { background:#1877F2; }.btn-copy { background:var(--accent); color:#000; }
+
+.august-special { padding:40px 20px; text-align:center; background:linear-gradient(180deg, #006600 0%, var(--bg) 100%); border:3px solid var(--accent); }
+.august-btn { display:inline-block; background:var(--accent); color:#000; padding:14px 28px; font-size:18px; font-weight:bold; text-decoration:none; border-radius:8px; margin:10px; }
+
+/* SUGGESTION 3: TESTIMONIALS */
+.testimonials { padding:40px 20px; text-align:center; background:var(--bg); }
+.testi-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; max-width:1000px; margin:auto; }
+.testi { background:var(--card); padding:20px; border-radius:10px; border-left:4px solid var(--accent); }
+.testi p { color:#ccc; font-style:italic; }
+.testi h4 { color:var(--accent); margin-top:10px; }
+
+.more-videos { padding:40px 20px; text-align:center; background:var(--card); }
 .more-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; max-width:1200px; margin:auto; }
-.more-box { background:#111; padding:10px; border-radius:10px; border:1px solid #333; }
-.more-box h4 { color:#fff; margin:10px 0; font-size:14px; }
+.more-box { background:var(--bg); padding:10px; border-radius:10px; border:1px solid #333; }
 .more-box iframe { width:100%; height:180px; border:none; border-radius:8px; }
 
-.lyrics { padding:40px 20px; text-align:center; background:#000; border-top:2px solid #00ff00; }
-.lyrics h2 { color:#00ff00; font-size:28px; margin-bottom:15px; }
-.lyrics p { color:#ccc; line-height:2.2; font-size:18px; max-width:700px; margin:auto; }
+/* SUGGESTION 4: MERCH BANNER */
+.merch { padding:30px 20px; text-align:center; background:linear-gradient(90deg, #01411C, #ff0000); }
+.merch h2 { color:#fff; font-size:28px; text-shadow:0 0 10px #000; }
 
-.live-subs { padding:30px 20px; text-align:center; background:#000; border-top:2px solid #ff0000; border-bottom:2px solid #ff0000; }
+.fan-wall { padding:40px 20px; text-align:center; background:var(--bg); border-top:2px solid var(--accent); }
+#fanMsg { padding:12px; width:70%; max-width:400px; border-radius:8px; border:none; margin:10px; }
+#postBtn { padding:12px 20px; background:var(--accent); border:none; border-radius:8px; font-weight:bold; cursor:pointer; }
+.msg { background:var(--card); padding:12px; margin:8px auto; border-radius:8px; border-left:4px solid var(--accent); max-width:700px; text-align:left; }
 
-.video-title { text-align:center; color:#ff0000; font-size:24px; padding:20px 0 0 0; }
 .video-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:15px; padding:20px; max-width:1400px; margin:auto; }
 .video-grid iframe { width:100%; height:200px; border:none; border-radius:8px; }
 
-.donate { padding:40px 20px; text-align:center; background:#111; border-top:2px solid #ff0000; border-bottom:2px solid #ff0000; }
-.donate h2 { color:#ff0000; margin-bottom:10px; }
-.donate-buttons { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin:20px 0; }
-.donate-btn { background:#00ff00; color:#000; padding:12px 20px; font-size:16px; font-weight:bold; text-decoration:none; border-radius:8px; display:inline-block; transition:0.3s; min-width:120px; }
-.donate-btn:hover { background:#00cc00; transform:scale(1.1); }
-
 #popup {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999;}
-#popup-content {background:#111; width:90%; max-width:420px; margin:10% auto; padding:25px; border-radius:15px; text-align:center; border:3px solid #00ff00; box-shadow:0 0 25px #00ff00;}
-#close-btn {float:right; font-size:28px; cursor:pointer; color:#00ff00;}
-
-.disclaimer-box { background:#1a1a1a; padding:20px; text-align:center; border-top:2px solid #ffcc00; border-bottom:2px solid #ffcc00; }
-.disclaimer-box p { color:#ffcc00; font-weight:bold; font-size:14px; }
-
+#popup-content {background:var(--card); width:90%; max-width:420px; margin:10% auto; padding:25px; border-radius:15px; text-align:center; border:3px solid var(--accent);}
+#close-btn {float:right; font-size:28px; cursor:pointer; color:var(--accent);}
 footer { text-align:center; padding:20px; background:#000; color:#888; }
 </style>
 </head>
 <body>
 
+<audio id="anthemAudio" src="https://www.bandlab.com/api/file/323b5db6-8783-4643-8a8b-4c3964da5402/stream"></audio>
+
 <div id="popup">
   <div id="popup-content">
     <span id="close-btn">&times;</span>
-    <h2 style="color:#00ff00;">🇵🇰 HAPPY 14 AUGUST 🇵🇰</h2>
-    <p><b>"आप आजाद रहे आजाद रहे"</b></p>
-    <p>Listen our new anthem <b>MERA PEHCHAAN</b> by XD BROS</p>
-    <a href="https://www.bandlab.com/post/323b5db6-8783-4643-8a8b-4c3964da5402" target="_blank" class="august-btn">LISTEN NOW</a>
+    <h2 style="color:var(--accent);">🇵🇰 HAPPY 14 AUGUST 🇵🇰</h2>
+    <p>Get <b>MERA PEHCHAAN MP3 FREE</b> before release!</p>
+    <input type="email" id="popupEmail" placeholder="Enter your email" style="padding:12px; width:80%; border-radius:8px; border:none; margin:10px 0;">
+    <button onclick="saveEmail()" class="august-btn">DOWNLOAD FREE</button>
   </div>
 </div>
 
-<div class="news-bar"><marquee>🔥 14 AUGUST ANTHEM "MERI PEHCHAAN" OUT NOW | SUBSCRIBE TO XD BROS | SUPPORT THE MOVEMENT 🔥</marquee></div>
+<div class="news-bar"><marquee>🔥 14 AUGUST ANTHEM "MERI PEHCHAAN" OUT NOW | FOLLOW XD BROS 🔥</marquee></div>
 
-<header><img src="logo.png" alt="XD BROS Logo" class="logo"><h1>XD BROS</h1><p>Gaming | Music | Community</p></header>
+<header>
+  <button id="themeBtn" onclick="toggleTheme()">🌙 DARK/LIGHT</button>
+  <img src="logo.png" alt="XD BROS Logo" class="logo">
+  <h1>XD BROS</h1>
+  <p>Gaming | Music | Community</p>
+</header>
 
 <section class="countdown-box">
   <h2>🇵🇰 COUNTDOWN TO 14 AUGUST 2026 🇵🇰</h2>
   <div id="countdown"></div>
 </section>
 
+<!-- SUGGESTION 1: FOLLOW ALL APPS -->
+<section class="follow-section">
+  <h2 style="color:#fff;">📢 FOLLOW XD BROS FAMILY 📢</h2>
+  <div class="follow-grid">
+    <a href="https://youtube.com/@xd_brotherz?sub_confirmation=1" target="_blank" class="follow-btn btn-yt">▶️ YOUTUBE</a>
+    <a href="https://www.tiktok.com/@hamza.cute.boy8" target="_blank" class="follow-btn btn-tt">🎵 TIKTOK</a>
+    <a href="https://instagram.com/" target="_blank" class="follow-btn btn-ig">📷 INSTAGRAM</a>
+    <a href="https://facebook.com/zoyafaizan27" target="_blank" class="follow-btn btn-fb">📘 FACEBOOK</a>
+    <a href="https://www.threads.net/@zoyafaizan27" target="_blank" class="follow-btn btn-th">🧵 THREADS</a>
+  </div>
+</section>
+
+<!-- SUGGESTION 2: EMAIL COLLECT -->
+<section class="email-box">
+  <h2 style="color:var(--accent);">🎁 GET "MERA PEHCHAAN" MP3 FREE</h2>
+  <p style="color:#888;">Enter email and get the anthem 1 day before release</p>
+  <input type="email" id="emailInput" placeholder="your email@gmail.com">
+  <button onclick="saveEmail()">SEND ME FREE MP3</button>
+</section>
+
 <section class="share-section">
-  <h3>📢 SHARE MERA PEHCHAAN WITH PAKISTAN 🇵🇰</h3>
-  <a href="https://wa.me/?text=Listen%20XD%20BROS%20-%20MERA%20PEHCHAAN%2014%20August%20Anthem%20🇵🇰%20https://xd-bros.github.io" target="_blank" class="share-btn btn-wa">WHATSAPP</a>
+  <h3 style="color:var(--accent);">📢 SHARE MERA PEHCHAAN 🇵🇰</h3>
+  <a href="https://wa.me/?text=Listen%20XD%20BROS%20-%20MERA%20PEHCHAAN%20🇵🇰%20https://xd-bros.github.io" target="_blank" class="share-btn btn-wa">WHATSAPP</a>
   <a href="https://www.facebook.com/sharer/sharer.php?u=https://xd-bros.github.io" target="_blank" class="share-btn btn-fb">FACEBOOK</a>
-  <a href="https://twitter.com/intent/tweet?text=MERA%20PEHCHAAN%20by%20XD%20BROS%20🇵🇰&url=https://xd-bros.github.io" target="_blank" class="share-btn btn-tt">X/TWITTER</a>
   <button onclick="copyLink()" class="share-btn btn-copy">COPY LINK</button>
 </section>
 
 <section class="august-special">
-  <h2>🇵🇰 14 AUGUST SPECIAL 🇵🇰</h2>
+  <h2 style="color:var(--accent);">🇵🇰 14 AUGUST SPECIAL 🇵🇰</h2>
   <h3>ANTHEM: "MERI PEHCHAAN"</h3>
-  <div class="august-video">
-    <iframe loading="lazy" width="100%" height="500" src="https://www.youtube.com/embed/oCTIhvfO9vU" frameborder="0" allowfullscreen></iframe>
+  <div style="max-width:900px; margin:25px auto; border:3px solid var(--accent); border-radius:10px;">
+    <iframe loading="lazy" width="100%" height="500" src="https://www.youtube.com/embed/oCTIhvfO9vU"></iframe>
   </div>
-  <a href="https://www.bandlab.com/post/323b5db6-8783-4643-8a8b-4c3964da5402" target="_blank" class="august-btn">LISTEN ON BANDLAB</a>
 </section>
 
-<section class="lyrics">
-  <h2>🎵 MERI PEHCHAAN - FULL LYRICS 🎵</h2>
-  <p>14 August aaya, aankh nam ho gayi<br>Yaad shaheedon ki, dil me bas gayi<br>Pakistan Zindabaad! Pakistan Paindabaad!<br>Meri pehchaan, Pakistan 🇵🇰</p>
+<!-- SUGGESTION 3: TESTIMONIALS -->
+<section class="testimonials">
+  <h2 style="color:var(--accent);">💬 WHAT FANS SAY 💬</h2>
+  <div class="testi-grid">
+    <div class="testi"><p>"MERA PEHCHAAN gave me goosebumps! Pakistan Zindabad!"</p><h4>- Ali from Karachi</h4></div>
+    <div class="testi"><p>"Best 14 August song of 2026. XD BROS 🔥"</p><h4>- Sara from Lahore</h4></div>
+    <div class="testi"><p>"I play this every morning. Proud to be Pakistani!"</p><h4>- Ahmed from Islamabad</h4></div>
+  </div>
 </section>
 
-<!-- ALL VIDEOS VISIBLE SECTION -->
+<!-- SUGGESTION 4: MERCH -->
+<section class="merch">
+  <h2>👕 14 AUGUST T-SHIRT COMING SOON 👕</h2>
+  <p style="color:#fff;">"MERI PEHCHAAN" Limited Edition - Pre-order opens soon</p>
+</section>
+
+<section class="fan-wall">
+  <h2 style="color:var(--accent);">💚 PAKISTAN ZINDABAD WALL 💚</h2>
+  <input id="fanMsg" placeholder="Pakistan Zindabad!">
+  <button id="postBtn" onclick="addMsg()">POST</button>
+  <div id="messages"></div>
+</section>
+
 <section class="more-videos">
-  <h2>🔥 ALL XD BROS VIDEOS 🔥</h2>
+  <h2 style="color:var(--accent);">🔥 ALL XD BROS VIDEOS 🔥</h2>
   <div class="more-grid">
     <div class="more-box"><h4>SHORTS 1</h4><iframe loading="lazy" src="https://www.youtube.com/embed/oCTIhvfO9vU"></iframe></div>
     <div class="more-box"><h4>SHORTS 2</h4><iframe loading="lazy" src="https://www.youtube.com/embed/2FexPZ-mATE"></iframe></div>
     <div class="more-box"><h4>VIDEO 1</h4><iframe loading="lazy" src="https://www.youtube.com/embed/9CG6AaO6XN4"></iframe></div>
-    <div class="more-box"><h4>VIDEO 2</h4><iframe loading="lazy" src="https://www.youtube.com/embed/CdDWdc5ddQM"></iframe></div>
-    <div class="more-box"><h4>VIDEO 3</h4><iframe loading="lazy" src="https://www.youtube.com/embed/lEmgFDwPnrQ"></iframe></div>
-    <div class="more-box"><h4>VIDEO 4</h4><iframe loading="lazy" src="https://www.youtube.com/embed/dm27esRuqjw"></iframe></div>
   </div>
 </section>
 
-<h2 class="video-title">OFFICIAL VIDEOS - ALL 21 VIDEOS</h2>
+<h2 style="text-align:center; color:var(--accent2);">OFFICIAL VIDEOS</h2>
 <section class="video-grid">
   <iframe loading="lazy" src="https://www.youtube.com/embed/dm27esRuqjw"></iframe>
   <iframe loading="lazy" src="https://www.youtube.com/embed/UfwJ11F_BTI"></iframe>
-  <iframe loading="lazy" src="https://www.youtube.com/embed/uPB7bXwbrwg"></iframe>
-  <iframe loading="lazy" src="https://www.youtube.com/embed/foPVohn_8DQ"></iframe>
-  <iframe loading="lazy" src="https://www.youtube.com/embed/KqmQn-OuSTc"></iframe>
-  <iframe loading="lazy" src="https://www.youtube.com/embed/r1eT_ZyF5Js"></iframe>
-  <iframe loading="lazy" src="https://www.youtube.com/embed/IRM5fgIT1xE"></iframe>
-  <iframe loading="lazy" src="https://www.youtube.com/embed/Sb1G5-pOWT4"></iframe>
-  <iframe loading="lazy" src="https://www.youtube.com/embed/r6Lrne-bnbo"></iframe>
-  <iframe loading="lazy" src="https://www.youtube.com/embed/TlvGjg_tx5k"></iframe>
-  <iframe loading="lazy" src="https://www.youtube.com/embed/dAlj6IKNCek"></iframe>
-  <iframe loading="lazy" src="https://www.youtube.com/embed/yU7ll58fYzA"></iframe>
-  <iframe loading="lazy" src="https://www.youtube.com/embed/fVAGD0OtkWc"></iframe>
-  <iframe loading="lazy" src="https://www.youtube.com/embed/-nV40b-P-U0"></iframe>
-  <iframe loading="lazy" src="https://www.youtube.com/embed/OujPKqG0yWY"></iframe>
-  <iframe loading="lazy" src="https://www.youtube.com/embed/Fq6t4LHceOI"></iframe>
-  <iframe loading="lazy" src="https://www.youtube.com/embed/LXcnfTnpwXM"></iframe>
-  <iframe loading="lazy" src="https://www.youtube.com/embed/esFn6WkPZfU"></iframe>
-  <iframe loading="lazy" src="https://www.youtube.com/embed/Y2v_Wucuqbw"></iframe>
-  <iframe loading="lazy" src="https://www.youtube.com/embed/Vwo1-rvHhWY"></iframe>
-  <iframe loading="lazy" src="https://www.youtube.com/embed/dm27esRuqjw"></iframe>
 </section>
-
-<section class="live-subs">
-  <p style="color:#ccc; margin-bottom:15px; font-size:18px;">Live Subscriber Count</p>
-  <iframe loading="lazy" src="https://socialcounts.org/youtube-live-subscriber-count/@xd_brotherz/embed" style="border:0; width:100%; max-width:400px; height:100px;"></iframe>
-</section>
-
-<section class="donate">
-  <h2>SUPPORT XD BROS</h2>
-  <div class="donate-buttons">
-    <a href="https://youtube.com/@xd_brotherz?sub_confirmation=1" target="_blank" class="donate-btn">SUBSCRIBE</a>
-    <a href="https://youtube.com/@xd_brotherz" target="_blank" class="donate-btn">WATCH VIDEOS</a>
-  </div>
-</section>
-
-<section class="disclaimer-box"><p>DISCLAIMER: This is a work of fiction. Created for entertainment purpose only.</p></section>
 
 <footer><p>© 2026 XD BROS | All Rights Reserved</p></footer>
 
 <script>
-// COUNTDOWN
+// COUNTDOWN + AUTOPLAY
 var countDownDate = new Date("Aug 14, 2026 00:00:00").getTime();
 var x = setInterval(function() {
   var now = new Date().getTime();
   var distance = countDownDate - now;
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-  if (distance < 0) { clearInterval(x); document.getElementById("countdown").innerHTML = "HAPPY INDEPENDENCE DAY! 🇵🇰"; }
+  var d = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var s = Math.floor((distance % (1000 * 60)) / 1000);
+  document.getElementById("countdown").innerHTML = d + "d " + h + "h " + m + "m " + s + "s ";
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "HAPPY INDEPENDENCE DAY! 🇵🇰";
+    document.getElementById("anthemAudio").play();
+  }
 }, 1000);
 
-// POPUP ONCE PER DAY
-if(!localStorage.getItem('popupShown') || new Date().getDate()!= localStorage.getItem('popupDate')){
-  window.onload = function() { document.getElementById("popup").style.display = "block"; }
-  localStorage.setItem('popupShown', 'true');
-  localStorage.setItem('popupDate', new Date().getDate());
+// EMAIL COLLECT
+function saveEmail(){
+  let email = document.getElementById("emailInput").value || document.getElementById("popupEmail").value;
+  if(email.trim()=="") return alert("Enter email first");
+  localStorage.setItem('fanEmail', email);
+  alert("Done! We will send you MP3 on 13 August 🇵🇰");
+  gtag('event', 'email_signup');
+  document.getElementById("popup").style.display = "none";
+}
+
+// FAN WALL
+function addMsg(){
+  let msg = document.getElementById("fanMsg").value;
+  if(msg.trim()=="") return;
+  let div = document.createElement("div");
+  div.className="msg";
+  div.innerHTML = "🇵🇰 " + msg;
+  document.getElementById("messages").prepend(div);
+  document.getElementById("fanMsg").value="";
+  localStorage.setItem('msgs', document.getElementById("messages").innerHTML);
+}
+
+window.onload = function(){
+  document.getElementById("messages").innerHTML = localStorage.getItem('msgs') || "";
+  if(!localStorage.getItem('popupShown') || new Date().getDate()!= localStorage.getItem('popupDate')){
+    document.getElementById("popup").style.display = "block";
+    localStorage.setItem('popupShown', 'true');
+    localStorage.setItem('popupDate', new Date().getDate());
+  }
 }
 document.getElementById("close-btn").onclick = function() { document.getElementById("popup").style.display = "none"; }
 
-// COPY LINK
 function copyLink(){
   navigator.clipboard.writeText("https://xd-bros.github.io");
   alert("Link Copied! Share MERA PEHCHAAN 🇵🇰");
 }
+
+function toggleTheme(){
+  document.body.classList.toggle('light');
+  localStorage.setItem('theme', document.body.classList.contains('light')? 'light' : 'dark');
+}
+if(localStorage.getItem('theme')=='light') document.body.classList.add('light');
+</script>
+
+<!-- TAWK.TO LIVE CHAT - SUGGESTION 5 -->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;s1.src='https://embed.tawk.to/6a6dbf8323a2ed1d4c4ad2ac/1';
+s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();
 </script>
 </body>
-    </html>
+      </html>
