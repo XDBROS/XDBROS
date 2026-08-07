@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -23,7 +23,6 @@ header h1 { color:#fff; margin:5px 0; font-size:32px; }
 .countdown-box { background:linear-gradient(180deg, #01411C 0%, #000 100%); padding:30px 20px; text-align:center; border-bottom:3px solid var(--accent); }
 #countdown { font-size:36px; font-weight:bold; color:var(--accent); }
 
-/* SUGGESTION 1: FOLLOW ALL APPS */
 .follow-section { padding:40px 20px; text-align:center; background:linear-gradient(180deg, #ff0000 0%, #000 100%); border:3px solid var(--accent); }
 .follow-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:15px; max-width:900px; margin:auto; }
 .follow-btn { display:flex; align-items:center; gap:10px; padding:14px 22px; border-radius:10px; text-decoration:none; color:#fff; font-weight:bold; font-size:16px; transition:0.3s; min-width:180px; justify-content:center; }
@@ -32,7 +31,6 @@ header h1 { color:#fff; margin:5px 0; font-size:32px; }
 .btn-ig { background:linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); }
 .btn-fb { background:#1877F2; }.btn-th { background:#000; }
 
-/* SUGGESTION 2: EMAIL COLLECT */
 .email-box { padding:40px 20px; text-align:center; background:var(--card); border:2px solid var(--accent); }
 .email-box input { padding:14px; width:70%; max-width:350px; border-radius:8px; border:none; margin:10px; }
 .email-box button { padding:14px 25px; background:var(--accent); border:none; border-radius:8px; font-weight:bold; cursor:pointer; }
@@ -44,29 +42,27 @@ header h1 { color:#fff; margin:5px 0; font-size:32px; }
 .august-special { padding:40px 20px; text-align:center; background:linear-gradient(180deg, #006600 0%, var(--bg) 100%); border:3px solid var(--accent); }
 .august-btn { display:inline-block; background:var(--accent); color:#000; padding:14px 28px; font-size:18px; font-weight:bold; text-decoration:none; border-radius:8px; margin:10px; }
 
-/* SUGGESTION 3: TESTIMONIALS */
 .testimonials { padding:40px 20px; text-align:center; background:var(--bg); }
 .testi-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; max-width:1000px; margin:auto; }
 .testi { background:var(--card); padding:20px; border-radius:10px; border-left:4px solid var(--accent); }
 .testi p { color:#ccc; font-style:italic; }
 .testi h4 { color:var(--accent); margin-top:10px; }
 
-.more-videos { padding:40px 20px; text-align:center; background:var(--card); }
-.more-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; max-width:1200px; margin:auto; }
-.more-box { background:var(--bg); padding:10px; border-radius:10px; border:1px solid #333; }
-.more-box iframe { width:100%; height:180px; border:none; border-radius:8px; }
-
-/* SUGGESTION 4: MERCH BANNER */
 .merch { padding:30px 20px; text-align:center; background:linear-gradient(90deg, #01411C, #ff0000); }
-.merch h2 { color:#fff; font-size:28px; text-shadow:0 0 10px #000; }
+
+/* ALL VIDEOS GRID */
+.all-videos { padding:40px 20px; text-align:center; background:var(--card); }
+.all-videos h2 { color:var(--accent); font-size:28px; margin-bottom:20px; }
+.video-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:20px; padding:20px; max-width:1400px; margin:auto; }
+.video-box { background:var(--bg); padding:10px; border-radius:10px; border:1px solid #333; transition:0.3s; }
+.video-box:hover { border-color:var(--accent); transform:translateY(-5px); }
+.video-box h4 { color:var(--accent); font-size:14px; margin:8px 0; }
+.video-box iframe { width:100%; height:200px; border:none; border-radius:8px; }
 
 .fan-wall { padding:40px 20px; text-align:center; background:var(--bg); border-top:2px solid var(--accent); }
 #fanMsg { padding:12px; width:70%; max-width:400px; border-radius:8px; border:none; margin:10px; }
 #postBtn { padding:12px 20px; background:var(--accent); border:none; border-radius:8px; font-weight:bold; cursor:pointer; }
 .msg { background:var(--card); padding:12px; margin:8px auto; border-radius:8px; border-left:4px solid var(--accent); max-width:700px; text-align:left; }
-
-.video-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:15px; padding:20px; max-width:1400px; margin:auto; }
-.video-grid iframe { width:100%; height:200px; border:none; border-radius:8px; }
 
 #popup {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999;}
 #popup-content {background:var(--card); width:90%; max-width:420px; margin:10% auto; padding:25px; border-radius:15px; text-align:center; border:3px solid var(--accent);}
@@ -88,7 +84,7 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
   </div>
 </div>
 
-<div class="news-bar"><marquee>🔥 14 AUGUST ANTHEM "MERI PEHCHAAN" OUT NOW | FOLLOW XD BROS 🔥</marquee></div>
+<div class="news-bar"><marquee>🔥 14 AUGUST ANTHEM "MERI PEHCHAAN" OUT NOW | ALL 21 VIDEOS BELOW 🔥</marquee></div>
 
 <header>
   <button id="themeBtn" onclick="toggleTheme()">🌙 DARK/LIGHT</button>
@@ -102,7 +98,6 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
   <div id="countdown"></div>
 </section>
 
-<!-- SUGGESTION 1: FOLLOW ALL APPS -->
 <section class="follow-section">
   <h2 style="color:#fff;">📢 FOLLOW XD BROS FAMILY 📢</h2>
   <div class="follow-grid">
@@ -114,10 +109,8 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
   </div>
 </section>
 
-<!-- SUGGESTION 2: EMAIL COLLECT -->
 <section class="email-box">
   <h2 style="color:var(--accent);">🎁 GET "MERA PEHCHAAN" MP3 FREE</h2>
-  <p style="color:#888;">Enter email and get the anthem 1 day before release</p>
   <input type="email" id="emailInput" placeholder="your email@gmail.com">
   <button onclick="saveEmail()">SEND ME FREE MP3</button>
 </section>
@@ -137,7 +130,6 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
   </div>
 </section>
 
-<!-- SUGGESTION 3: TESTIMONIALS -->
 <section class="testimonials">
   <h2 style="color:var(--accent);">💬 WHAT FANS SAY 💬</h2>
   <div class="testi-grid">
@@ -147,10 +139,37 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
   </div>
 </section>
 
-<!-- SUGGESTION 4: MERCH -->
 <section class="merch">
-  <h2>👕 14 AUGUST T-SHIRT COMING SOON 👕</h2>
+  <h2 style="color:#fff;">👕 14 AUGUST T-SHIRT COMING SOON 👕</h2>
   <p style="color:#fff;">"MERI PEHCHAAN" Limited Edition - Pre-order opens soon</p>
+</section>
+
+<!-- ALL 21 VIDEOS SECTION -->
+<section class="all-videos">
+  <h2>🔥 ALL 21 XD BROS VIDEOS 🔥</h2>
+  <div class="video-grid">
+    <div class="video-box"><h4>1. MERA PEHCHAAN - Anthem</h4><iframe loading="lazy" src="https://www.youtube.com/embed/oCTIhvfO9vU"></iframe></div>
+    <div class="video-box"><h4>2. 14 August Special</h4><iframe loading="lazy" src="https://www.youtube.com/embed/2FexPZ-mATE"></iframe></div>
+    <div class="video-box"><h4>3. Gaming Montage 1</h4><iframe loading="lazy" src="https://www.youtube.com/embed/9CG6AaO6XN4"></iframe></div>
+    <div class="video-box"><h4>4. Gaming Montage 2</h4><iframe loading="lazy" src="https://www.youtube.com/embed/CdDWdc5ddQM"></iframe></div>
+    <div class="video-box"><h4>5. Funny Clip</h4><iframe loading="lazy" src="https://www.youtube.com/embed/lEmgFDwPnrQ"></iframe></div>
+    <div class="video-box"><h4>6. Vlog 1</h4><iframe loading="lazy" src="https://www.youtube.com/embed/dm27esRuqjw"></iframe></div>
+    <div class="video-box"><h4>7. Vlog 2</h4><iframe loading="lazy" src="https://www.youtube.com/embed/UfwJ11F_BTI"></iframe></div>
+    <div class="video-box"><h4>8. Music Video 1</h4><iframe loading="lazy" src="https://www.youtube.com/embed/uPB7bXwbrwg"></iframe></div>
+    <div class="video-box"><h4>9. Music Video 2</h4><iframe loading="lazy" src="https://www.youtube.com/embed/foPVohn_8DQ"></iframe></div>
+    <div class="video-box"><h4>10. Challenge Video</h4><iframe loading="lazy" src="https://www.youtube.com/embed/KqmQn-OuSTc"></iframe></div>
+    <div class="video-box"><h4>11. Reaction Video</h4><iframe loading="lazy" src="https://www.youtube.com/embed/r1eT_ZyF5Js"></iframe></div>
+    <div class="video-box"><h4>12. Q&A Session</h4><iframe loading="lazy" src="https://www.youtube.com/embed/IRM5fgIT1xE"></iframe></div>
+    <div class="video-box"><h4>13. Behind The Scenes</h4><iframe loading="lazy" src="https://www.youtube.com/embed/Sb1G5-pOWT4"></iframe></div>
+    <div class="video-box"><h4>14. Short 1</h4><iframe loading="lazy" src="https://www.youtube.com/embed/r6Lrne-bnbo"></iframe></div>
+    <div class="video-box"><h4>15. Short 2</h4><iframe loading="lazy" src="https://www.youtube.com/embed/TlvGjg_tx5k"></iframe></div>
+    <div class="video-box"><h4>16. Short 3</h4><iframe loading="lazy" src="https://www.youtube.com/embed/dAlj6IKNCek"></iframe></div>
+    <div class="video-box"><h4>17. Short 4</h4><iframe loading="lazy" src="https://www.youtube.com/embed/yU7ll58fYzA"></iframe></div>
+    <div class="video-box"><h4>18. Short 5</h4><iframe loading="lazy" src="https://www.youtube.com/embed/fVAGD0OtkWc"></iframe></div>
+    <div class="video-box"><h4>19. Short 6</h4><iframe loading="lazy" src="https://www.youtube.com/embed/-nV40b-P-U0"></iframe></div>
+    <div class="video-box"><h4>20. Short 7</h4><iframe loading="lazy" src="https://www.youtube.com/embed/OujPKqG0yWY"></iframe></div>
+    <div class="video-box"><h4>21. Short 8</h4><iframe loading="lazy" src="https://www.youtube.com/embed/Fq6t4LHceOI"></iframe></div>
+  </div>
 </section>
 
 <section class="fan-wall">
@@ -158,21 +177,6 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
   <input id="fanMsg" placeholder="Pakistan Zindabad!">
   <button id="postBtn" onclick="addMsg()">POST</button>
   <div id="messages"></div>
-</section>
-
-<section class="more-videos">
-  <h2 style="color:var(--accent);">🔥 ALL XD BROS VIDEOS 🔥</h2>
-  <div class="more-grid">
-    <div class="more-box"><h4>SHORTS 1</h4><iframe loading="lazy" src="https://www.youtube.com/embed/oCTIhvfO9vU"></iframe></div>
-    <div class="more-box"><h4>SHORTS 2</h4><iframe loading="lazy" src="https://www.youtube.com/embed/2FexPZ-mATE"></iframe></div>
-    <div class="more-box"><h4>VIDEO 1</h4><iframe loading="lazy" src="https://www.youtube.com/embed/9CG6AaO6XN4"></iframe></div>
-  </div>
-</section>
-
-<h2 style="text-align:center; color:var(--accent2);">OFFICIAL VIDEOS</h2>
-<section class="video-grid">
-  <iframe loading="lazy" src="https://www.youtube.com/embed/dm27esRuqjw"></iframe>
-  <iframe loading="lazy" src="https://www.youtube.com/embed/UfwJ11F_BTI"></iframe>
 </section>
 
 <footer><p>© 2026 XD BROS | All Rights Reserved</p></footer>
@@ -239,7 +243,6 @@ function toggleTheme(){
 if(localStorage.getItem('theme')=='light') document.body.classList.add('light');
 </script>
 
-<!-- TAWK.TO LIVE CHAT - SUGGESTION 5 -->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -247,4 +250,4 @@ s1.async=true;s1.src='https://embed.tawk.to/6a6dbf8323a2ed1d4c4ad2ac/1';
 s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();
 </script>
 </body>
-      </html>
+    </html>
