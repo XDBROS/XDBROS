@@ -11,6 +11,12 @@
 .logo { width:180px; height:180px; border-radius:50%; border:4px solid #000; object-fit:cover; margin-bottom:10px; }
   header h1 { color:#fff; margin:5px 0; font-size:32px; letter-spacing:2px; }
   header p { color:#fff; font-size:18px; margin:5px 0; }
+
+  /* COUNTDOWN TIMER STYLE */
+ .countdown-box { background:linear-gradient(180deg, #01411C 0%, #000 100%); padding:30px 20px; text-align:center; border-bottom:3px solid #00ff00; }
+ .countdown-box h2 { color:#00ff00; font-size:28px; margin-bottom:10px; text-shadow:0 0 10px #00ff00; }
+  #countdown { font-size:36px; font-weight:bold; color:#fff; letter-spacing:2px; }
+
 .august-special { padding:40px 20px; text-align:center; background:linear-gradient(180deg, #006600 0%, #000 100%); border-top:3px solid #00ff00; border-bottom:3px solid #00ff00; }
 .august-special h2 { color:#00ff00; font-size:32px; margin-bottom:10px; text-shadow:0 0 10px #00ff00; }
 .august-special h3 { color:#fff; font-size:22px; margin-bottom:15px; }
@@ -61,6 +67,13 @@
 .btn-th { background:#000; }
 .btn-ig { background:#E1306C; }
 
+/* POPUP STYLE */
+#popup {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999;}
+#popup-content {background:#111; width:90%; max-width:420px; margin:10% auto; padding:25px; border-radius:15px; text-align:center; border:3px solid #00ff00; box-shadow:0 0 25px #00ff00;}
+#close-btn {float:right; font-size:28px; cursor:pointer; color:#00ff00;}
+#popup-content h2 {color:#00ff00; margin-bottom:10px;}
+#popup-content p {color:#ccc; line-height:1.6;}
+
 /* NEW DISCLAIMER STYLE */
 .disclaimer-box { background:#1a1a1a; padding:20px; text-align:center; border-top:2px solid #ffcc00; border-bottom:2px solid #ffcc00; }
 .disclaimer-box p { color:#ffcc00; font-weight:bold; font-size:14px; line-height:1.6; }
@@ -69,6 +82,18 @@
 </style>
 </head>
 <body>
+
+<!-- POPUP START -->
+<div id="popup">
+  <div id="popup-content">
+    <span id="close-btn">&times;</span>
+    <h2>🇵🇰 HAPPY 14 AUGUST 🇵🇰</h2>
+    <p><b>"आप आजाद रहे आजाद रहे"</b></p>
+    <p>Listen our new anthem <b>MERA PEHCHAAN</b> by XD BROS</p>
+    <a href="https://www.bandlab.com/post/323b5db6-8783-4643-8a8b-4c3964da5402" target="_blank" class="august-btn">LISTEN NOW</a>
+  </div>
+</div>
+<!-- POPUP END -->
 
 <div class="news-bar">
   <marquee>🔥 14 AUGUST ANTHEM "MERI PEHCHAAN" COMING SOON | SUBSCRIBE TO XD BROS | SUPPORT THE MOVEMENT 🔥</marquee>
@@ -79,6 +104,14 @@
   <h1>XD BROS</h1>
   <p>Gaming | Music | Community</p>
 </header>
+
+<!-- COUNTDOWN TIMER START -->
+<section class="countdown-box">
+  <h2>🇵🇰 COUNTDOWN TO 14 AUGUST 2026 🇵🇰</h2>
+  <div id="countdown"></div>
+  <p style="color:#ccc; margin-top:10px;">WE ARE FREE - MERA PEHCHAAN</p>
+</section>
+<!-- COUNTDOWN TIMER END -->
 
 <section class="august-special">
   <h2>🇵🇰 14 AUGUST SPECIAL 🇵🇰</h2>
@@ -186,6 +219,25 @@
 
 <footer><p>© 2026 XD BROS | All Rights Reserved</p></footer>
 
+<script>
+// COUNTDOWN SCRIPT
+var countDownDate = new Date("Aug 14, 2026 00:00:00").getTime();
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+  if (distance < 0) { clearInterval(x); document.getElementById("countdown").innerHTML = "HAPPY INDEPENDENCE DAY! 🇵🇰"; }
+}, 1000);
+
+// POPUP SCRIPT
+window.onload = function() { document.getElementById("popup").style.display = "block"; }
+document.getElementById("close-btn").onclick = function() { document.getElementById("popup").style.display = "none"; }
+</script>
+
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -193,4 +245,4 @@ s1.async=true;s1.src='https://embed.tawk.to/6a6dbf8323a2ed1d4c4ad2ac/1';
 s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();
 </script>
 </body>
-  </html>
+                                        </html>
