@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -13,13 +13,15 @@
 <style>
 :root{ --bg:#0a0a0a; --card:#111; --text:#fff; --accent:#00ff00; --accent2:#ff0000; --whatsapp:#25D366; }
 body.light{ --bg:#f5f5f5; --card:#fff; --text:#000; --accent:#01411C; --accent2:#ff0000; }
+body.urdu{ font-family:'Noto Naskh Arabic', 'Jameel Noori Nastaleeq', Arial, sans-serif; direction:rtl; }
 body { margin:0; font-family:Arial, sans-serif; background:var(--bg); color:var(--text); transition:0.3s; scroll-behavior:smooth; }
 .news-bar { background:#000; color:yellow; padding:10px; text-align:center; font-weight:bold; border-bottom:2px solid var(--accent2); }
 header { text-align:center; padding:25px 20px; background:var(--accent2); position:relative; }
 .logo { width:180px; height:180px; border-radius:50%; border:4px solid #000; object-fit:cover; margin-bottom:10px; }
-#themeBtn{position:absolute; top:20px; right:20px; background:var(--accent); color:#000; border:none; padding:10px 15px; border-radius:8px; font-weight:bold; cursor:pointer;}
+#themeBtn,#langBtn{position:absolute; top:20px; background:var(--accent); color:#000; border:none; padding:10px 15px; border-radius:8px; font-weight:bold; cursor:pointer;}
+#themeBtn{right:20px;} #langBtn{right:160px;}
 
-/* FEATURE 5: LIVE COUNTER */
+/* FEATURE 21: LIVE COUNTER */
 .live-counter { background:#000; color:var(--accent); padding:8px; text-align:center; font-weight:bold; font-size:14px; }
 .live-dot { display:inline-block; width:10px; height:10px; background:red; border-radius:50%; animation:blink 1s infinite; margin-right:5px; }
 @keyframes blink{ 0%,100%{opacity:1} 50%{opacity:0} }
@@ -56,7 +58,12 @@ header { text-align:center; padding:25px 20px; background:var(--accent2); positi
 
 .testimonials { padding:40px 20px; text-align:center; background:var(--bg); }
 .testi-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; max-width:1000px; margin:auto; }
-.testi { background:var(--card); padding:20px; border-radius:10px; border-left:4px solid var(--accent); }
+.testi { background:var(--card); padding:20px; border-radius:10px; border-left:4px solid var(--accent); position:relative; }
+.testi.react { margin-top:10px; }
+.testi.react button { background:var(--bg); border:1px solid #333; color:var(--text); padding:5px 10px; border-radius:20px; cursor:pointer; margin:3px; }
+
+/* FEATURE 10: SUPPORTER BADGE */
+.supporter-badge { position:fixed; bottom:80px; right:20px; background:var(--accent2); color:#fff; padding:12px 20px; border-radius:50px; font-weight:bold; cursor:pointer; z-index:998; }
 
 .merch { padding:30px 20px; text-align:center; background:linear-gradient(90deg, #01411C, #ff0000); }
 
@@ -86,6 +93,26 @@ header { text-align:center; padding:25px 20px; background:var(--accent2); positi
 .memory-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:15px; max-width:1000px; margin:20px auto; }
 .memory-card { background:var(--card); padding:15px; border-radius:10px; border-left:4px solid var(--accent2); text-align:left; }
 
+/* FEATURE 22: LIVE CHAT */
+.chat-box { position:fixed; bottom:20px; left:20px; width:300px; height:400px; background:var(--card); border:2px solid var(--accent); border-radius:10px; display:none; flex-direction:column; z-index:997; }
+.chat-header { background:var(--accent); color:#000; padding:10px; font-weight:bold; }
+.chat-messages { flex:1; overflow-y:auto; padding:10px; }
+.chat-input { display:flex; padding:10px; }
+.chat-input input { flex:1; padding:8px; border:none; border-radius:5px; }
+.chat-toggle { position:fixed; bottom:20px; left:20px; background:var(--accent); color:#000; border:none; padding:15px; border-radius:50%; font-size:20px; cursor:pointer; z-index:997; }
+
+/* FEATURE 24: QUIZ */
+.quiz { padding:40px 20px; text-align:center; background:var(--card); }
+.quiz-box { max-width:600px; margin:auto; background:var(--bg); padding:20px; border-radius:10px; }
+.quiz-q { font-size:18px; margin:15px 0; }
+.quiz-opt { display:block; width:100%; padding:12px; margin:8px 0; background:var(--card); border:2px solid #333; color:var(--text); border-radius:8px; cursor:pointer; }
+.quiz-opt:hover { border-color:var(--accent); }
+
+/* FEATURE 26: DAILY REWARD */
+.daily { padding:30px 20px; text-align:center; background:linear-gradient(90deg, #01411C, #000); }
+.day-box { display:inline-block; width:50px; height:50px; line-height:50px; margin:5px; border-radius:8px; background:#333; }
+.day-box.claimed { background:var(--accent); color:#000; }
+
 #scrollTop { position:fixed; bottom:20px; right:20px; background:var(--accent); color:#000; border:none; padding:15px; border-radius:50%; font-size:20px; cursor:pointer; display:none; z-index:999; }
 
 #popup,#exitPopup {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999;}
@@ -102,6 +129,10 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
 <audio id="anthemAudio" src="https://www.bandlab.com/api/file/323b5db6-8783-4643-8a8b-4c3964da5402/stream"></audio>
 
 <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆️</button>
+<button class="chat-toggle" onclick="toggleChat()">💬</button>
+
+<!-- FEATURE 10: SUPPORTER BADGE -->
+<div class="supporter-badge" onclick="alert('Thanks for supporting XD BROS! Share to unlock more')">I SUPPORT XD BROS</div>
 
 <div id="popup">
   <div id="popup-content">
@@ -122,13 +153,14 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
   </div>
 </div>
 
-<!-- FEATURE 5: LIVE VISITOR COUNTER -->
+<!-- FEATURE 21: LIVE VISITOR COUNTER -->
 <div class="live-counter"><span class="live-dot"></span><span id="liveCount">187</span> fans listening to MERA PEHCHAAN right now</div>
 
 <div class="news-bar"><marquee>🔥 14 AUGUST ANTHEM "MERI PEHCHAAN" OUT NOW | 21 VIDEOS + BADGES BELOW 🔥</marquee></div>
 
 <header>
   <button id="themeBtn" onclick="toggleTheme()">🌙 DARK/LIGHT</button>
+  <button id="langBtn" onclick="toggleLang()">اردو/EN</button>
   <img src="logo.png" alt="XD BROS Logo" class="logo">
   <h1>XD BROS</h1>
   <p>Gaming | Music | Community</p>
@@ -156,6 +188,13 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
   <a href="https://chat.whatsapp.com/HVopAqajGVw9UNNWtknQ55?s=cl&p=a&mlu=0&ilr=0" target="_blank" class="wa-btn" onclick="unlockBadge('community')">JOIN NOW</a>
 </section>
 
+<!-- FEATURE 26: DAILY LOGIN REWARD -->
+<section class="daily">
+  <h2 style="color:var(--accent);">🎁 14 DAYS LOGIN REWARD 🎁</h2>
+  <p>Login daily to unlock badges</p>
+  <div id="days"></div>
+</section>
+
 <section class="wallpaper" id="wallpaper">
   <h2 style="color:var(--accent);">🖼️ FREE "MERA PEHCHAAN" WALLPAPERS 🖼️</h2>
   <div class="wallpaper-grid">
@@ -171,25 +210,35 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
   <button onclick="saveEmail()">SEND TO MY EMAIL</button>
 </section>
 
-<!-- FEATURE 4: BADGE SYSTEM -->
-<section class="badges">
-  <h2 style="color:var(--accent);">🏆 YOUR FAN BADGES 🏆</h2>
-  <p style="color:#888;">Complete tasks to unlock badges</p>
-  <div class="badge-grid" id="badgeGrid">
-    <div class="badge locked" id="badge1"><h4>🎉 Early Fan</h4><p>Visit site</p></div>
-    <div class="badge locked" id="badge2"><h4>📢 Sharer</h4><p>Share 1 time</p></div>
-    <div class="badge locked" id="badge3"><h4>🔔 Subscriber</h4><p>Click YouTube</p></div>
-    <div class="badge locked" id="badge4"><h4>🖼️ Collector</h4><p>Download wallpaper</p></div>
-    <div class="badge locked" id="badge5"><h4>💬 Commenter</h4><p>Post message</p></div>
-    <div class="badge locked" id="badge6"><h4>📱 Community</h4><p>Join WhatsApp</p></div>
-    <div class="badge locked" id="badge7"><h4>💚 Memory</h4><p>Share memory</p></div>
+<!-- FEATURE 24: QUIZ -->
+<section class="quiz">
+  <h2 style="color:var(--accent);">🧠 HOW WELL YOU KNOW XD BROS? 🧠</h2>
+  <div class="quiz-box" id="quizBox">
+    <div class="quiz-q">1. What is the name of 14 Aug Anthem 2026?</div>
+    <button class="quiz-opt" onclick="checkAns(this,true)">MERA PEHCHAAN</button>
+    <button class="quiz-opt" onclick="checkAns(this,false)">PAKISTAN ZINDABAD</button>
+    <button class="quiz-opt" onclick="checkAns(this,false)">DIL DIL PAKISTAN</button>
+    <p id="quizResult" style="color:var(--accent);"></p>
   </div>
 </section>
 
-<!-- FEATURE 11: MY FIRST 14 AUG MEMORY -->
+<section class="badges">
+  <h2 style="color:var(--accent);">🏆 YOUR FAN BADGES 🏆</h2>
+  <div class="badge-grid" id="badgeGrid">
+    <div class="badge locked" id="badge1"><h4>🎉 Early Fan</h4></div>
+    <div class="badge locked" id="badge2"><h4>📢 Sharer</h4></div>
+    <div class="badge locked" id="badge3"><h4>🔔 Subscriber</h4></div>
+    <div class="badge locked" id="badge4"><h4>🖼️ Collector</h4></div>
+    <div class="badge locked" id="badge5"><h4>💬 Commenter</h4></div>
+    <div class="badge locked" id="badge6"><h4>📱 Community</h4></div>
+    <div class="badge locked" id="badge7"><h4>💚 Memory</h4></div>
+    <div class="badge locked" id="badge8"><h4>🧠 Quiz Master</h4></div>
+    <div class="badge locked" id="badge9"><h4>⭐ Supporter</h4></div>
+  </div>
+</section>
+
 <section class="memories" id="memories">
   <h2 style="color:var(--accent);">💚 MY FIRST 14 AUGUST MEMORY 💚</h2>
-  <p>Share your favorite 14 August memory with XD BROS family</p>
   <input id="memoryInput" class="memory-input" placeholder="My first 14 August I...">
   <button id="postBtn" onclick="addMemory()">SHARE MEMORY</button>
   <div class="memory-grid" id="memoryGrid"></div>
@@ -213,9 +262,19 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
 <section class="testimonials">
   <h2 style="color:var(--accent);">💬 WHAT FANS SAY 💬</h2>
   <div class="testi-grid">
-    <div class="testi"><p>"MERA PEHCHAAN gave me goosebumps!"</p><h4>- Ali from Karachi</h4></div>
-    <div class="testi"><p>"Best 14 August song of 2026."</p><h4>- Sara from Lahore</h4></div>
-    <div class="testi"><p>"I play this every morning."</p><h4>- Ahmed from Islamabad</h4></div>
+    <div class="testi">
+      <p>"MERA PEHCHAAN gave me goosebumps!"</p><h4>- Ali from Karachi</h4>
+      <!-- FEATURE 28: REACTIONS -->
+      <div class="react"><button onclick="react(this,'❤️')">❤️ 12</button><button onclick="react(this,'🔥')">🔥 8</button></div>
+    </div>
+    <div class="testi">
+      <p>"Best 14 August song of 2026."</p><h4>- Sara from Lahore</h4>
+      <div class="react"><button onclick="react(this,'❤️')">❤️ 15</button><button onclick="react(this,'🔥')">🔥 10</button></div>
+    </div>
+    <div class="testi">
+      <p>"I play this every morning."</p><h4>- Ahmed from Islamabad</h4>
+      <div class="react"><button onclick="react(this,'❤️')">❤️ 9</button><button onclick="react(this,'🔥')">🔥 6</button></div>
+    </div>
   </div>
 </section>
 
@@ -246,6 +305,14 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
   </div>
 </section>
 
+<!-- FEATURE 84: COLLAB FORM -->
+<section class="email-box">
+  <h2 style="color:var(--accent);">🤝 WORK WITH XD BROS 🤝</h2>
+  <input type="text" id="collabName" placeholder="Your Name">
+  <input type="email" id="collabEmail" placeholder="Your Email">
+  <button onclick="sendCollab()">SEND COLLAB REQUEST</button>
+</section>
+
 <section class="fan-wall">
   <h2 style="color:var(--accent);">💚 PAKISTAN ZINDABAD WALL 💚</h2>
   <input id="fanMsg" placeholder="Pakistan Zindabad!">
@@ -253,38 +320,64 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
   <div id="messages"></div>
 </section>
 
+<!-- FEATURE 22: LIVE CHAT -->
+<div class="chat-box" id="chatBox">
+  <div class="chat-header">Live Chat 🇵🇰</div>
+  <div class="chat-messages" id="chatMessages"></div>
+  <div class="chat-input"><input id="chatInput" placeholder="Say Pakistan Zindabad!"><button onclick="sendChat()">Send</button></div>
+</div>
+
 <footer><p>© 2026 XD BROS | All Rights Reserved</p></footer>
 
 <script>
-// FEATURE 5: LIVE COUNTER SIMULATION
-function updateLiveCount(){
-  let base = 150 + Math.floor(Math.random()*100);
-  document.getElementById('liveCount').innerText = base;
+// FEATURE 98: URDU/ENGLISH TOGGLE
+function toggleLang(){
+  document.body.classList.toggle('urdu');
+  localStorage.setItem('lang', document.body.classList.contains('urdu')? 'urdu' : 'en');
 }
+if(localStorage.getItem('lang')=='urdu') document.body.classList.add('urdu');
+
+// FEATURE 21: LIVE COUNTER
+function updateLiveCount(){ let base = 150 + Math.floor(Math.random()*100); document.getElementById('liveCount').innerText = base; }
 setInterval(updateLiveCount, 5000);
 
-// FEATURE 4: BADGE SYSTEM
+// FEATURE 10: SUPPORTER BADGE CLICK
+document.querySelector('.supporter-badge').onclick = ()=>unlockBadge('supporter');
+
+// FEATURE 22: LIVE CHAT
+function toggleChat(){ document.getElementById('chatBox').style.display = document.getElementById('chatBox').style.display=='flex'? 'none':'flex'; }
+function sendChat(){ let msg = document.getElementById('chatInput').value; if(msg.trim()=="") return; let div=document.createElement('div'); div.innerText="You: "+msg; document.getElementById('chatMessages').appendChild(div); document.getElementById('chatInput').value=""; }
+
+// FEATURE 24: QUIZ
+function checkAns(btn,correct){
+  if(correct){ btn.style.background='var(--accent)'; btn.style.color='#000'; document.getElementById('quizResult').innerText="Correct! +1 Badge"; unlockBadge('quiz'); }
+  else{ btn.style.background='red'; document.getElementById('quizResult').innerText="Try Again!"; }
+}
+
+// FEATURE 26: DAILY REWARD
+for(let i=1;i<=14;i++){ let d=document.createElement('div'); d.className='day-box'; d.innerText=i; d.onclick=()=>{d.classList.add('claimed');}; document.getElementById('days').appendChild(d); }
+
+// FEATURE 28: REACTIONS
+function react(btn,emoji){ let n=parseInt(btn.innerText.split(' ')[1])+1; btn.innerText=emoji+' '+n; }
+
+// FEATURE 84: COLLAB FORM
+function sendCollab(){ alert('Request Sent! We will contact you soon 🇵🇰'); }
+
+// BADGE SYSTEM
 let badges = JSON.parse(localStorage.getItem('xd_badges')) || [];
 function unlockBadge(type){
   if(!badges.includes(type)){ badges.push(type); localStorage.setItem('xd_badges', JSON.stringify(badges)); }
   updateBadges();
 }
 function updateBadges(){
-  ['early','sharer','subscriber','collector','commenter','community','memory'].forEach((b,i)=>{
+  ['early','sharer','subscriber','collector','commenter','community','memory','quiz','supporter'].forEach((b,i)=>{
     if(badges.includes(b)) document.getElementById('badge'+(i+1))?.classList.replace('locked','unlocked');
   });
 }
 
-// FEATURE 11: MEMORY STORIES
-function addMemory(){
-  let msg = document.getElementById("memoryInput").value; if(msg.trim()=="") return;
-  unlockBadge('memory');
-  let div = document.createElement("div"); div.className="memory-card"; div.innerHTML = "🇵🇰 " + msg + "<br><small style='color:#888'>- Fan</small>";
-  document.getElementById("memoryGrid").prepend(div); document.getElementById("memoryInput").value="";
-  localStorage.setItem('memories', document.getElementById("memoryGrid").innerHTML);
-}
+// MEMORY + OTHER FUNCTIONS
+function addMemory(){ let msg = document.getElementById("memoryInput").value; if(msg.trim()=="") return; unlockBadge('memory'); let div = document.createElement("div"); div.className="memory-card"; div.innerHTML = "🇵🇰 " + msg; document.getElementById("memoryGrid").prepend(div); document.getElementById("memoryInput").value=""; localStorage.setItem('memories', document.getElementById("memoryGrid").innerHTML); }
 function scrollToMemories(){ document.getElementById('exitPopup').style.display = 'none'; document.getElementById('memories').scrollIntoView({behavior:'smooth'}); }
-
 function downloadWall(num){ unlockBadge('collector'); alert("Downloading Wallpaper " + num + " HD!"); }
 function requestNotify(){ if("Notification" in window){ Notification.requestPermission().then(perm=>{ if(perm==="granted"){ localStorage.setItem('notify14aug','true'); alert("Done! Notify on 14 Aug 🇵🇰"); } }); } }
 
@@ -298,36 +391,5 @@ var x = setInterval(function() {
 }, 1000);
 
 window.onscroll = function() { document.getElementById("scrollTop").style.display = window.scrollY > 500? "block" : "none"; };
-
 function saveEmail(){ let email = document.getElementById("emailInput").value || document.getElementById("popupEmail").value; if(email.trim()=="") return alert("Enter email first"); localStorage.setItem('fanEmail', email); alert("Done! We will send MP3 on 13 August 🇵🇰"); document.getElementById("popup").style.display = "none"; }
-
-function addMsg(){ let msg = document.getElementById("fanMsg").value; if(msg.trim()=="") return; unlockBadge('commenter'); let div = document.createElement("div"); div.className="msg"; div.innerHTML = "🇵🇰 " + msg; document.getElementById("messages").prepend(div); document.getElementById("fanMsg").value=""; localStorage.setItem('msgs', document.getElementById("messages").innerHTML); }
-
-let exitShown = false;
-document.addEventListener('mouseleave', function(e){ if(e.clientY < 0 &&!exitShown){ document.getElementById('exitPopup').style.display = 'block'; exitShown = true; } });
-
-window.onload = function(){
-  unlockBadge('early'); updateBadges();
-  document.getElementById("messages").innerHTML = localStorage.getItem('msgs') || "";
-  document.getElementById("memoryGrid").innerHTML = localStorage.getItem('memories') || "";
-  if(!localStorage.getItem('popupShown') || new Date().getDate()!= localStorage.getItem('popupDate')){
-    document.getElementById("popup").style.display = "block"; localStorage.setItem('popupShown', 'true'); localStorage.setItem('popupDate', new Date().getDate());
-  }
-}
-document.getElementById("close-btn").onclick = function() { document.getElementById("popup").style.display = "none"; }
-document.getElementById("closeExit").onclick = function() { document.getElementById("exitPopup").style.display = "none"; }
-
-function copyLink(){ navigator.clipboard.writeText("https://xd-bros.github.io"); unlockBadge('sharer'); alert("Link Copied! Share MERA PEHCHAAN 🇵🇰"); }
-
-function toggleTheme(){ document.body.classList.toggle('light'); localStorage.setItem('theme', document.body.classList.contains('light')? 'light' : 'dark'); }
-if(localStorage.getItem('theme')=='light') document.body.classList.add('light');
-</script>
-
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;s1.src='https://embed.tawk.to/6a6dbf8323a2ed1d4c4ad2ac/1';
-s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();
-</script>
-</body>
-      </html>
+function addMsg(){ let msg = document.getElementById("fanMsg").value; if(msg
