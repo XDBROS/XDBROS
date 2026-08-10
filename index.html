@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,7 +6,14 @@
 <title>XD BROS - Official Website | MERA PEHCHAAN 14 August Anthem 2026</title>
 <meta name="description" content="XD BROS - MERA PEHCHAAN 14 August Anthem 2026. Quaid e Azam Speech Tribute. Pakistan Independence Day Song">
 <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/197/197374.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#01411C">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="XD BROS">
+<link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/197/197374.png">
 
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXX');</script>
 
@@ -15,16 +22,20 @@
 body.light{ --bg:#f5f5f5; --card:#fff; --text:#000; --accent:#01411C; --accent2:#ff0000; }
 body.urdu{ font-family:'Noto Naskh Arabic', 'Jameel Noori Nastaleeq', Arial, sans-serif; direction:rtl; }
 body { margin:0; font-family:Arial, sans-serif; background:var(--bg); color:var(--text); transition:0.3s; scroll-behavior:smooth; }
+
+/* FEATURE 20: INSTALL APP BANNER */
+.install-banner { display:none; position:fixed; bottom:0; left:0; right:0; background:var(--card); border-top:3px solid var(--accent); padding:15px; z-index:9998; align-items:center; justify-content:space-between; }
+.install-banner.show { display:flex; }
+.install-text { flex:1; }
+.install-text h4 { margin:0; color:var(--accent); }
+.install-btn { background:var(--accent); color:#000; border:none; padding:12px 20px; border-radius:8px; font-weight:bold; cursor:pointer; margin-left:10px; }
+.install-close { background:none; border:none; color:#888; font-size:24px; cursor:pointer; }
+
 .news-bar { background:#000; color:yellow; padding:10px; text-align:center; font-weight:bold; border-bottom:2px solid var(--accent2); }
 header { text-align:center; padding:25px 20px; background:var(--accent2); position:relative; }
 .logo { width:180px; height:180px; border-radius:50%; border:4px solid #000; object-fit:cover; margin-bottom:10px; }
 #themeBtn,#langBtn{position:absolute; top:20px; background:var(--accent); color:#000; border:none; padding:10px 15px; border-radius:8px; font-weight:bold; cursor:pointer;}
 #themeBtn{right:20px;} #langBtn{right:160px;}
-
-/* FEATURE 21: LIVE COUNTER */
-.live-counter { background:#000; color:var(--accent); padding:8px; text-align:center; font-weight:bold; font-size:14px; }
-.live-dot { display:inline-block; width:10px; height:10px; background:red; border-radius:50%; animation:blink 1s infinite; margin-right:5px; }
-@keyframes blink{ 0%,100%{opacity:1} 50%{opacity:0} }
 
 .countdown-box { background:linear-gradient(180deg, #01411C 0%, #000 100%); padding:30px 20px; text-align:center; border-bottom:3px solid var(--accent); }
 #countdown { font-size:36px; font-weight:bold; color:var(--accent); }
@@ -40,7 +51,26 @@ header { text-align:center; padding:25px 20px; background:var(--accent2); positi
 .whatsapp-channel { padding:30px 20px; text-align:center; background:linear-gradient(90deg, #25D366, #128C7E); }
 .wa-btn { display:inline-block; background:#fff; color:#25D366; padding:16px 30px; border-radius:50px; text-decoration:none; font-weight:bold; font-size:18px; margin:10px; }
 
-.wallpaper { padding:40px 20px; text-align:center; background:linear-gradient(180deg, #01411C 0%, #000 100%); border:3px solid var(--accent); }
+/* FEATURE 1: NAME ON FLAG GENERATOR */
+.flag-gen { padding:40px 20px; text-align:center; background:linear-gradient(180deg, #01411C 0%, #000 100%); border:3px solid var(--accent); }
+.flag-canvas { background:#fff; width:300px; height:200px; margin:20px auto; border:3px solid var(--accent); position:relative; }
+.flag-green { width:100%; height:75%; background:#01411C; position:absolute; top:0; }
+.flag-white { width:100%; height:25%; background:#fff; position:absolute; bottom:0; }
+.flag-text { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:#fff; font-weight:bold; font-size:20px; text-shadow:2px 2px 4px #000; }
+.flag-input { padding:12px; width:70%; max-width:300px; border-radius:8px; border:none; margin:10px; }
+
+/* FEATURE 3: REFER SYSTEM */
+.refer { padding:40px 20px; text-align:center; background:var(--card); border:3px solid var(--accent); }
+.refer-box { background:var(--bg); padding:20px; border-radius:10px; max-width:500px; margin:auto; }
+.refer-link { background:#333; padding:12px; border-radius:8px; color:var(--accent); font-weight:bold; word-break:break-all; }
+.progress-bar { height:20px; background:#333; border-radius:10px; margin:15px 0; overflow:hidden; }
+.progress { height:100%; background:var(--accent); width:0%; transition:0.5s; }
+
+/* FEATURE 4: TIKTOK SOUND */
+.tiktok { padding:30px 20px; text-align:center; background:linear-gradient(90deg, #000, #25F4EE); }
+.tiktok-btn { background:#fff; color:#000; padding:16px 30px; border:none; border-radius:50px; font-weight:bold; font-size:18px; cursor:pointer; }
+
+.wallpaper { padding:40px 20px; text-align:center; background:var(--bg); border:3px solid var(--accent); }
 .wallpaper-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:20px; max-width:1000px; margin:auto; }
 .wall-box { background:var(--card); padding:10px; border-radius:10px; }
 .wall-box img { width:100%; height:200px; object-fit:cover; border-radius:8px; }
@@ -59,13 +89,10 @@ header { text-align:center; padding:25px 20px; background:var(--accent2); positi
 .testimonials { padding:40px 20px; text-align:center; background:var(--bg); }
 .testi-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; max-width:1000px; margin:auto; }
 .testi { background:var(--card); padding:20px; border-radius:10px; border-left:4px solid var(--accent); position:relative; }
-.testi.react { margin-top:10px; }
 .testi.react button { background:var(--bg); border:1px solid #333; color:var(--text); padding:5px 10px; border-radius:20px; cursor:pointer; margin:3px; }
 
 /* FEATURE 10: SUPPORTER BADGE */
 .supporter-badge { position:fixed; bottom:80px; right:20px; background:var(--accent2); color:#fff; padding:12px 20px; border-radius:50px; font-weight:bold; cursor:pointer; z-index:998; }
-
-.merch { padding:30px 20px; text-align:center; background:linear-gradient(90deg, #01411C, #ff0000); }
 
 /* FEATURE 4: BADGE SYSTEM */
 .badges { padding:30px 20px; text-align:center; background:var(--card); }
@@ -74,6 +101,12 @@ header { text-align:center; padding:25px 20px; background:var(--accent2); positi
 .badge.locked { opacity:0.4; filter:grayscale(1); }
 .badge.unlocked { border-color:var(--accent); box-shadow:0 0 15px var(--accent); }
 .badge h4 { margin:5px 0; color:var(--accent); font-size:14px; }
+
+/* FEATURE 5: LEADERBOARD */
+.leaderboard { padding:40px 20px; text-align:center; background:linear-gradient(180deg, #01411C 0%, var(--bg) 100%); }
+.leader-grid { max-width:600px; margin:20px auto; }
+.leader-item { background:var(--card); padding:15px; margin:10px 0; border-radius:10px; display:flex; justify-content:space-between; border-left:4px solid var(--accent); }
+.leader-rank { font-size:24px; font-weight:bold; color:var(--accent); }
 
 .all-videos { padding:40px 20px; text-align:center; background:var(--bg); }
 .video-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:20px; padding:20px; max-width:1400px; margin:auto; }
@@ -86,27 +119,6 @@ header { text-align:center; padding:25px 20px; background:var(--accent2); positi
 #fanMsg { padding:12px; width:70%; max-width:400px; border-radius:8px; border:none; margin:10px; }
 #postBtn { padding:12px 20px; background:var(--accent); border:none; border-radius:8px; font-weight:bold; cursor:pointer; }
 .msg { background:var(--bg); padding:12px; margin:8px auto; border-radius:8px; border-left:4px solid var(--accent); max-width:700px; text-align:left; }
-
-/* FEATURE 11: MEMORY STORIES */
-.memories { padding:40px 20px; text-align:center; background:linear-gradient(180deg, #01411C 0%, var(--bg) 100%); }
-.memory-input { padding:12px; width:70%; max-width:500px; border-radius:8px; border:none; margin:10px; }
-.memory-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:15px; max-width:1000px; margin:20px auto; }
-.memory-card { background:var(--card); padding:15px; border-radius:10px; border-left:4px solid var(--accent2); text-align:left; }
-
-/* FEATURE 22: LIVE CHAT */
-.chat-box { position:fixed; bottom:20px; left:20px; width:300px; height:400px; background:var(--card); border:2px solid var(--accent); border-radius:10px; display:none; flex-direction:column; z-index:997; }
-.chat-header { background:var(--accent); color:#000; padding:10px; font-weight:bold; }
-.chat-messages { flex:1; overflow-y:auto; padding:10px; }
-.chat-input { display:flex; padding:10px; }
-.chat-input input { flex:1; padding:8px; border:none; border-radius:5px; }
-.chat-toggle { position:fixed; bottom:20px; left:20px; background:var(--accent); color:#000; border:none; padding:15px; border-radius:50%; font-size:20px; cursor:pointer; z-index:997; }
-
-/* FEATURE 24: QUIZ */
-.quiz { padding:40px 20px; text-align:center; background:var(--card); }
-.quiz-box { max-width:600px; margin:auto; background:var(--bg); padding:20px; border-radius:10px; }
-.quiz-q { font-size:18px; margin:15px 0; }
-.quiz-opt { display:block; width:100%; padding:12px; margin:8px 0; background:var(--card); border:2px solid #333; color:var(--text); border-radius:8px; cursor:pointer; }
-.quiz-opt:hover { border-color:var(--accent); }
 
 /* FEATURE 26: DAILY REWARD */
 .daily { padding:30px 20px; text-align:center; background:linear-gradient(90deg, #01411C, #000); }
@@ -127,11 +139,20 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
 <body>
 
 <audio id="anthemAudio" src="https://www.bandlab.com/api/file/323b5db6-8783-4643-8a8b-4c3964da5402/stream"></audio>
+<audio id="tiktokSound" src="https://www.bandlab.com/api/file/323b5db6-8783-4643-8a8b-4c3964da5402/stream"></audio>
+
+<!-- FEATURE 20: INSTALL APP BANNER -->
+<div class="install-banner" id="installBanner">
+  <div class="install-text">
+    <h4>📱 INSTALL XD BROS APP</h4>
+    <p>Get fast access + daily rewards</p>
+  </div>
+  <button class="install-btn" id="installBtn">INSTALL</button>
+  <button class="install-close" onclick="closeInstall()">×</button>
+</div>
 
 <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆️</button>
-<button class="chat-toggle" onclick="toggleChat()">💬</button>
 
-<!-- FEATURE 10: SUPPORTER BADGE -->
 <div class="supporter-badge" onclick="alert('Thanks for supporting XD BROS! Share to unlock more')">I SUPPORT XD BROS</div>
 
 <div id="popup">
@@ -148,13 +169,10 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
   <div id="exit-content">
     <span id="closeExit">&times;</span>
     <h2 style="color:var(--accent2);">WAIT! DON'T GO 🇵🇰</h2>
-    <p>Share Your 14 Aug Memory + Unlock Badges!</p>
-    <button onclick="scrollToMemories()" class="download-btn">SHARE MEMORY</button>
+    <p>Refer 3 Friends to Unlock Secret Video!</p>
+    <button onclick="scrollToRefer()" class="download-btn">REFER NOW</button>
   </div>
 </div>
-
-<!-- FEATURE 21: LIVE VISITOR COUNTER -->
-<div class="live-counter"><span class="live-dot"></span><span id="liveCount">187</span> fans listening to MERA PEHCHAAN right now</div>
 
 <div class="news-bar"><marquee>🔥 14 AUGUST ANTHEM "MERI PEHCHAAN" OUT NOW | 21 VIDEOS + BADGES BELOW 🔥</marquee></div>
 
@@ -183,16 +201,50 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
   </div>
 </section>
 
+<!-- FEATURE 1: NAME ON FLAG -->
+<section class="flag-gen">
+  <h2 style="color:var(--accent);">🇵🇰 YOUR NAME ON PAKISTAN FLAG 🇵🇰</h2>
+  <input id="flagName" class="flag-input" placeholder="Enter Your Name">
+  <div class="flag-canvas" id="flagCanvas">
+    <div class="flag-green"></div>
+    <div class="flag-white"></div>
+    <div class="flag-text" id="flagText">PAKISTAN ZINDABAD</div>
+  </div>
+  <button class="download-btn" onclick="downloadFlag()">DOWNLOAD POSTER</button>
+</section>
+
+<!-- FEATURE 3: REFER SYSTEM -->
+<section class="refer" id="refer">
+  <h2 style="color:var(--accent);">🎁 REFER 3 FRIENDS = UNLOCK SECRET BTS 🎁</h2>
+  <div class="refer-box">
+    <div class="refer-link" id="referLink">https://xd-bros.github.io?ref=you</div>
+    <button class="download-btn" onclick="copyRefer()">COPY LINK</button>
+    <div class="progress-bar"><div class="progress" id="referProgress"></div></div>
+    <p><span id="referCount">0</span>/3 Friends Joined</p>
+  </div>
+</section>
+
+<!-- FEATURE 4: TIKTOK SOUND -->
+<section class="tiktok">
+  <h2 style="color:#fff;">🎵 USE "MERA PEHCHAAN" ON TIKTOK 🎵</h2>
+  <button class="tiktok-btn" onclick="playSound()">▶️ PLAY SOUND</button>
+  <a href="https://www.tiktok.com/@hamza.cute.boy8" target="_blank" class="tiktok-btn" style="background:#000; color:#fff; margin-left:10px;">USE SOUND</a>
+</section>
+
 <section class="whatsapp-channel">
   <h2 style="color:#fff;">📢 JOIN XD BROS WHATSAPP CHANNEL 📢</h2>
   <a href="https://chat.whatsapp.com/HVopAqajGVw9UNNWtknQ55?s=cl&p=a&mlu=0&ilr=0" target="_blank" class="wa-btn" onclick="unlockBadge('community')">JOIN NOW</a>
 </section>
 
-<!-- FEATURE 26: DAILY LOGIN REWARD -->
 <section class="daily">
   <h2 style="color:var(--accent);">🎁 14 DAYS LOGIN REWARD 🎁</h2>
-  <p>Login daily to unlock badges</p>
   <div id="days"></div>
+</section>
+
+<!-- FEATURE 5: LEADERBOARD -->
+<section class="leaderboard">
+  <h2 style="color:var(--accent);">🏆 TOP 10 FANS LEADERBOARD 🏆</h2>
+  <div class="leader-grid" id="leaderGrid"></div>
 </section>
 
 <section class="wallpaper" id="wallpaper">
@@ -201,6 +253,167 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
     <div class="wall-box"><img src="https://via.placeholder.com/400x600/01411C/00FF00?text=XD+BROS+14+AUG"><button class="download-btn" onclick="downloadWall('1')">DOWNLOAD</button></div>
     <div class="wall-box"><img src="https://via.placeholder.com/400x600/ff0000/ffffff?text=PAKISTAN+ZINDABAD"><button class="download-btn" onclick="downloadWall('2')">DOWNLOAD</button></div>
     <div class="wall-box"><img src="https://via.placeholder.com/400x600/000/00FF00?text=MERA+PEHCHAAN"><button class="download-btn" onclick="downloadWall('3')">DOWNLOAD</button></div>
+  </div>
+</section>
+
+<section class="email-box">
+  <h2 style="color:var(--accent);">🎁 GET ALL WALLPAPERS + MP3 FREE</h2>
+  <input type="email" id="emailInput" placeholder="your email@gmail.com">
+  <button onclick="saveEmail()">SEND TO MY EMAIL</button>
+</section>
+
+<section class="badges">
+  <h2 style="color:var(--accent);">🏆 YOUR FAN BADGES 🏆</h2>
+  <div class="badge-grid" id="badgeGrid">
+    <div class="badge locked" id="badge1"><h4>🎉 Early Fan</h4></div>
+    <div class="badge locked" id="badge2"><h4>📢 Sharer</h4></div>
+    <div class="badge locked" id="badge3"><h4>🔔 Subscriber</h4></div>
+    <div class="badge locked" id="badge4"><h4>🖼️ Collector</h4></div>
+    <div class="badge locked" id="badge5"><h4>💬 Commenter</h4></div>
+    <div class="badge locked" id="badge6"><h4>📱 Community</h4></div>
+    <div class="badge locked" id="badge9"><h4>⭐ Supporter</h4></div>
+    <div class="badge locked" id="badge10"><h4>🇵🇰 Patriot</h4></div>
+    <div class="badge locked" id="badge11"><h4>👥 Referrer</h4></div>
+  </div>
+</section>
+
+<section class="share-section">
+  <h3 style="color:var(--accent);">📢 SHARE MERA PEHCHAAN 🇵🇰</h3>
+  <a href="https://wa.me/?text=Check%20XD%20BROS%20Badges%20🇵🇰%20https://xd-bros.github.io" target="_blank" class="share-btn btn-wa" onclick="unlockBadge('sharer')">WHATSAPP</a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://xd-bros.github.io" target="_blank" class="share-btn btn-fb" onclick="unlockBadge('sharer')">FACEBOOK</a>
+  <button onclick="copyLink()" class="share-btn btn-copy">COPY LINK</button>
+</section>
+
+<section class="august-special">
+  <h2 style="color:var(--accent);">🇵🇰 14 AUGUST SPECIAL 🇵🇰</h2>
+  <h3>ANTHEM: "MERI PEHCHAAN"</h3>
+  <div style="max-width:900px; margin:25px auto; border:3px solid var(--accent); border-radius:10px;">
+    <iframe loading="lazy" width="100%" height="500" src="https://www.youtube.com/embed/oCTIhvfO9vU"></iframe>
+  </div>
+</section>
+
+<section class="testimonials">
+  <h2 style="color:var(--accent);">💬 WHAT FANS SAY 💬</h2>
+  <div class="testi-grid">
+    <div class="testi"><p>"MERA PEHCHAAN gave me goosebumps!"</p><h4>- Ali from Karachi</h4><div class="react"><button onclick="react(this,'❤️')">❤️ 12</button><button onclick="react(this,'🔥')">🔥 8</button></div></div>
+    <div class="testi"><p>"Best 14 August song of 2026."</p><h4>- Sara from Lahore</h4><div class="react"><button onclick="react(this,'❤️')">❤️ 15</button><button onclick="react(this,'🔥')">🔥 10</button></div></div>
+    <div class="testi"><p>"I play this every morning."</p><h4>- Ahmed from Islamabad</h4><div class="react"><button onclick="react(this,'❤️')">❤️ 9</button><button onclick="react(this,'🔥')">🔥 6</button></div></div>
+  </div>
+</section>
+
+<section class="all-videos">
+  <h2 style="color:var(--accent);">🔥 ALL 21 XD BROS VIDEOS 🔥</h2>
+  <div class="video-grid">
+    <div class="video-box"><h4>1. MERA PEHCHAAN - Anthem</h4><iframe loading="lazy" src="https://www.youtube.com/embed/oCTIhvfO9vU"></iframe></div>
+    <div class="video-box"><h4>2. 14 August Special</h4><iframe loading="lazy" src="https://www.youtube.com/embed/2FexPZ-mATE"></iframe></div>
+    <div class="video-box"><h4>3. Gaming Montage 1</h4><iframe loading="lazy" src="https://www.youtube.com/embed/9CG6AaO6XN4"></iframe></div>
+    <div class="video-box"><h4>4. Gaming Montage 2</h4><iframe loading="lazy" src="https://www.youtube.com/embed/CdDWdc5ddQM"></iframe></div>
+    <div class="video-box"><h4>5. Funny Clip</h4><iframe loading="lazy" src="https://www.youtube.com/embed/lEmgFDwPnrQ"></iframe></div>
+    <div class="video-box"><h4>6. Vlog 1</h4><iframe loading="lazy" src="https://www.youtube.com/embed/dm27esRuqjw"></iframe></div>
+    <div class="video-box"><h4>7. Vlog 2</h4><iframe loading="lazy" src="https://www.youtube.com/embed/UfwJ11F_BTI"></iframe></div>
+    <div class="video-box"><h4>8. Music Video 1</h4><iframe loading="lazy" src="https://www.youtube.com/embed/uPB7bXwbrwg"></iframe></div>
+    <div class="video-box"><h4>9. Music Video 2</h4><iframe loading="lazy" src="https://www.youtube.com/embed/foPVohn_8DQ"></iframe></div>
+    <div class="video-box"><h4>10. Challenge Video</h4><iframe loading="lazy" src="https://www.youtube.com/embed/KqmQn-OuSTc"></iframe></div>
+    <div class="video-box"><h4>11. Reaction Video</h4><iframe loading="lazy" src="https://www.youtube.com/embed/r1eT_ZyF5Js"></iframe></div>
+    <div class="video-box"><h4>12. Q&A Session</h4><iframe loading="lazy" src="https://www.youtube.com/embed/IRM5fgIT1xE"></iframe></div>
+    <div class="video-box"><h4>13. Behind The Scenes</h4><iframe loading="lazy" src="https://www.youtube.com/embed/Sb1G5-pOWT4"></iframe></div>
+    <div class="video-box"><h4>14. Short 1</h4><iframe loading="lazy" src="https://www.youtube.com/embed/r6Lrne-bnbo"></iframe></div>
+    <div class="video-box"><h4>15. Short 2</h4><iframe loading="lazy" src="https://www.youtube.com/embed/TlvGjg_tx5k"></iframe></div>
+    <div class="video-box"><h4>16. Short 3</h4><iframe loading="lazy" src="https://www.youtube.com/embed/dAlj6IKNCek"></iframe></div>
+    <div class="video-box"><h4>17. Short 4</h4><iframe loading="lazy" src="https://www.youtube.com/embed/yU7ll58fYzA"></iframe></div>
+    <div class="video-box"><h4>18. Short 5</h4><iframe loading="lazy" src="https://www.youtube.com/embed/fVAGD0OtkWc"></iframe></div>
+    <div class="video-box"><h4>19. Short 6</h4><iframe loading="lazy" src="https://www.youtube.com/embed/-nV40b-P-U0"></iframe></div>
+    <div class="video-box"><h4>20. Short 7</h4><iframe loading="lazy" src="https://www.youtube.com/embed/OujPKqG0yWY"></iframe></div>
+    <div class="video-box"><h4>21. Short 8</h4><iframe loading="lazy" src="https://www.youtube.com/embed/Fq6t4LHceOI"></iframe></div>
+  </div>
+</section>
+
+<section class="email-box">
+  <h2 style="color:var(--accent);">🤝 WORK WITH XD BROS 🤝</h2>
+  <input type="text" id="collabName" placeholder="Your Name">
+  <input type="email" id="collabEmail" placeholder="Your Email">
+  <button onclick="sendCollab()">SEND COLLAB REQUEST</button>
+</section>
+
+<section class="fan-wall">
+  <h2 style="color:var(--accent);">💚 PAKISTAN ZINDABAD WALL 💚</h2>
+  <input id="fanMsg" placeholder="Pakistan Zindabad!">
+  <button id="postBtn" onclick="addMsg()">POST</button>
+  <div id="messages"></div>
+</section>
+
+<footer><p>© 2026 XD BROS | All Rights Reserved</p></footer>
+
+<script>
+// FEATURE 20: PWA INSTALL
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  setTimeout(()=>{ document.getElementById('installBanner').classList.add('show'); }, 5000);
+});
+document.getElementById('installBtn').addEventListener('click', async () => {
+  if (deferredPrompt) { deferredPrompt.prompt(); await deferredPrompt.userChoice; }
+  document.getElementById('installBanner').classList.remove('show');
+});
+function closeInstall(){ document.getElementById('installBanner').classList.remove('show'); }
+
+// FEATURE 98: URDU/ENGLISH TOGGLE
+function toggleLang(){ document.body.classList.toggle('urdu'); localStorage.setItem('lang', document.body.classList.contains('urdu')? 'urdu' : 'en'); }
+if(localStorage.getItem('lang')=='urdu') document.body.classList.add('urdu');
+
+// FEATURE 1: NAME ON FLAG
+document.getElementById('flagName').oninput = function(){
+  document.getElementById('flagText').innerText = this.value.toUpperCase() || 'PAKISTAN ZINDABAD';
+}
+function downloadFlag(){
+  unlockBadge('patriot');
+  html2canvas(document.getElementById('flagCanvas')).then(canvas => {
+    let link = document.createElement('a');
+    link.download = 'XD-BROS-FLAG.png';
+    link.href = canvas.toDataURL();
+    link.click();
+  });
+}
+
+// FEATURE 3: REFER SYSTEM
+let referCount = parseInt(localStorage.getItem('referCount')) || 0;
+document.getElementById('referCount').innerText = referCount;
+document.getElementById('referProgress').style.width = (referCount/3)*100 + '%';
+function copyRefer(){ navigator.clipboard.writeText(document.getElementById('referLink').innerText); alert('Link Copied!'); }
+
+// FEATURE 4: TIKTOK SOUND
+function playSound(){ document.getElementById('tiktokSound').play(); }
+
+// FEATURE 5: LEADERBOARD
+let leaders = [['Ali K', 24], ['Sara L', 18], ['Ahmed I', 15], ['Zoya K', 12], ['Hamza B', 10]];
+leaders.forEach((l,i)=>{ document.getElementById('leaderGrid').innerHTML += `<div class="leader-item"><span>${i+1}. ${l[0]}</span><span class="leader-rank">${l[1]}</span></div>`; });
+
+// FEATURE 10: SUPPORTER BADGE
+document.querySelector('.supporter-badge').onclick = ()=>unlockBadge('supporter');
+
+// FEATURE 26: DAILY REWARD
+for(let i=1;i<=14;i++){ let d=document.createElement('div'); d.className='day-box'; d.innerText=i; d.onclick=()=>{d.classList.add('claimed');}; document.getElementById('days').appendChild(d); }
+
+// FEATURE 28: REACTIONS
+function react(btn,emoji){ let n=parseInt(btn.innerText.split(' ')[1])+1; btn.innerText=emoji+' '+n; }
+
+// FEATURE 84: COLLAB FORM
+function sendCollab(){ alert('Request Sent! We will contact you soon 🇵🇰'); }
+
+// BADGE SYSTEM
+let badges = JSON.parse(localStorage.getItem('xd_badges')) || [];
+function unlockBadge(type){
+  if(!badges.includes(type)){ badges.push(type); localStorage.setItem('xd_badges', JSON.stringify(badges)); }
+  updateBadges();
+}
+function updateBadges(){
+  ['early','sharer','subscriber','collector','commenter','community','quiz','supporter','patriot','referrer'].forEach((b,i)=>{
+    if(badges.includes(b)) document.getElementById('badge'+(i+1))?.classList.replace('locked','unlocked');
+  });
+}
+
+function downloadWall(num){ unlockBadge    <div class="wall-box"><img src="https://via.placeholder.com/400x600/000/00FF00?text=MERA+PEHCHAAN"><button class="download-btn" onclick="downloadWall('3')">DOWNLOAD</button></div>
   </div>
 </section>
 
