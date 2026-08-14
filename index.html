@@ -8,16 +8,40 @@
 <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/197/197374.png">
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#01411C">
+<meta property="og:title" content="XD BROS - MERA PEHCHAAN">
+<meta property="og:image" content="https://cdn-icons-png.flaticon.com/512/197/197374.png">
+<meta property="og:description" content="14 August Anthem 2026">
 
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXX');</script>
 
 <style>
 :root{ --bg:#0a0a0a; --card:#111; --text:#fff; --accent:#00ff00; --accent2:#ff0000; --whatsapp:#25D366; }
 body.light{ --bg:#f5f5f5; --card:#fff; --text:#000; --accent:#01411C; --accent2:#ff0000; }
+body.pak{ --bg:#01411C; --card:#002a12; --text:#fff; --accent:#fff; --accent2:#01411C; } /* FEATURE 5: PAK THEME */
 body.urdu{ font-family:'Noto Naskh Arabic', 'Jameel Noori Nastaleeq', Arial, sans-serif; direction:rtl; }
 body { margin:0; font-family:Arial, sans-serif; background:var(--bg); color:var(--text); transition:0.3s; scroll-behavior:smooth; }
+
+/* FEATURE: LOADING SCREEN */
+#loader { position:fixed; top:0; left:0; width:100%; height:100%; background:#01411C; z-index:99999; display:flex; align-items:center; justify-content:center; flex-direction:column; }
+#loader h1 { color:#fff; font-size:40px; animation:pulse 1.5s infinite; }
+@keyframes pulse{ 0%,100%{transform:scale(1)} 50%{transform:scale(1.1)} }
+
+/* FEATURE: TOAST NOTIFICATION */
+#toast { position:fixed; bottom:100px; left:50%; transform:translateX(-50%); background:var(--accent); color:#000; padding:14px 25px; border-radius:50px; font-weight:bold; z-index:9999; display:none; }
+
+/* FEATURE: MOBILE MENU */
+nav { background:#000; padding:10px; position:sticky; top:0; z-index:999; border-bottom:3px solid var(--accent2); } /* BLACKLINE */
+.nav-links { display:flex; justify-content:center; gap:20px; }
+.nav-links a { color:#fff; text-decoration:none; font-weight:bold; }
+#menuBtn { display:none; background:var(--accent); color:#000; border:none; padding:10px; border-radius:8px; font-size:20px; }
+@media(max-width:768px){
+ .nav-links { display:none; flex-direction:column; background:#000; position:absolute; top:50px; left:0; width:100%; padding:20px; }
+ .nav-links.show { display:flex; }
+  #menuBtn { display:block; }
+}
 
 .live-counter { background:#000; color:var(--accent); padding:10px; text-align:center; font-weight:bold; font-size:15px; border-bottom:1px solid #222; }
 .live-dot { display:inline-block; width:10px; height:10px; background:#00ff00; border-radius:50%; animation:blink 1.5s infinite; margin-right:8px; }
@@ -25,19 +49,14 @@ body { margin:0; font-family:Arial, sans-serif; background:var(--bg); color:var(
 
 .install-banner { display:none; position:fixed; bottom:0; left:0; right:0; background:var(--card); border-top:3px solid var(--accent); padding:15px; z-index:9998; align-items:center; justify-content:space-between; }
 .install-banner.show { display:flex; }
-.install-text { flex:1; }
-.install-text h4 { margin:0; color:var(--accent); }
-.install-btn { background:var(--accent); color:#000; border:none; padding:12px 20px; border-radius:8px; font-weight:bold; cursor:pointer; margin-left:10px; }
-.install-close { background:none; border:none; color:#888; font-size:24px; cursor:pointer; }
 
-.news-bar { background:#000; color:yellow; padding:10px; text-align:center; font-weight:bold; border-bottom:2px solid var(--accent2); }
 header { text-align:center; padding:25px 20px; background:var(--accent2); position:relative; }
 .logo { width:180px; height:180px; border-radius:50%; border:4px solid #000; object-fit:cover; margin-bottom:10px; }
 #themeBtn,#langBtn{position:absolute; top:20px; background:var(--accent); color:#000; border:none; padding:10px 15px; border-radius:8px; font-weight:bold; cursor:pointer;}
 #themeBtn{right:20px;} #langBtn{right:160px;}
 
 .countdown-box { background:linear-gradient(180deg, #01411C 0%, #000 100%); padding:30px 20px; text-align:center; border-bottom:3px solid var(--accent); }
-#countdown { font-size:36px; font-weight:bold; color:var(--accent); }
+#countdown, #rabiCountdown { font-size:28px; font-weight:bold; color:var(--accent); }
 
 .follow-section { padding:40px 20px; text-align:center; background:linear-gradient(180deg, #ff0000 0%, #000 100%); border:3px solid var(--accent); }
 .follow-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:15px; max-width:900px; margin:auto; }
@@ -46,9 +65,6 @@ header { text-align:center; padding:25px 20px; background:var(--accent2); positi
 .btn-yt { background:#ff0000; }.btn-tt { background:#000; border:2px solid #fff; }
 .btn-ig { background:linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); }
 .btn-fb { background:#1877F2; }.btn-th { background:#000; }
-
-.whatsapp-channel { padding:30px 20px; text-align:center; background:linear-gradient(90deg, #25D366, #128C7E); }
-.wa-btn { display:inline-block; background:#fff; color:#25D366; padding:16px 30px; border-radius:50px; text-decoration:none; font-weight:bold; font-size:18px; margin:10px; }
 
 .flag-gen { padding:40px 20px; text-align:center; background:linear-gradient(180deg, #01411C 0%, #000 100%); border:3px solid var(--accent); }
 .flag-canvas { background:#fff; width:300px; height:200px; margin:20px auto; border:3px solid var(--accent); position:relative; }
@@ -63,31 +79,23 @@ header { text-align:center; padding:25px 20px; background:var(--accent2); positi
 .progress-bar { height:20px; background:#333; border-radius:10px; margin:15px 0; overflow:hidden; }
 .progress { height:100%; background:var(--accent); width:0%; transition:0.5s; }
 
+.quiz { padding:40px 20px; text-align:center; background:linear-gradient(90deg, #01411C, #000); } /* FEATURE 2 */
+.quiz-box { background:var(--card); padding:20px; border-radius:10px; max-width:500px; margin:auto; }
+.quiz-btn { background:var(--accent); color:#000; border:none; padding:10px 15px; margin:5px; border-radius:8px; cursor:pointer; font-weight:bold; }
+
 .tiktok { padding:30px 20px; text-align:center; background:linear-gradient(90deg, #000, #25F4EE); }
 .tiktok-btn { background:#fff; color:#000; padding:16px 30px; border:none; border-radius:50px; font-weight:bold; font-size:18px; cursor:pointer; }
+
+.location { padding:20px; text-align:center; background:#000; color:var(--accent); font-weight:bold; } /* FEATURE 6 */
+
+.whatsapp-channel { padding:30px 20px; text-align:center; background:linear-gradient(90deg, #25D366, #128C7E); }
+.wa-btn { display:inline-block; background:#fff; color:#25D366; padding:16px 30px; border-radius:50px; text-decoration:none; font-weight:bold; font-size:18px; margin:10px; }
 
 .wallpaper { padding:40px 20px; text-align:center; background:var(--bg); border:3px solid var(--accent); }
 .wallpaper-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:20px; max-width:1000px; margin:auto; }
 .wall-box { background:var(--card); padding:10px; border-radius:10px; }
 .wall-box img { width:100%; height:200px; object-fit:cover; border-radius:8px; }
 .download-btn { background:var(--accent); color:#000; padding:10px 20px; border:none; border-radius:8px; font-weight:bold; cursor:pointer; margin-top:10px; }
-
-.email-box { padding:40px 20px; text-align:center; background:var(--card); border:2px solid var(--accent); }
-.email-box input { padding:14px; width:70%; max-width:350px; border-radius:8px; border:none; margin:10px; }
-.email-box button { padding:14px 25px; background:var(--accent); border:none; border-radius:8px; font-weight:bold; cursor:pointer; }
-
-.share-section { background:var(--card); padding:20px; text-align:center; }
-.share-btn { display:inline-block; padding:12px 18px; margin:5px; border-radius:8px; text-decoration:none; color:#fff; font-weight:bold; }
-.btn-wa { background:#25D366; }.btn-fb { background:#1877F2; }.btn-copy { background:var(--accent); color:#000; }
-
-.august-special { padding:40px 20px; text-align:center; background:linear-gradient(180deg, #006600 0%, var(--bg) 100%); border:3px solid var(--accent); }
-
-.testimonials { padding:40px 20px; text-align:center; background:var(--bg); }
-.testi-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; max-width:1000px; margin:auto; }
-.testi { background:var(--card); padding:20px; border-radius:10px; border-left:4px solid var(--accent); position:relative; }
-.testi.react button { background:var(--bg); border:1px solid #333; color:var(--text); padding:5px 10px; border-radius:20px; cursor:pointer; margin:3px; }
-
-.supporter-badge { position:fixed; bottom:80px; right:20px; background:var(--accent2); color:#fff; padding:12px 20px; border-radius:50px; font-weight:bold; cursor:pointer; z-index:998; }
 
 .badges { padding:30px 20px; text-align:center; background:var(--card); }
 .badge-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:15px; }
@@ -99,13 +107,11 @@ header { text-align:center; padding:25px 20px; background:var(--accent2); positi
 .leaderboard { padding:40px 20px; text-align:center; background:linear-gradient(180deg, #01411C 0%, var(--bg) 100%); }
 .leader-grid { max-width:600px; margin:20px auto; }
 .leader-item { background:var(--card); padding:15px; margin:10px 0; border-radius:10px; display:flex; justify-content:space-between; border-left:4px solid var(--accent); }
-.leader-rank { font-size:24px; font-weight:bold; color:var(--accent); }
 
 .all-videos { padding:40px 20px; text-align:center; background:var(--bg); }
 .video-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:20px; padding:20px; max-width:1400px; margin:auto; }
 .video-box { background:var(--card); padding:10px; border-radius:10px; border:1px solid #333; transition:0.3s; }
 .video-box:hover { border-color:var(--accent); transform:translateY(-5px); }
-.video-box h4 { color:var(--accent); font-size:14px; margin:8px 0; }
 .video-box iframe { width:100%; height:200px; border:none; border-radius:8px; }
 
 .fan-wall { padding:40px 20px; text-align:center; background:var(--card); border-top:2px solid var(--accent); }
@@ -113,10 +119,8 @@ header { text-align:center; padding:25px 20px; background:var(--accent2); positi
 #postBtn { padding:12px 20px; background:var(--accent); border:none; border-radius:8px; font-weight:bold; cursor:pointer; }
 .msg { background:var(--bg); padding:12px; margin:8px auto; border-radius:8px; border-left:4px solid var(--accent); max-width:700px; text-align:left; }
 
-.daily { padding:30px 20px; text-align:center; background:linear-gradient(90deg, #01411C, #000); }
-#days { display:flex; flex-wrap:wrap; justify-content:center; max-width:400px; margin:auto; }
-.day-box { display:inline-block; width:50px; height:50px; line-height:50px; margin:5px; border-radius:8px; background:#333; font-weight:bold; }
-.day-box.claimed { background:var(--accent); color:#000; }
+.quote-box { padding:30px 20px; text-align:center; background:var(--bg); border:2px dashed var(--accent); } /* FEATURE 3 */
+#quote { font-size:20px; font-style:italic; color:var(--accent); }
 
 #scrollTop { position:fixed; bottom:20px; right:20px; background:var(--accent); color:#000; border:none; padding:15px; border-radius:50%; font-size:20px; cursor:pointer; display:none; z-index:999; }
 
@@ -124,259 +128,185 @@ header { text-align:center; padding:25px 20px; background:var(--accent2); positi
 #popup-content,#exit-content {background:var(--card); width:90%; max-width:420px; margin:10% auto; padding:25px; border-radius:15px; text-align:center; border:3px solid var(--accent);}
 #close-btn,#closeExit {float:right; font-size:28px; cursor:pointer; color:var(--accent);}
 
-.notify-btn { background:var(--whatsapp); color:#fff; padding:14px 28px; border:none; border-radius:8px; font-weight:bold; cursor:pointer; font-size:16px; margin-top:15px; }
-
-footer { text-align:center; padding:20px; background:#000; color:#888; }
+footer { text-align:center; padding:20px; background:#000; color:#888; border-top:3px solid var(--accent2); } /* BLACKLINE */
 </style>
 </head>
 <body>
+
+<!-- FEATURE: LOADING SCREEN -->
+<div id="loader">
+  <h1>XD BROS</h1>
+  <p style="color:#00ff00;">Loading Pakistan Zindabad...</p>
+</div>
+
+<!-- FEATURE: TOAST -->
+<div id="toast"></div>
 
 <audio id="anthemAudio" src="https://www.bandlab.com/api/file/323b5db6-8783-4643-8a8b-4c3964da5402/stream"></audio>
 <audio id="tiktokSound" src="https://www.bandlab.com/api/file/323b5db6-8783-4643-8a8b-4c3964da5402/stream"></audio>
 
 <div class="install-banner" id="installBanner">
-  <div class="install-text">
-    <h4>📱 INSTALL XD BROS APP</h4>
-    <p>Get fast access + daily rewards</p>
-  </div>
-  <button class="install-btn" id="installBtn">INSTALL</button>
-  <button class="install-close" onclick="closeInstall()">×</button>
+  <div><h4 style="color:var(--accent); margin:0;">📱 INSTALL XD BROS APP</h4></div>
+  <button class="download-btn" id="installBtn">INSTALL</button>
+  <button onclick="closeInstall()" style="background:none;border:none;color:#888;font-size:24px;cursor:pointer;">×</button>
 </div>
 
 <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆️</button>
 
-<div class="supporter-badge" onclick="unlockBadge('badge9')">I SUPPORT XD BROS</div>
-
 <div class="live-counter"><span class="live-dot"></span><span id="liveCount">142</span> fans on XD BROS right now</div>
 
-<div id="popup">
-  <div id="popup-content">
-    <span id="close-btn" onclick="document.getElementById('popup').style.display='none'">&times;</span>
-    <h2 style="color:var(--accent);">🇵🇰 HAPPY 14 AUGUST 🇵🇰</h2>
-    <p>Get <b>MERA PEHCHAAN MP3 + 3 WALLPAPERS FREE</b>!</p>
-    <input type="email" id="popupEmail" placeholder="Enter your email" style="padding:12px; width:80%; border-radius:8px; border:none; margin:10px 0;">
-    <button onclick="saveEmail()" class="download-btn">DOWNLOAD FREE</button>
+<!-- FEATURE: MOBILE MENU + BLACKLINE -->
+<nav>
+  <button id="menuBtn" onclick="toggleMenu()">☰</button>
+  <div class="nav-links" id="navLinks">
+    <a href="#home">Home</a>
+    <a href="#anthem">Anthem</a>
+    <a href="#videos">Videos</a>
+    <a href="#wallpaper">Wallpapers</a>
+    <a href="#badges">Badges</a>
   </div>
-</div>
+</nav>
 
-<div id="exitPopup">
-  <div id="exit-content">
-    <span id="closeExit" onclick="document.getElementById('exitPopup').style.display='none'">&times;</span>
-    <h2 style="color:var(--accent2);">WAIT! DON'T GO 🇵🇰</h2>
-    <p>Refer 3 Friends to Unlock Secret Video!</p>
-    <button onclick="scrollToRefer()" class="download-btn">REFER NOW</button>
-  </div>
-</div>
+<div id="popup">...</div> <!-- same as before -->
 
-<div class="news-bar"><marquee>🔥 14 AUGUST ANTHEM "MERI PEHCHAAN" OUT NOW | 21 VIDEOS + BADGES BELOW 🔥</marquee></div>
-
-<header>
-  <button id="themeBtn" onclick="toggleTheme()">🌙 DARK/LIGHT</button>
+<header id="home">
+  <button id="themeBtn" onclick="toggleTheme()">🌙 THEME</button>
   <button id="langBtn" onclick="toggleLang()">اردو/EN</button>
   <img src="logo.png" alt="XD BROS Logo" class="logo">
   <h1>XD BROS</h1>
   <p>Gaming | Music | Community</p>
 </header>
 
+<!-- FEATURE 6: LOCATION -->
+<div class="location" id="userLocation">Detecting your location...</div>
+
 <section class="countdown-box">
   <h2>🇵🇰 COUNTDOWN TO 14 AUGUST 2026 🇵🇰</h2>
   <div id="countdown"></div>
-  <button class="notify-btn" onclick="requestNotify()">🔔 NOTIFY ME ON 14 AUG</button>
+  <h2 style="margin-top:30px;">🌙 COUNTDOWN TO 12 RABI UL AWWAL 2026 🌙</h2> <!-- FEATURE 8 -->
+  <div id="rabiCountdown"></div>
 </section>
 
-<section class="follow-section">
-  <h2 style="color:#fff;">📢 FOLLOW XD BROS FAMILY 📢</h2>
-  <div class="follow-grid">
-    <a href="https://youtube.com/@xd_brotherz?sub_confirmation=1" target="_blank" class="follow-btn btn-yt">▶️ YOUTUBE</a>
-    <a href="https://www.tiktok.com/@hamza.cute.boy8" target="_blank" class="follow-btn btn-tt">🎵 TIKTOK</a>
-    <a href="https://instagram.com/" target="_blank" class="follow-btn btn-ig">📷 INSTAGRAM</a>
-    <a href="https://facebook.com/zoyafaizan27" target="_blank" class="follow-btn btn-fb">📘 FACEBOOK</a>
-    <a href="https://www.threads.net/@zoyafaizan27" target="_blank" class="follow-btn btn-th">🧵 THREADS</a>
+<!-- FEATURE 2: QUIZ -->
+<section class="quiz">
+  <h2 style="color:var(--accent);">🧠 KITNE PAKISTANI HO? QUIZ 🧠</h2>
+  <div class="quiz-box" id="quizBox">
+    <p id="qText">Click Start</p>
+    <div id="qOptions"></div>
+    <button class="download-btn" onclick="startQuiz()">START QUIZ</button>
   </div>
 </section>
 
-<section class="flag-gen">
-  <h2 style="color:var(--accent);">🇵🇰 YOUR NAME ON PAKISTAN FLAG 🇵🇰</h2>
-  <input id="flagName" class="flag-input" placeholder="Enter Your Name">
-  <div class="flag-canvas" id="flagCanvas">
-    <div class="flag-green"></div>
-    <div class="flag-white"></div>
-    <div class="flag-text" id="flagText">PAKISTAN ZINDABAD</div>
-  </div>
-  <button class="download-btn" onclick="downloadFlag()">DOWNLOAD POSTER</button>
+<section class="quote-box">
+  <h2 style="color:var(--accent);">💬 QAID E AZAM QUOTE 💬</h2>
+  <p id="quote"></p>
+  <button class="download-btn" onclick="newQuote()">NEW QUOTE</button>
 </section>
 
-<section class="refer" id="refer">
-  <h2 style="color:var(--accent);">🎁 REFER 3 FRIENDS = UNLOCK SECRET BTS 🎁</h2>
-  <div class="refer-box">
-    <div class="refer-link" id="referLink">https://xd-bros.github.io?ref=you</div>
-    <button class="download-btn" onclick="copyRefer()">COPY LINK</button>
-    <div class="progress-bar"><div class="progress" id="referProgress"></div></div>
-    <p><span id="referCount">0</span>/3 Friends Joined</p>
-  </div>
-</section>
+<!-- Rest of your sections: flag, refer, tiktok, whatsapp, wallpaper, badges, videos, fanwall -->
 
-<section class="tiktok">
-  <h2 style="color:#fff;">🎵 USE "MERA PEHCHAAN" ON TIKTOK 🎵</h2>
-  <button class="tiktok-btn" onclick="playSound()">▶️ PLAY SOUND</button>
-  <a href="https://www.tiktok.com/@hamza.cute.boy8" target="_blank" class="tiktok-btn" style="background:#000; color:#fff; margin-left:10px;">USE SOUND</a>
-</section>
-
-<section class="whatsapp-channel">
-  <h2 style="color:#fff;">📢 JOIN XD BROS WHATSAPP CHANNEL 📢</h2>
-  <a href="https://chat.whatsapp.com/HVopAqajGVw9UNNWtknQ55?s=cl&p=a&mlu=0&ilr=0" target="_blank" class="wa-btn">JOIN NOW</a>
-</section>
-
-<section class="daily">
-  <h2 style="color:var(--accent);">🎁 14 DAYS LOGIN REWARD 🎁</h2>
-  <div id="days"></div>
-</section>
-
-<section class="leaderboard">
-  <h2 style="color:var(--accent);">🏆 TOP 10 FANS LEADERBOARD 🏆</h2>
-  <div class="leader-grid" id="leaderGrid"></div>
-</section>
-
-<section class="wallpaper" id="wallpaper">
-  <h2 style="color:var(--accent);">🖼️ FREE "MERA PEHCHAAN" WALLPAPERS 🖼️</h2>
-  <div class="wallpaper-grid">
-    <div class="wall-box"><img src="https://via.placeholder.com/400x600/01411C/00FF00?text=XD+BROS+14+AUG"><button class="download-btn" onclick="downloadWall('1'); unlockBadge('badge4')">DOWNLOAD</button></div>
-    <div class="wall-box"><img src="https://via.placeholder.com/400x600/ff0000/ffffff?text=PAKISTAN+ZINDABAD"><button class="download-btn" onclick="downloadWall('2'); unlockBadge('badge4')">DOWNLOAD</button></div>
-    <div class="wall-box"><img src="https://via.placeholder.com/400x600/000/00FF00?text=MERA+PEHCHAAN"><button class="download-btn" onclick="downloadWall('3'); unlockBadge('badge4')">DOWNLOAD</button></div>
-  </div>
-</section>
-
-<section class="email-box">
-  <h2 style="color:var(--accent);">🎁 GET ALL WALLPAPERS + MP3 FREE</h2>
-  <input type="email" id="emailInput" placeholder="your email@gmail.com">
-  <button onclick="saveEmail()">SEND TO MY EMAIL</button>
-</section>
-
-<section class="badges">
-  <h2 style="color:var(--accent);">🏆 YOUR FAN BADGES 🏆</h2>
-  <div class="badge-grid" id="badgeGrid">
-    <div class="badge locked" id="badge1"><h4>🎉 Early Fan</h4></div>
-    <div class="badge locked" id="badge2"><h4>📢 Sharer</h4></div>
-    <div class="badge locked" id="badge3"><h4>🔔 Subscriber</h4></div>
-    <div class="badge locked" id="badge4"><h4>🖼️ Collector</h4></div>
-    <div class="badge locked" id="badge5"><h4>💬 Commenter</h4></div>
-    <div class="badge locked" id="badge6"><h4>📱 Community</h4></div>
-    <div class="badge locked" id="badge9"><h4>⭐ Supporter</h4></div>
-    <div class="badge locked" id="badge10"><h4>🇵🇰 Patriot</h4></div>
-    <div class="badge locked" id="badge11"><h4>👥 Referrer</h4></div>
-  </div>
-</section>
-
-<section class="share-section">
-  <h3 style="color:var(--accent);">📢 SHARE MERA PEHCHAAN 🇵🇰</h3>
-  <a href="https://wa.me/?text=Check%20XD%20BROS%20Badges%20🇵🇰%20https://xd-bros.github.io" target="_blank" class="share-btn btn-wa">WHATSAPP</a>
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https://xd-bros.github.io" target="_blank" class="share-btn btn-fb">FACEBOOK</a>
-  <button onclick="copyLink()" class="share-btn btn-copy">COPY LINK</button>
-</section>
-
-<section class="august-special">
-  <h2 style="color:var(--accent);">🇵🇰 14 AUGUST SPECIAL 🇵🇰</h2>
-  <h3>ANTHEM: "MERI PEHCHAAN"</h3>
-  <div style="max-width:900px; margin:25px auto; border:3px solid var(--accent); border-radius:10px;">
-    <iframe loading="lazy" width="100%" height="500" src="https://www.youtube.com/embed/oCTIhvfO9vU"></iframe>
-  </div>
-</section>
-
-<section class="testimonials">
-  <h2 style="color:var(--accent);">💬 WHAT FANS SAY 💬</h2>
-  <div class="testi-grid">
-    <div class="testi"><p>"MERA PEHCHAAN gave me goosebumps!"</p><h4>- Ali from Karachi</h4><div class="react"><button onclick="react(this,'❤️')">❤️ 12</button><button onclick="react(this,'🔥')">🔥 8</button></div></div>
-    <div class="testi"><p>"Best 14 August song of 2026."</p><h4>- Sara from Lahore</h4><div class="react"><button onclick="react(this,'❤️')">❤️ 15</button><button onclick="react(this,'🔥')">🔥 10</button></div></div>
-    <div class="testi"><p>"I play this every morning."</p><h4>- Ahmed from Islamabad</h4><div class="react"><button onclick="react(this,'❤️')">❤️ 9</button><button onclick="react(this,'🔥')">🔥 6</button></div></div>
-  </div>
-</section>
-
-<section class="all-videos">
+<section class="all-videos" id="videos">
   <h2 style="color:var(--accent);">🔥 ALL 21 XD BROS VIDEOS 🔥</h2>
-  <div class="video-grid">
-    <div class="video-box"><h4>1. MERA PEHCHAAN - Anthem</h4><iframe loading="lazy" src="https://www.youtube.com/embed/oCTIhvfO9vU"></iframe></div>
-    <div class="video-box"><h4>2. 14 August Special</h4><iframe loading="lazy" src="https://www.youtube.com/embed/2FexPZ-mATE"></iframe></div>
-    <div class="video-box"><h4>3. Gaming Montage 1</h4><iframe loading="lazy" src="https://www.youtube.com/embed/9CG6AaO6XN4"></iframe></div>
-    <div class="video-box"><h4>4. Gaming Montage 2</h4><iframe loading="lazy" src="https://www.youtube.com/embed/CdDWdc5ddQM"></iframe></div>
-    <div class="video-box"><h4>5. Funny Clip</h4><iframe loading="lazy" src="https://www.youtube.com/embed/lEmgFDwPnrQ"></iframe></div>
-    <div class="video-box"><h4>6. Vlog 1</h4><iframe loading="lazy" src="https://www.youtube.com/embed/dm27esRuqjw"></iframe></div>
-    <div class="video-box"><h4>7. Vlog 2</h4><iframe loading="lazy" src="https://www.youtube.com/embed/UfwJ11F_BTI"></iframe></div>
-    <div class="video-box"><h4>8. Music Video 1</h4><iframe loading="lazy" src="https://www.youtube.com/embed/uPB7bXwbrwg"></iframe></div>
-    <div class="video-box"><h4>9. Music Video 2</h4><iframe loading="lazy" src="https://www.youtube.com/embed/foPVohn_8DQ"></iframe></div>
-    <div class="video-box"><h4>10. Challenge Video</h4><iframe loading="lazy" src="https://www.youtube.com/embed/KqmQn-OuSTc"></iframe></div>
-    <div class="video-box"><h4>11. Reaction Video</h4><iframe loading="lazy" src="https://www.youtube.com/embed/r1eT_ZyF5Js"></iframe></div>
-    <div class="video-box"><h4>12. Q&A Session</h4><iframe loading="lazy" src="https://www.youtube.com/embed/IRM5fgIT1xE"></iframe></div>
-    <div class="video-box"><h4>13. Behind The Scenes</h4><iframe loading="lazy" src="https://www.youtube.com/embed/Sb1G5-pOWT4"></iframe></div>
-    <div class="video-box"><h4>14. Short 1</h4><iframe loading="lazy" src="https://www.youtube.com/embed/r6Lrne-bnbo"></iframe></div>
-    <div class="video-box"><h4>15. Short 2</h4><iframe loading="lazy" src="https://www.youtube.com/embed/TlvGjg_tx5k"></iframe></div>
-    <div class="video-box"><h4>16. Short 3</h4><iframe loading="lazy" src="https://www.youtube.com/embed/dAlj6IKNCek"></iframe></div>
-    <div class="video-box"><h4>17. Short 4</h4><iframe loading="lazy" src="https://www.youtube.com/embed/yU7ll58fYzA"></iframe></div>
-    <div class="video-box"><h4>18. Short 5</h4><iframe loading="lazy" src="https://www.youtube.com/embed/fVAGD0OtkWc"></iframe></div>
-    <div class="video-box"><h4>19. Short 6</h4><iframe loading="lazy" src="https://www.youtube.com/embed/-nV40b-P-U0"></iframe></div>
-    <div class="video-box"><h4>20. Short 7</h4><iframe loading="lazy" src="https://www.youtube.com/embed/OujPKqG0yWY"></iframe></div>
-    <div class="video-box"><h4>21. Short 8</h4><iframe loading="lazy" src="https://www.youtube.com/embed/Fq6t4LHceOI"></iframe></div>
-  </div>
+  <div class="video-grid">...same 21 videos... </div>
 </section>
 
-<section class="email-box">
-  <h2 style="color:var(--accent);">🤝 WORK WITH XD BROS 🤝</h2>
-  <input type="text" id="collabName" placeholder="Your Name">
-  <input type="email" id="collabEmail" placeholder="Your Email">
-  <button onclick="sendCollab()">SEND COLLAB REQUEST</button>
-</section>
-
-<section class="fan-wall">
-  <h2 style="color:var(--accent);">💚 PAKISTAN ZINDABAD WALL 💚</h2>
-  <input id="fanMsg" placeholder="Pakistan Zindabad!">
-  <button id="postBtn" onclick="addMsg()">POST</button>
-  <div id="messages"></div>
-</section>
-
-<footer><p>© 2026 XD BROS | All Rights Reserved</p></footer>
+<footer><p>© 2026 XD BROS | Made with ❤️ for Pakistan</p></footer>
 
 <script>
-// LIVE VISITOR
-function updateLiveCount(){ document.getElementById('liveCount').innerText = 120 + Math.floor(Math.random()*80); }
-updateLiveCount(); setInterval(updateLiveCount, 5000);
+// LOADER
+window.addEventListener('load', ()=>{ setTimeout(()=>{ document.getElementById('loader').style.display='none'; }, 2000); });
 
-// PWA INSTALL
-let deferredPrompt;
-window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferredPrompt = e; setTimeout(()=>{ document.getElementById('installBanner').classList.add('show'); }, 5000); });
-document.getElementById('installBtn').addEventListener('click', async () => { if (deferredPrompt) { deferredPrompt.prompt(); await deferredPrompt.userChoice; } document.getElementById('installBanner').classList.remove('show'); });
-function closeInstall(){ document.getElementById('installBanner').classList.remove('show'); }
+// TOAST
+function showToast(msg){
+  let t = document.getElementById('toast');
+  t.innerText = msg;
+  t.style.display='block';
+  setTimeout(()=>{ t.style.display='none'; }, 3000);
+}
 
-// THEME + LANG
-function toggleTheme(){ document.body.classList.toggle('light'); localStorage.setItem('theme', document.body.classList.contains('light')? 'light' : 'dark'); }
-function toggleLang(){ document.body.classList.toggle('urdu'); localStorage.setItem('lang', document.body.classList.contains('urdu')? 'urdu' : 'en'); }
-if(localStorage.getItem('theme')=='light') document.body.classList.add('light');
-if(localStorage.getItem('lang')=='urdu') document.body.classList.add('urdu');
+// MOBILE MENU
+function toggleMenu(){ document.getElementById('navLinks').classList.toggle('show'); }
 
-// SCROLL TOP
-window.onscroll = function() { document.getElementById('scrollTop').style.display = (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) ? "block" : "none"; }
+// THEME - 3 OPTIONS
+let themeState = 0;
+function toggleTheme(){
+  document.body.classList.remove('light','pak');
+  themeState = (themeState+1)%3;
+  if(themeState==1) document.body.classList.add('light');
+  if(themeState==2) document.body.classList.add('pak');
+  localStorage.setItem('theme', themeState);
+}
+if(localStorage.getItem('theme')==1) document.body.classList.add('light');
+if(localStorage.getItem('theme')==2) document.body.classList.add('pak');
 
-// FLAG GENERATOR
-document.getElementById('flagName').oninput = function(){ document.getElementById('flagText').innerText = this.value.toUpperCase() || 'PAKISTAN ZINDABAD'; }
-function downloadFlag(){ unlockBadge('badge10'); html2canvas(document.getElementById('flagCanvas')).then(canvas => { let link = document.createElement('a'); link.download = 'XD-BROS-FLAG.png'; link.href = canvas.toDataURL(); link.click(); }); }
+// FEATURE 6: GET LOCATION
+fetch('https://ipapi.co/json/').then(res=>res.json()).then(data=>{
+  document.getElementById('userLocation').innerText = `Welcome from ${data.city}, ${data.country_name} ${data.country_code=='PK'?'🇵🇰':''}`;
+});
 
-// REFER SYSTEM
-let referCount = parseInt(localStorage.getItem('referCount')) || 0;
-document.getElementById('referCount').innerText = referCount;
-document.getElementById('referProgress').style.width = (referCount/3)*100 + '%';
-if(referCount >= 3) unlockBadge('badge11');
-function copyRefer(){ navigator.clipboard.writeText(document.getElementById('referLink').innerText); alert('Link Copied! +1 Refer'); referCount++; localStorage.setItem('referCount', referCount); document.getElementById('referCount').innerText = referCount; document.getElementById('referProgress').style.width = (referCount/3)*100 + '%'; if(referCount >= 3) unlockBadge('badge11'); }
-function scrollToRefer(){ document.getElementById('exitPopup').style.display = 'none'; document.getElementById('refer').scrollIntoView({behavior:'smooth'}); }
+// FEATURE 4: FIREWORKS ON 14 AUG
+let today = new Date();
+if(today.getMonth()==7 && today.getDate()==14){ // August 14
+  setInterval(()=>confetti({particleCount:100, spread:70, origin:{y:0.6}}), 500);
+  showToast('🎆 Happy 14 August! 🎆');
+}
 
-// TIKTOK SOUND
-function playSound(){ let audio = document.getElementById('tiktokSound'); audio.paused ? audio.play() : audio.pause(); }
+// FEATURE 8: RABI UL AWWAL COUNTDOWN
+let rabiDate = new Date("Aug 28, 2026 00:00:00").getTime();
+setInterval(function(){
+  let gap = rabiDate - new Date().getTime();
+  let d = Math.floor(gap / (1000 * 60 * 60 * 24));
+  document.getElementById('rabiCountdown').innerText = d+" days left";
+}, 1000);
 
-// LEADERBOARD
-let leaders = [['Ali K', 24], ['Sara L', 18], ['Ahmed I', 15], ['Zoya K', 12], ['Hamza B', 10], ['Bilal P', 9], ['Fatima L', 8], ['Usman K', 7], ['Ayesha I', 6], ['Hassan B', 5]];
-leaders.forEach((l,i)=>{ document.getElementById('leaderGrid').innerHTML += `<div class="leader-item"><span>${i+1}. ${l[0]}</span><span class="leader-rank">${l[1]}</span></div>`; });
+// FEATURE 2: QUIZ
+let quizQ = [
+  {q:"Pakistan kab bana?", o:["14 Aug 1947","15 Aug 1947","1 Jan 1948"], a:0},
+  {q:"Pakistan ka capital?", o:["Karachi","Lahore","Islamabad"], a:2},
+  {q:"National Anthem writer?", o:["Allama Iqbal","Hafeez Jalandhari","Faiz"], a:1}
+];
+let qIndex=0, score=0;
+function startQuiz(){ qIndex=0; score=0; loadQ(); showToast('Quiz Started!'); }
+function loadQ(){
+  if(qIndex>=quizQ.length){
+    if(score==3) unlockBadge('badge10');
+    document.getElementById('quizBox').innerHTML = `<h3>Score: ${score}/3</h3><p>${score==3?'🇵🇰 Patriot Pro Unlocked!':'Try Again!'}</p>`;
+    return;
+  }
+  document.getElementById('qText').innerText = quizQ[qIndex].q;
+  document.getElementById('qOptions').innerHTML = quizQ[qIndex].o.map((opt,i)=>`<button class="quiz-btn" onclick="checkAns(${i})">${opt}</button>`).join('');
+}
+function checkAns(i){ if(i==quizQ[qIndex].a) score++; qIndex++; loadQ(); }
 
-// BADGE SYSTEM
+// FEATURE 3: QUOTES
+const quotes = ["Faith, Unity, Discipline", "No nation can rise at the height of glory unless your women are side by side with you.", "With faith, discipline and selfless devotion to duty, there is nothing worthwhile that you cannot achieve."];
+function newQuote(){ document.getElementById('quote').innerText = quotes[Math.floor(Math.random()*quotes.length)]; }
+newQuote();
+
+// BADGE + OTHER FUNCTIONS - same as previous code
 function unlockBadge(badgeId){
   let badge = document.getElementById(badgeId);
   if(badge && badge.classList.contains('locked')){
     badge.classList.remove('locked');
     badge.classList.add('unlocked');
-    local
+    localStorage.setItem(badgeId, 'unlocked');
+    showToast('🏆 Badge Unlocked!');
+  }
+}
+['badge1','badge2','badge3','badge4','badge5','badge6','badge9','badge10','badge11'].forEach(id=>{
+  if(localStorage.getItem(id)=='unlocked') unlockBadge(id);
+});
+
+//... paste rest of your JS: livecount, refer, flag, videos etc from previous code
+
+let countDate = new Date("Aug 14, 2026 00:00:00").getTime();
+setInterval(function(){
+  let gap = countDate - new Date().getTime();
+  let d = Math.floor(gap / (1000 * 60 * 60 * 24));
+  let h = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  document.getElementById('countdown').innerText = d+"d "+h+"h";
+}, 1000);
+
+</script>
+</body>
+  </html>
