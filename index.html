@@ -19,12 +19,10 @@ body.light{ --bg:#f5f5f5; --card:#fff; --text:#000; --accent:#01411C; --accent2:
 body.urdu{ font-family:'Noto Naskh Arabic', 'Jameel Noori Nastaleeq', Arial, sans-serif; direction:rtl; }
 body { margin:0; font-family:Arial, sans-serif; background:var(--bg); color:var(--text); transition:0.3s; scroll-behavior:smooth; }
 
-/* FEATURE 21: LIVE VISITOR COUNTER - FIXED */
 .live-counter { background:#000; color:var(--accent); padding:10px; text-align:center; font-weight:bold; font-size:15px; border-bottom:1px solid #222; }
 .live-dot { display:inline-block; width:10px; height:10px; background:#00ff00; border-radius:50%; animation:blink 1.5s infinite; margin-right:8px; }
 @keyframes blink{ 0%,100%{opacity:1} 50%{opacity:0.3} }
 
-/* FEATURE 20: INSTALL APP BANNER */
 .install-banner { display:none; position:fixed; bottom:0; left:0; right:0; background:var(--card); border-top:3px solid var(--accent); padding:15px; z-index:9998; align-items:center; justify-content:space-between; }
 .install-banner.show { display:flex; }
 .install-text { flex:1; }
@@ -52,22 +50,19 @@ header { text-align:center; padding:25px 20px; background:var(--accent2); positi
 .whatsapp-channel { padding:30px 20px; text-align:center; background:linear-gradient(90deg, #25D366, #128C7E); }
 .wa-btn { display:inline-block; background:#fff; color:#25D366; padding:16px 30px; border-radius:50px; text-decoration:none; font-weight:bold; font-size:18px; margin:10px; }
 
-/* FEATURE 1: NAME ON FLAG GENERATOR */
 .flag-gen { padding:40px 20px; text-align:center; background:linear-gradient(180deg, #01411C 0%, #000 100%); border:3px solid var(--accent); }
 .flag-canvas { background:#fff; width:300px; height:200px; margin:20px auto; border:3px solid var(--accent); position:relative; }
 .flag-green { width:100%; height:75%; background:#01411C; position:absolute; top:0; }
 .flag-white { width:100%; height:25%; background:#fff; position:absolute; bottom:0; }
-.flag-text { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:#fff; font-weight:bold; font-size:20px; text-shadow:2px 2px 4px #000; }
+.flag-text { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:#fff; font-weight:bold; font-size:20px; text-shadow:2px 2px 4px #000; width:90%; }
 .flag-input { padding:12px; width:70%; max-width:300px; border-radius:8px; border:none; margin:10px; }
 
-/* FEATURE 3: REFER SYSTEM */
 .refer { padding:40px 20px; text-align:center; background:var(--card); border:3px solid var(--accent); }
 .refer-box { background:var(--bg); padding:20px; border-radius:10px; max-width:500px; margin:auto; }
 .refer-link { background:#333; padding:12px; border-radius:8px; color:var(--accent); font-weight:bold; word-break:break-all; }
 .progress-bar { height:20px; background:#333; border-radius:10px; margin:15px 0; overflow:hidden; }
 .progress { height:100%; background:var(--accent); width:0%; transition:0.5s; }
 
-/* FEATURE 4: TIKTOK SOUND */
 .tiktok { padding:30px 20px; text-align:center; background:linear-gradient(90deg, #000, #25F4EE); }
 .tiktok-btn { background:#fff; color:#000; padding:16px 30px; border:none; border-radius:50px; font-weight:bold; font-size:18px; cursor:pointer; }
 
@@ -92,10 +87,8 @@ header { text-align:center; padding:25px 20px; background:var(--accent2); positi
 .testi { background:var(--card); padding:20px; border-radius:10px; border-left:4px solid var(--accent); position:relative; }
 .testi.react button { background:var(--bg); border:1px solid #333; color:var(--text); padding:5px 10px; border-radius:20px; cursor:pointer; margin:3px; }
 
-/* FEATURE 10: SUPPORTER BADGE */
 .supporter-badge { position:fixed; bottom:80px; right:20px; background:var(--accent2); color:#fff; padding:12px 20px; border-radius:50px; font-weight:bold; cursor:pointer; z-index:998; }
 
-/* FEATURE 4: BADGE SYSTEM */
 .badges { padding:30px 20px; text-align:center; background:var(--card); }
 .badge-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:15px; }
 .badge { background:var(--bg); padding:15px 20px; border-radius:10px; border:2px solid #333; min-width:130px; }
@@ -103,7 +96,6 @@ header { text-align:center; padding:25px 20px; background:var(--accent2); positi
 .badge.unlocked { border-color:var(--accent); box-shadow:0 0 15px var(--accent); }
 .badge h4 { margin:5px 0; color:var(--accent); font-size:14px; }
 
-/* FEATURE 5: LEADERBOARD */
 .leaderboard { padding:40px 20px; text-align:center; background:linear-gradient(180deg, #01411C 0%, var(--bg) 100%); }
 .leader-grid { max-width:600px; margin:20px auto; }
 .leader-item { background:var(--card); padding:15px; margin:10px 0; border-radius:10px; display:flex; justify-content:space-between; border-left:4px solid var(--accent); }
@@ -121,9 +113,9 @@ header { text-align:center; padding:25px 20px; background:var(--accent2); positi
 #postBtn { padding:12px 20px; background:var(--accent); border:none; border-radius:8px; font-weight:bold; cursor:pointer; }
 .msg { background:var(--bg); padding:12px; margin:8px auto; border-radius:8px; border-left:4px solid var(--accent); max-width:700px; text-align:left; }
 
-/* FEATURE 26: DAILY REWARD */
 .daily { padding:30px 20px; text-align:center; background:linear-gradient(90deg, #01411C, #000); }
-.day-box { display:inline-block; width:50px; height:50px; line-height:50px; margin:5px; border-radius:8px; background:#333; }
+#days { display:flex; flex-wrap:wrap; justify-content:center; max-width:400px; margin:auto; }
+.day-box { display:inline-block; width:50px; height:50px; line-height:50px; margin:5px; border-radius:8px; background:#333; font-weight:bold; }
 .day-box.claimed { background:var(--accent); color:#000; }
 
 #scrollTop { position:fixed; bottom:20px; right:20px; background:var(--accent); color:#000; border:none; padding:15px; border-radius:50%; font-size:20px; cursor:pointer; display:none; z-index:999; }
@@ -142,7 +134,6 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
 <audio id="anthemAudio" src="https://www.bandlab.com/api/file/323b5db6-8783-4643-8a8b-4c3964da5402/stream"></audio>
 <audio id="tiktokSound" src="https://www.bandlab.com/api/file/323b5db6-8783-4643-8a8b-4c3964da5402/stream"></audio>
 
-<!-- FEATURE 20: INSTALL APP BANNER -->
 <div class="install-banner" id="installBanner">
   <div class="install-text">
     <h4>📱 INSTALL XD BROS APP</h4>
@@ -154,14 +145,13 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
 
 <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆️</button>
 
-<div class="supporter-badge" onclick="alert('Thanks for supporting XD BROS! Share to unlock more')">I SUPPORT XD BROS</div>
+<div class="supporter-badge" onclick="unlockBadge('badge9')">I SUPPORT XD BROS</div>
 
-<!-- FEATURE 21: LIVE VISITOR COUNTER -->
 <div class="live-counter"><span class="live-dot"></span><span id="liveCount">142</span> fans on XD BROS right now</div>
 
 <div id="popup">
   <div id="popup-content">
-    <span id="close-btn">&times;</span>
+    <span id="close-btn" onclick="document.getElementById('popup').style.display='none'">&times;</span>
     <h2 style="color:var(--accent);">🇵🇰 HAPPY 14 AUGUST 🇵🇰</h2>
     <p>Get <b>MERA PEHCHAAN MP3 + 3 WALLPAPERS FREE</b>!</p>
     <input type="email" id="popupEmail" placeholder="Enter your email" style="padding:12px; width:80%; border-radius:8px; border:none; margin:10px 0;">
@@ -171,7 +161,7 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
 
 <div id="exitPopup">
   <div id="exit-content">
-    <span id="closeExit">&times;</span>
+    <span id="closeExit" onclick="document.getElementById('exitPopup').style.display='none'">&times;</span>
     <h2 style="color:var(--accent2);">WAIT! DON'T GO 🇵🇰</h2>
     <p>Refer 3 Friends to Unlock Secret Video!</p>
     <button onclick="scrollToRefer()" class="download-btn">REFER NOW</button>
@@ -197,7 +187,7 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
 <section class="follow-section">
   <h2 style="color:#fff;">📢 FOLLOW XD BROS FAMILY 📢</h2>
   <div class="follow-grid">
-    <a href="https://youtube.com/@xd_brotherz?sub_confirmation=1" target="_blank" class="follow-btn btn-yt" onclick="unlockBadge('subscriber')">▶️ YOUTUBE</a>
+    <a href="https://youtube.com/@xd_brotherz?sub_confirmation=1" target="_blank" class="follow-btn btn-yt">▶️ YOUTUBE</a>
     <a href="https://www.tiktok.com/@hamza.cute.boy8" target="_blank" class="follow-btn btn-tt">🎵 TIKTOK</a>
     <a href="https://instagram.com/" target="_blank" class="follow-btn btn-ig">📷 INSTAGRAM</a>
     <a href="https://facebook.com/zoyafaizan27" target="_blank" class="follow-btn btn-fb">📘 FACEBOOK</a>
@@ -205,7 +195,6 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
   </div>
 </section>
 
-<!-- FEATURE 1: NAME ON FLAG -->
 <section class="flag-gen">
   <h2 style="color:var(--accent);">🇵🇰 YOUR NAME ON PAKISTAN FLAG 🇵🇰</h2>
   <input id="flagName" class="flag-input" placeholder="Enter Your Name">
@@ -217,7 +206,6 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
   <button class="download-btn" onclick="downloadFlag()">DOWNLOAD POSTER</button>
 </section>
 
-<!-- FEATURE 3: REFER SYSTEM -->
 <section class="refer" id="refer">
   <h2 style="color:var(--accent);">🎁 REFER 3 FRIENDS = UNLOCK SECRET BTS 🎁</h2>
   <div class="refer-box">
@@ -228,7 +216,6 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
   </div>
 </section>
 
-<!-- FEATURE 4: TIKTOK SOUND -->
 <section class="tiktok">
   <h2 style="color:#fff;">🎵 USE "MERA PEHCHAAN" ON TIKTOK 🎵</h2>
   <button class="tiktok-btn" onclick="playSound()">▶️ PLAY SOUND</button>
@@ -237,7 +224,7 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
 
 <section class="whatsapp-channel">
   <h2 style="color:#fff;">📢 JOIN XD BROS WHATSAPP CHANNEL 📢</h2>
-  <a href="https://chat.whatsapp.com/HVopAqajGVw9UNNWtknQ55?s=cl&p=a&mlu=0&ilr=0" target="_blank" class="wa-btn" onclick="unlockBadge('community')">JOIN NOW</a>
+  <a href="https://chat.whatsapp.com/HVopAqajGVw9UNNWtknQ55?s=cl&p=a&mlu=0&ilr=0" target="_blank" class="wa-btn">JOIN NOW</a>
 </section>
 
 <section class="daily">
@@ -245,7 +232,6 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
   <div id="days"></div>
 </section>
 
-<!-- FEATURE 5: LEADERBOARD -->
 <section class="leaderboard">
   <h2 style="color:var(--accent);">🏆 TOP 10 FANS LEADERBOARD 🏆</h2>
   <div class="leader-grid" id="leaderGrid"></div>
@@ -254,9 +240,9 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
 <section class="wallpaper" id="wallpaper">
   <h2 style="color:var(--accent);">🖼️ FREE "MERA PEHCHAAN" WALLPAPERS 🖼️</h2>
   <div class="wallpaper-grid">
-    <div class="wall-box"><img src="https://via.placeholder.com/400x600/01411C/00FF00?text=XD+BROS+14+AUG"><button class="download-btn" onclick="downloadWall('1')">DOWNLOAD</button></div>
-    <div class="wall-box"><img src="https://via.placeholder.com/400x600/ff0000/ffffff?text=PAKISTAN+ZINDABAD"><button class="download-btn" onclick="downloadWall('2')">DOWNLOAD</button></div>
-    <div class="wall-box"><img src="https://via.placeholder.com/400x600/000/00FF00?text=MERA+PEHCHAAN"><button class="download-btn" onclick="downloadWall('3')">DOWNLOAD</button></div>
+    <div class="wall-box"><img src="https://via.placeholder.com/400x600/01411C/00FF00?text=XD+BROS+14+AUG"><button class="download-btn" onclick="downloadWall('1'); unlockBadge('badge4')">DOWNLOAD</button></div>
+    <div class="wall-box"><img src="https://via.placeholder.com/400x600/ff0000/ffffff?text=PAKISTAN+ZINDABAD"><button class="download-btn" onclick="downloadWall('2'); unlockBadge('badge4')">DOWNLOAD</button></div>
+    <div class="wall-box"><img src="https://via.placeholder.com/400x600/000/00FF00?text=MERA+PEHCHAAN"><button class="download-btn" onclick="downloadWall('3'); unlockBadge('badge4')">DOWNLOAD</button></div>
   </div>
 </section>
 
@@ -283,8 +269,8 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
 
 <section class="share-section">
   <h3 style="color:var(--accent);">📢 SHARE MERA PEHCHAAN 🇵🇰</h3>
-  <a href="https://wa.me/?text=Check%20XD%20BROS%20Badges%20🇵🇰%20https://xd-bros.github.io" target="_blank" class="share-btn btn-wa" onclick="unlockBadge('sharer')">WHATSAPP</a>
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https://xd-bros.github.io" target="_blank" class="share-btn btn-fb" onclick="unlockBadge('sharer')">FACEBOOK</a>
+  <a href="https://wa.me/?text=Check%20XD%20BROS%20Badges%20🇵🇰%20https://xd-bros.github.io" target="_blank" class="share-btn btn-wa">WHATSAPP</a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://xd-bros.github.io" target="_blank" class="share-btn btn-fb">FACEBOOK</a>
   <button onclick="copyLink()" class="share-btn btn-copy">COPY LINK</button>
 </section>
 
@@ -349,61 +335,48 @@ footer { text-align:center; padding:20px; background:#000; color:#888; }
 <footer><p>© 2026 XD BROS | All Rights Reserved</p></footer>
 
 <script>
-// FEATURE 21: LIVE VISITOR - FIXED VERSION
-function updateLiveCount(){ 
-  let base = 120 + Math.floor(Math.random()*80); 
-  document.getElementById('liveCount').innerText = base; 
-}
-updateLiveCount();
-setInterval(updateLiveCount, 5000);
+// LIVE VISITOR
+function updateLiveCount(){ document.getElementById('liveCount').innerText = 120 + Math.floor(Math.random()*80); }
+updateLiveCount(); setInterval(updateLiveCount, 5000);
 
-// FEATURE 20: PWA INSTALL
+// PWA INSTALL
 let deferredPrompt;
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  setTimeout(()=>{ document.getElementById('installBanner').classList.add('show'); }, 5000);
-});
-document.getElementById('installBtn').addEventListener('click', async () => {
-  if (deferredPrompt) { deferredPrompt.prompt(); await deferredPrompt.userChoice; }
-  document.getElementById('installBanner').classList.remove('show');
-});
+window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferredPrompt = e; setTimeout(()=>{ document.getElementById('installBanner').classList.add('show'); }, 5000); });
+document.getElementById('installBtn').addEventListener('click', async () => { if (deferredPrompt) { deferredPrompt.prompt(); await deferredPrompt.userChoice; } document.getElementById('installBanner').classList.remove('show'); });
 function closeInstall(){ document.getElementById('installBanner').classList.remove('show'); }
 
-// FEATURE 98: URDU/ENGLISH TOGGLE
-function toggleTheme(){ document.body.classList.toggle('light'); }
+// THEME + LANG
+function toggleTheme(){ document.body.classList.toggle('light'); localStorage.setItem('theme', document.body.classList.contains('light')? 'light' : 'dark'); }
 function toggleLang(){ document.body.classList.toggle('urdu'); localStorage.setItem('lang', document.body.classList.contains('urdu')? 'urdu' : 'en'); }
+if(localStorage.getItem('theme')=='light') document.body.classList.add('light');
 if(localStorage.getItem('lang')=='urdu') document.body.classList.add('urdu');
 
-// FEATURE 1: NAME ON FLAG
-document.getElementById('flagName').oninput = function(){
-  document.getElementById('flagText').innerText = this.value.toUpperCase() || 'PAKISTAN ZINDABAD';
-}
-function downloadFlag(){
-  unlockBadge('patriot');
-  html2canvas(document.getElementById('flagCanvas')).then(canvas => {
-    let link = document.createElement('a');
-    link.download = 'XD-BROS-FLAG.png';
-    link.href = canvas.toDataURL();
-    link.click();
-  });
-}
+// SCROLL TOP
+window.onscroll = function() { document.getElementById('scrollTop').style.display = (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) ? "block" : "none"; }
 
-// FEATURE 3: REFER SYSTEM
+// FLAG GENERATOR
+document.getElementById('flagName').oninput = function(){ document.getElementById('flagText').innerText = this.value.toUpperCase() || 'PAKISTAN ZINDABAD'; }
+function downloadFlag(){ unlockBadge('badge10'); html2canvas(document.getElementById('flagCanvas')).then(canvas => { let link = document.createElement('a'); link.download = 'XD-BROS-FLAG.png'; link.href = canvas.toDataURL(); link.click(); }); }
+
+// REFER SYSTEM
 let referCount = parseInt(localStorage.getItem('referCount')) || 0;
 document.getElementById('referCount').innerText = referCount;
 document.getElementById('referProgress').style.width = (referCount/3)*100 + '%';
-function copyRefer(){ navigator.clipboard.writeText(document.getElementById('referLink').innerText); alert('Link Copied!'); }
+if(referCount >= 3) unlockBadge('badge11');
+function copyRefer(){ navigator.clipboard.writeText(document.getElementById('referLink').innerText); alert('Link Copied! +1 Refer'); referCount++; localStorage.setItem('referCount', referCount); document.getElementById('referCount').innerText = referCount; document.getElementById('referProgress').style.width = (referCount/3)*100 + '%'; if(referCount >= 3) unlockBadge('badge11'); }
 function scrollToRefer(){ document.getElementById('exitPopup').style.display = 'none'; document.getElementById('refer').scrollIntoView({behavior:'smooth'}); }
 
-// FEATURE 4: TIKTOK SOUND
-function playSound(){ document.getElementById('tiktokSound').play(); }
+// TIKTOK SOUND
+function playSound(){ let audio = document.getElementById('tiktokSound'); audio.paused ? audio.play() : audio.pause(); }
 
-// FEATURE 5: LEADERBOARD
-let leaders = [['Ali K', 24], ['Sara L', 18], ['Ahmed I', 15], ['Zoya K', 12], ['Hamza B', 10]];
+// LEADERBOARD
+let leaders = [['Ali K', 24], ['Sara L', 18], ['Ahmed I', 15], ['Zoya K', 12], ['Hamza B', 10], ['Bilal P', 9], ['Fatima L', 8], ['Usman K', 7], ['Ayesha I', 6], ['Hassan B', 5]];
 leaders.forEach((l,i)=>{ document.getElementById('leaderGrid').innerHTML += `<div class="leader-item"><span>${i+1}. ${l[0]}</span><span class="leader-rank">${l[1]}</span></div>`; });
 
-// FEATURE 10: SUPPORTER BADGE
-document.querySelector('.supporter-badge').onclick = ()=>unlockBadge('supporter');
-
-//
+// BADGE SYSTEM
+function unlockBadge(badgeId){
+  let badge = document.getElementById(badgeId);
+  if(badge && badge.classList.contains('locked')){
+    badge.classList.remove('locked');
+    badge.classList.add('unlocked');
+    local
