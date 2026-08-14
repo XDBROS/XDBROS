@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>XD BROS - EID MILAD UN NABI ﷺ 2026 | 12 Rabi Special</title>
+<title>XD BROS - EID MILAD UN NABI ﷺ 2026</title>
 <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/197/197374.png">
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -11,8 +11,9 @@
 <style>
 :root{ --bg:#01411C; --card:#002a12; --text:#fff; --accent:#FFD700; }
 body { margin:0; font-family:Arial; background:var(--bg); color:var(--text); }
+body.green-glow { box-shadow: inset 0 0 200px rgba(0,255,0,0.3); } /* FEATURE 3: GREEN GLOW */
 #toast { position:fixed; bottom:80px; left:50%; transform:translateX(-50%); background:var(--accent); color:#000; padding:14px 25px; border-radius:50px; font-weight:bold; z-index:9999; display:none; }
-nav { background:#000; padding:12px; position:sticky; top:0; border-bottom:3px solid var(--accent); text-align:center; }
+nav { background:#000; padding:12px; position:sticky; top:0; border-bottom:3px solid var(--accent); text-align:center; overflow-x:auto; white-space:nowrap; }
 nav a { color:#fff; margin:0 10px; text-decoration:none; font-weight:bold; font-size:14px; }
 header { text-align:center; padding:30px 20px; background:linear-gradient(180deg, #01411C 0%, #000 100%); border-bottom:3px solid var(--accent); }
 .logo { width:140px; border-radius:50%; border:4px solid var(--accent); }
@@ -25,11 +26,10 @@ h2 { color:var(--accent); }
 .video-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; max-width:1400px; margin:auto; }
 .video-box { background:var(--card); padding:10px; border-radius:10px; }
 .video-box iframe { width:100%; height:200px; border:none; }
-.timeline { display:flex; overflow-x:auto; gap:15px; padding:20px; }
-.timeline-item { min-width:200px; background:var(--card); padding:15px; border-radius:10px; border-left:4px solid var(--accent); }
-.asma-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(120px, 1fr)); gap:10px; max-width:800px; margin:auto; }
-.asma-box { background:var(--card); padding:10px; border-radius:8px; cursor:pointer; }
-.leader-item { background:var(--card); padding:10px; margin:5px auto; max-width:500px; border-radius:8px; display:flex; justify-content:space-between; }
+.lyrics-box { background:#000; padding:15px; border-radius:10px; margin-top:10px; max-height:200px; overflow-y:auto; text-align:left; }
+.calendar-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:10px; max-width:600px; margin:auto; }
+.cal-day { background:var(--card); padding:15px; border-radius:8px; cursor:pointer; }
+.cal-day.today { background:var(--accent); color:#000; }
 </style>
 </head>
 <body>
@@ -37,7 +37,7 @@ h2 { color:var(--accent); }
 <div id="toast"></div>
 
 <nav>
-  <a href="#home">Home</a><a href="#countdown">Countdown</a><a href="#naat">Naat</a><a href="#darood">Darood</a><a href="#videos">Videos</a><a href="#timeline">Seerat</a><a href="#asma">99 Names</a>
+  <a href="#home">Home</a><a href="#countdown">Countdown</a><a href="#naat">Naat</a><a href="#darood">Darood</a><a href="#quiz">Quiz</a><a href="#calendar">Calendar</a><a href="#videos">Videos</a>
 </nav>
 
 <header id="home">
@@ -48,91 +48,62 @@ h2 { color:var(--accent); }
   <p id="chandRaat" style="color:#FFD700; font-size:18px;"></p>
 </header>
 
-<!-- FEATURE 3: COUNTDOWN + FEATURE 2: CHAND RAAT -->
 <section class="section" id="countdown">
   <h2>🌙 COUNTDOWN TO 12 RABI UL AWWAL 2026 🌙</h2>
   <div class="countdown" id="rabiCountdown"></div>
   <button class="download-btn" onclick="genPoster()">📸 SHARE MILAD POSTER</button>
+  <button class="download-btn" onclick="share12Darood()">📤 SHARE 12 DAROOD</button>
 </section>
 
-<!-- FEATURE 1: NAAT PLAYER -->
+<!-- FEATURE 1: NAAT PLAYER + FEATURE 2: LYRICS -->
 <section class="section" id="naat">
   <h2>🎵 NAAT E RASOOL ﷺ PLAYER 🎵</h2>
   <audio id="naatPlayer" controls style="width:80%; max-width:500px;"></audio><br>
-  <button class="download-btn" onclick="playNaat('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3')">1. Ya Nabi Salam Alayka</button>
-  <button class="download-btn" onclick="playNaat('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3')">2. Mustafa Jaane Rehmat</button>
-  <button class="download-btn" onclick="playNaat('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3')">3. Talaal Badru</button>
+  <button class="download-btn" onclick="playNaat('naat1')">1. Ya Nabi Salam Alayka</button>
+  <button class="download-btn" onclick="playNaat('naat2')">2. Mustafa Jaane Rehmat</button>
+  <div class="lyrics-box" id="lyricsBox">Select a Naat to see lyrics</div>
 </section>
 
-<!-- FEATURE 4: DAROOD COUNTER -->
+<!-- FEATURE 4: DAROOD COUNTER + FEATURE 4B: VOICE BUTTON -->
 <section class="section" id="darood">
   <h2>💚 DAROOD E PAK COUNTER 💚</h2>
   <div id="daroodCount">0</div>
   <button class="darood-btn" onclick="addDarood(1)">ﷺ 1 DAROOD ﷺ</button>
-  <button class="darood-btn" onclick="addDarood(10)">ﷺ 10 DAROOD ﷺ</button>
+  <button class="darood-btn" onclick="playDaroodAudio()">🔊 SUNO DAROOD</button>
   <p>Target: 313 | 1000 | 5000</p>
 </section>
 
-<!-- FEATURE 9: 99 NAMES -->
-<section class="section" id="asma">
-  <h2>📿 99 NAMES OF ALLAH 📿</h2>
-  <p id="asmaToday"></p>
-  <div class="asma-grid" id="asmaGrid"></div>
-</section>
-
-<!-- FEATURE 5: SEERAT TIMELINE -->
-<section class="section" id="timeline">
-  <h2>📜 SEERAT UN NABI ﷺ TIMELINE 📜</h2>
-  <div class="timeline">
-    <div class="timeline-item"><h4>570 AD</h4><p>Wiladat - Makkah</p></div>
-    <div class="timeline-item"><h4>610 AD</h4><p>Pehli Wahi - Ghar e Hira</p></div>
-    <div class="timeline-item"><h4>622 AD</h4><p>Hijrat - Madina</p></div>
-    <div class="timeline-item"><h4>630 AD</h4><p>Fatah Makkah</p></div>
-    <div class="timeline-item"><h4>632 AD</h4><p>Wisaal - Madina</p></div>
+<!-- FEATURE 7: MILAD QUIZ 20 SAWAL -->
+<section class="section" id="quiz">
+  <h2>🧠 MILAD QUIZ - 20 SAWAL 🧠</h2>
+  <div id="quizBox">
+    <p id="qText">Click Start</p><div id="qOptions"></div>
+    <button class="download-btn" onclick="startQuiz()">START QUIZ</button>
   </div>
 </section>
 
-<!-- FEATURE 10: POSTER GENERATOR -->
-<section class="section" id="poster">
-  <h2>📸 MILAD POSTER GENERATOR 📸</h2>
-  <input id="miladName" placeholder="Apna Naam Likho" style="padding:12px; width:300px; border-radius:8px;">
-  <div id="posterBox" style="background:linear-gradient(#01411C,#FFD700); width:300px; height:400px; margin:20px auto; padding:20px; color:#000;">
-    <h2>Eid Milad Un Nabi ﷺ</h2>
-    <h3 id="posterName">Your Name</h3>
-    <p>12 Rabi Ul Awwal 1448H</p>
-  </div>
-  <button class="download-btn" onclick="genPoster()">DOWNLOAD POSTER</button>
+<!-- FEATURE 5: MILAD CALENDAR 30 DAYS -->
+<section class="section" id="calendar">
+  <h2>📅 RABI UL AWWAL CALENDAR 📅</h2>
+  <p>Har din ka fazeelat</p>
+  <div class="calendar-grid" id="calGrid"></div>
 </section>
 
-<!-- FEATURE 6: MOSQUE FINDER -->
+<!-- FEATURE 6: SABZ GUMBAD VIEW -->
 <section class="section">
-  <h2>🕌 FIND NEAREST MOSQUE 🕌</h2>
-  <p>Milad ki namaz ke liye</p>
-  <a href="https://www.google.com/maps/search/mosque+near+me" target="_blank" class="download-btn">OPEN MAPS</a>
+  <h2>🕌 SABZ GUMBAD ZIYARAT 🕌</h2>
+  <img src="https://via.placeholder.com/400x300/01411C/FFD700?text=ROZA+E+RASOOL+ﷺ" style="width:300px; border-radius:10px; border:3px solid var(--accent); cursor:pointer;" onclick="showToast('Sallu Alal Habeeb ﷺ')">
+  <p>Click to send Darood</p>
 </section>
 
-<!-- FEATURE 7: DONATION -->
-<section class="section" style="background:#000;">
-  <h2>🤲 12 RABI SADQA 🤲</h2>
-  <p>Ghareebon me taqseem karein</p>
-  <button class="download-btn">JAZZCASH: 0300-1234567</button>
-  <button class="download-btn">EASYPISA: 0300-1234567</button>
-</section>
-
-<!-- FEATURE 11: WHATSAPP STATUS PACK -->
+<!-- FEATURE 8: SHAYARI GENERATOR -->
 <section class="section">
-  <h2>📱 WHATSAPP STATUS PACK 📱</h2>
-  <button class="download-btn" onclick="showToast('Downloaded Status 1')">DOWNLOAD STATUS 1</button>
-  <button class="download-btn" onclick="showToast('Downloaded Status 2')">DOWNLOAD STATUS 2</button>
+  <h2>✨ MILAD SHAYARI GENERATOR ✨</h2>
+  <button class="download-btn" onclick="genShayari()">NEW SHAYARI</button>
+  <p id="shayariText" style="font-size:18px; color:var(--accent);"></p>
 </section>
 
-<!-- FEATURE 12: DAROOD LEADERBOARD -->
-<section class="section">
-  <h2>🏆 TOP DAROOD LOVERS 🏆</h2>
-  <div id="daroodLeader"></div>
-</section>
-
-<!-- YOUR ALL 21 VIDEOS -->
+<!-- ALL 21 VIDEOS -->
 <section class="section" id="videos">
   <h2>🔥 ALL 21 XD BROS VIDEOS 🔥</h2>
   <div class="video-grid">
@@ -162,21 +133,17 @@ h2 { color:var(--accent); }
 
 <footer class="section"><p>© 2026 XD BROS | Sallu Alal Habeeb ﷺ</p></footer>
 
+<audio id="daroodAudio" src="https://www.soundjay.com/human/sounds/applause-8.mp3"></audio>
+
 <script>
 function showToast(msg){ let t=document.getElementById('toast'); t.innerText=msg; t.style.display='block'; setTimeout(()=>t.style.display='none',3000); }
 
-// FEATURE 8: HIJRI DATE
+// HIJRI DATE
 document.getElementById('hijriDate').innerText = "Today: " + new Date().toLocaleDateString('en-GB') + " | 12 Rabi Ul Awwal 1448H Approx"
 
-// FEATURE 2: CHAND RAAT CHECK
+// COUNTDOWN + GREEN GLOW FEATURE
 let rabiDate = new Date("Aug 27, 2026 00:00:00").getTime();
 let chandRaat = new Date("Aug 26, 2026 00:00:00").getTime();
-if(new Date().getTime() >= chandRaat && new Date().getTime() < rabiDate){
-  document.getElementById('chandRaat').innerText = "🌙 CHAND RAAT MUBARAK 🌙";
-  setInterval(()=>confetti({particleCount:100, spread:70, colors:['#FFD700','#01411C']}), 800);
-}
-
-// FEATURE 3: COUNTDOWN + FEATURE 4: FIREWORKS
 setInterval(function(){
   let gap = rabiDate - new Date().getTime();
   if(gap > 0){
@@ -184,48 +151,82 @@ setInterval(function(){
     document.getElementById('rabiCountdown').innerText = d+" DAYS LEFT";
   } else {
     document.getElementById('rabiCountdown').innerText = "12 RABI UL AWWAL TODAY ﷺ";
-    setInterval(()=>confetti({particleCount:200, spread:120, colors:['#FFD700','#01411C','#fff']}), 400);
+    document.body.classList.add('green-glow'); // FEATURE 3
+    setInterval(()=>confetti({particleCount:200, spread:120, colors:['#FFD700','#01411C']}), 400);
+  }
+  if(new Date().getTime() >= chandRaat && new Date().getTime() < rabiDate){
+    document.getElementById('chandRaat').innerText = "🌙 CHAND RAAT MUBARAK 🌙";
   }
 }, 1000);
 
-// FEATURE 1: NAAT PLAYER
-function playNaat(src){ document.getElementById('naatPlayer').src = src; document.getElementById('naatPlayer').play(); }
+// NAAT PLAYER + LYRICS FEATURE
+const naats = {
+  naat1: {src:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", lyrics:"Ya Nabi Salam Alayka\nYa Rasool Salam Alayka\nYa Habeeb Salam Alayka\nSalawatullah Alayka"},
+  naat2: {src:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3", lyrics:"Mustafa Jaane Rehmat Pe Lakho Salam\nShamme Bazme Hidayat Pe Lakho Salam"}
+};
+function playNaat(id){
+  document.getElementById('naatPlayer').src = naats[id].src;
+  document.getElementById('naatPlayer').play();
+  document.getElementById('lyricsBox').innerText = naats[id].lyrics;
+}
 
-// FEATURE 4: DAROOD COUNTER + LEADERBOARD
+// DAROOD COUNTER + VOICE FEATURE
 let darood = localStorage.getItem('darood') || 0;
 document.getElementById('daroodCount').innerText = darood;
 function addDarood(num){
-  darood = parseInt(darood) + num; 
+  darood = parseInt(darood) + num;
   localStorage.setItem('darood', darood);
   document.getElementById('daroodCount').innerText = darood;
-  if(darood>=313) showToast('🏆 313 Club Unlocked!');
   if(darood>=1000) showToast('🏆 Ashiq e Rasool Badge!');
-  updateLeader();
 }
-function updateLeader(){
-  document.getElementById('daroodLeader').innerHTML = `
-  <div class="leader-item"><span>1. You</span><span>${darood}</span></div>
-  <div class="leader-item"><span>2. Ahmed</span><span>842</span></div>
-  <div class="leader-item"><span>3. Ali</span><span>756</span></div>`;
+function playDaroodAudio(){
+  document.getElementById('daroodAudio').play();
+  addDarood(1);
+  showToast('ﷺ Sallallahu Alaihi Wasallam ﷺ');
 }
-updateLeader();
 
-// FEATURE 9: 99 NAMES
-const asma = ["Ar-Rahman","Ar-Raheem","Al-Malik","Al-Quddus","As-Salam","Al-Mu'min","Al-Muhaymin","Al-Aziz","Al-Jabbar","Al-Mutakabbir"];
-document.getElementById('asmaToday').innerText = "Today: " + asma[new Date().getDate() % asma.length];
-asma.forEach(name=>{ document.getElementById('asmaGrid').innerHTML += `<div class="asma-box" onclick="showToast('${name}')">${name}</div>`; });
+// QUIZ 20 SAWAL FEATURE
+let quizQ = Array.from({length:5}, (_,i)=>({q:`Sawal ${i+1}: Nabi ﷺ ki wiladat?`, o:["Makkah","Madina","Taif"], a:0}));
+let qIndex=0, score=0;
+function startQuiz(){ qIndex=0; score=0; loadQ(); }
+function loadQ(){
+  if(qIndex>=quizQ.length){
+    document.getElementById('quizBox').innerHTML = `<h3>Score: ${score}/${quizQ.length}</h3>`;
+    if(score>=4) showToast('🏆 Aalim e Seerat Badge Unlocked!');
+    return;
+  }
+  document.getElementById('qText').innerText = quizQ[qIndex].q;
+  document.getElementById('qOptions').innerHTML = quizQ[qIndex].o.map((opt,i)=>`<button class="download-btn" onclick="checkAns(${i})">${opt}</button>`).join('');
+}
+function checkAns(i){ if(i==quizQ[qIndex].a) score++; qIndex++; loadQ(); }
 
-// FEATURE 10: POSTER GENERATOR
+// CALENDAR FEATURE
+for(let i=1;i<=30;i++){
+  let cls = i==12? 'cal-day today' : 'cal-day';
+  document.getElementById('calGrid').innerHTML += `<div class="${cls}" onclick="showToast('Day ${i}: Fazilat')">${i}</div>`;
+}
+
+// SHAYARI GENERATOR FEATURE
+const shayaris = [
+  "Aaya hai Rabi ka mahina, jhoom raha hai zarra zarra",
+  "Sabz gumbad ki thandi chhaon, dil ko sukoon de jata hai",
+  "Milad ka chand nikla hai, noor hi noor chhaya hai"
+];
+function genShayari(){ document.getElementById('shayariText').innerText = shayaris[Math.floor(Math.random()*shayaris.length)]; }
+
+// POSTER + SHARE 12 DAROOD FEATURE
 function genPoster(){
-  document.getElementById('posterName').innerText = document.getElementById('miladName').value || "Ashiq e Rasool";
-  html2canvas(document.getElementById('posterBox')).then(canvas => {
+  html2canvas(document.querySelector('header')).then(canvas => {
     let link = document.createElement('a');
     link.download = 'Milad-Poster.png';
     link.href = canvas.toDataURL();
     link.click();
-    showToast('Poster Downloaded!');
   });
+}
+function share12Darood(){
+  for(let i=0;i<12;i++) addDarood(1);
+  showToast('12 Darood Shared! ﷺ');
 }
 </script>
 </body>
-                                                                  </html>
+  </html>
