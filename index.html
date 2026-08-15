@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -11,202 +11,153 @@
 <style>
 :root{ --bg:#01411C; --card:#001f0d; --text:#fff; --accent:#FFD700; }
 body { margin:0; font-family:'Arial'; background:var(--bg); color:var(--text); }
-body.green-glow { box-shadow: inset 0 0 500px rgba(0,255,0,0.3); animation:glow 3s infinite; }
-@keyframes glow { 0%,100%{box-shadow:inset 0 0 500px rgba(0,255,0,0.2)} 50%{box-shadow:inset 0 0 500px rgba(0,255,0,0.4)} }
+#loading { position:fixed; top:0; left:0; width:100%; height:100%; background:#000; z-index:99999; display:flex; flex-direction:column; justify-content:center; align-items:center; }
+#mainContent { display:none; }
 #toast { position:fixed; bottom:80px; left:50%; transform:translateX(-50%); background:var(--accent); color:#000; padding:16px 30px; border-radius:50px; font-weight:bold; z-index:9999; display:none; }
-nav { background:#000; padding:14px; position:sticky; top:0; border-bottom:4px solid var(--accent); text-align:center; overflow-x:auto; white-space:nowrap; }
-nav a { color:var(--accent); margin:0 8px; text-decoration:none; font-weight:bold; font-size:13px; }
-header { text-align:center; padding:50px 20px; background:radial-gradient(circle, #01411C 0%, #000 100%); border-bottom:4px solid var(--accent); position:relative; }
-.moon { position:absolute; top:20px; right:10%; font-size:60px; animation:float 4s ease-in-out infinite; }
-@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-15px)} }
-.logo { width:160px; border-radius:50%; border:5px solid var(--accent); box-shadow:0 0 30px var(--accent); }
+nav { background:#000; padding:14px; position:sticky; top:0; border-bottom:4px solid var(--accent); text-align:center; }
+.logo { width:160px; border-radius:50%; border:5px solid var(--accent); }
 .section { padding:50px 20px; text-align:center; border-bottom:2px solid #003d1a; }
-h1 { color:var(--accent); font-size:40px; }
-h2 { color:var(--accent); font-size:28px; }
-.countdown { font-size:55px; color:var(--accent); font-weight:bold; text-shadow:0 0 20px var(--accent); }
-.darood-btn { background:var(--accent); color:#000; padding:25px 50px; border:none; border-radius:50px; font-size:24px; font-weight:bold; cursor:pointer; }
-.download-btn { background:var(--accent); color:#000; padding:14px 28px; border:none; border-radius:10px; font-weight:bold; cursor:pointer; margin:10px; }
-#daroodCount, #communityCount { font-size:60px; color:var(--accent); font-weight:bold; }
-.progress-bar { background:#002a12; height:35px; border-radius:20px; overflow:hidden; max-width:600px; margin:20px auto; border:2px solid var(--accent); }
-.progress-fill { background:linear-gradient(90deg, var(--accent), #fff); height:100%; transition:1s; }
+h1,h2 { color:var(--accent); }
+.darood-btn, .download-btn { background:var(--accent); color:#000; padding:16px 30px; border:none; border-radius:10px; font-weight:bold; cursor:pointer; margin:10px; font-size:16px; }
+.coin-box { background:#000; padding:20px; border:3px solid var(--accent); border-radius:15px; max-width:500px; margin:20px auto; }
+.ticket { background:var(--card); padding:20px; margin:15px; border-radius:15px; border:2px solid var(--accent); display:inline-block; width:250px; }
+#videoLock { filter:blur(10px); pointer-events:none; }
 .video-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; max-width:1400px; margin:auto; }
 .video-box { background:var(--card); padding:15px; border-radius:15px; border:2px solid var(--accent); }
-.video-box iframe { width:100%; height:200px; border:none; border-radius:10px; }
-.prayer-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:15px; max-width:900px; margin:20px auto; }
-.prayer-box { background:var(--card); padding:20px; border-radius:15px; border:2px solid var(--accent); }
-.qibla { width:200px; height:200px; border:4px solid var(--accent); border-radius:50%; margin:20px auto; position:relative; }
-.qibla-arrow { position:absolute; top:50%; left:50%; width:4px; height:80px; background:red; transform-origin:bottom; transform:translate(-50%, -100%) rotate(260deg); }
-.zikr-box { background:#000; padding:30px; border-radius:20px; border:3px solid var(--accent); max-width:400px; margin:auto; }
+.video-box iframe { width:100%; height:200px; border:none; }
 </style>
 </head>
 <body>
 
+<!-- LOADING + TICKET PAGE -->
+<div id="loading">
+  <img src="logo.png" class="logo">
+  <h1 style="color:#FFD700;">XD BROS MILAD HUB 2026</h1>
+  <h2>GET YOUR TICKET TO ENTER ﷺ</h2>
+  <p>Earn XD Coins by sending Darood</p>
+  
+  <div class="coin-box">
+    <h2>💰 YOUR XD COINS: <span id="xdCoins">0</span> XD</h2>
+    <button class="darood-btn" onclick="earnCoins(5)">SEND 10 DAROOD = +5 XD</button>
+  </div>
+
+  <h2>BUY ENTRY TICKET</h2>
+  <div class="ticket">
+    <h3>BRONZE TICKET</h3>
+    <p>10 XD Coins</p>
+    <button class="download-btn" onclick="buyTicket(10)">BUY NOW</button>
+  </div>
+  <div class="ticket">
+    <h3>GOLD TICKET</h3>
+    <p>50 XD Coins</p>
+    <button class="download-btn" onclick="buyTicket(50)">BUY NOW</button>
+  </div>
+  <div class="ticket">
+    <h3>VIP TICKET</h3>
+    <p>100 XD Coins</p>
+    <button class="download-btn" onclick="buyTicket(100)">BUY NOW</button>
+  </div>
+  <p style="color:#888; font-size:12px;">Note: XD Coins are for site features only. Not real money</p>
+</div>
+
+<!-- MAIN WEBSITE -->
+<div id="mainContent">
+
 <div id="toast"></div>
 
 <nav>
-  <a href="#home">🏠 HOME</a><a href="#prayer">🕌 PRAYER</a><a href="#qibla">🧭 QIBLA</a><a href="#zikr">📿 ZIKR</a><a href="#countdown">⏰ COUNTDOWN</a><a href="#target">🎯 12,000</a><a href="#darood">💚 DAROOD</a><a href="#poetry">✍️ POETRY</a><a href="#masjid">📍 MASJID</a><a href="#calendar">📅 HIJRI</a><a href="#videos">🔥 VIDEOS</a>
+  <a href="#home">🏠 HOME</a><a href="#coins">💰 COINS</a><a href="#darood">💚 DAROOD</a><a href="#videos">🔥 VIDEOS</a>
+  <span style="float:right; color:#FFD700;">XD: <span id="navCoins">0</span></span>
 </nav>
 
 <header id="home">
-  <div class="moon">🌙</div>
   <img src="logo.png" class="logo">
   <h1>XD BROS</h1>
   <h2>12 RABI UL AWAL MEGA HUB 2026</h2>
-  <h3 style="color:#FFD700;">27 AUGUST 2026 - EID MILAD UN NABI ﷺ</h3>
-  <p id="hijriDate"></p>
-  <p id="chandRaat" style="color:#FFD700; font-size:22px;"></p>
+  <h3 style="color:#FFD700;">27 AUGUST 2026</h3>
 </header>
 
-<!-- 1. ZIKR COUNTER - YA RASOOL ALLAH -->
-<section class="section" id="zikr">
-  <h2>📿 YA RASOOL ALLAH ZIKR COUNTER 📿</h2>
-  <div class="zikr-box">
-    <h1 id="zikrCount" style="font-size:70px; color:#FFD700;">0</h1>
-    <button class="darood-btn" onclick="addZikr()">YA RASOOL ALLAH ﷺ</button>
-    <button class="download-btn" onclick="resetZikr()">RESET</button>
-  </div>
+<!-- COINS SECTION -->
+<section class="section" id="coins">
+  <h2>💰 XD COINS WALLET 💰</h2>
+  <h1 id="coinsDisplay">0 XD</h1>
+  <p>10 Darood = 5 XD Coins</p>
+  <button class="darood-btn" onclick="earnCoins(5)">SEND 10 DAROOD GET 5 XD</button>
 </section>
 
-<!-- 2. PRAYER TIMES -->
-<section class="section" id="prayer">
-  <h2>🕌 PRAYER TIMES - KARACHI 🕌</h2>
-  <div class="prayer-grid" id="prayerGrid"></div>
-  <p id="nextPrayer" style="color:#FFD700; font-size:20px;"></p>
+<!-- DAROOD -->
+<section class="section" id="darood">
+  <h2>💚 DAROOD COUNTER - FOR SAWAB 💚</h2>
+  <div id="daroodCount" style="font-size:60px; color:#FFD700;">0</div>
+  <button class="darood-btn" onclick="addDarood(10)">SEND 10 DAROOD</button>
+  <p>Earn 5 XD Coins each time</p>
 </section>
 
-<!-- 3. QIBLA FINDER -->
-<section class="section" id="qibla">
-  <h2>🧭 QIBLA FINDER 🧭</h2>
-  <div class="qibla"><div class="qibla-arrow"></div><div style="position:absolute; bottom:10px; width:100%; text-align:center; color:var(--accent);">KAABA</div></div>
-  <p>Direction: 260° South-West from Karachi</p>
-</section>
-
-<!-- 4. 12 BAJE NOTIFICATION -->
-<section class="section" style="background:#000;">
-  <h2>🔔 12 BAJE DAROOD NOTIFICATION 🔔</h2>
-  <p>Har raat 12 baje auto Darood reminder</p>
-  <button class="download-btn" onclick="enableNotif()">ENABLE 12 AM ALERT</button>
-</section>
-
-<!-- 5. MASJID LOCATOR -->
-<section class="section" id="masjid">
-  <h2>📍 FIND NEAREST MILAD MEHFIL 📍</h2>
-  <button class="download-btn" onclick="findMasjid()">FIND MASJID NEAR ME</button>
-  <div id="masjidList"></div>
-</section>
-
-<!-- 6. DAROOD SHARE CARD -->
-<section class="section">
-  <h2>📤 DAROOD SHARE CARD 📤</h2>
-  <div id="shareCard" style="background:#000; padding:30px; border:3px solid var(--accent); max-width:400px; margin:auto;">
-    <h2 style="color:#FFD700;">ﷺ</h2>
-    <h3>Send 12 Darood Today</h3>
-    <p>12 Rabi Ul Awal Mubarak</p>
-  </div>
-  <button class="download-btn" onclick="downloadShareCard()">DOWNLOAD CARD</button>
-  <button class="download-btn" onclick="shareCard()">SHARE ON WHATSAPP</button>
-</section>
-
-<!-- 7. MILAD POETRY GENERATOR -->
-<section class="section" id="poetry">
-  <h2>✍️ MILAD POETRY GENERATOR ✍️</h2>
-  <input id="poetryName" placeholder="Apna Naam" style="padding:14px; width:300px;">
-  <button class="download-btn" onclick="genPoetry()">GENERATE NAAT</button>
-  <p id="poetryOutput" style="color:#FFD700; font-size:18px; margin-top:20px;"></p>
-</section>
-
-<!-- 8. FLOATING MOON ANIMATION - ALREADY IN HEADER -->
-
-<!-- 9. ISLAMIC HIJRI CALENDAR -->
-<section class="section" id="calendar">
-  <h2>📅 ISLAMIC CALENDAR 1448H 📅</h2>
-  <div style="background:#000; padding:20px; max-width:500px; margin:auto; border-radius:15px;">
-    <h3>Rabi Ul Awwal 1448H</h3>
-    <p><b>1 Rabi:</b> 16 Aug 2026</p>
-    <p style="color:#FFD700;"><b>12 Rabi:</b> 27 Aug 2026 - EID MILAD</p>
-    <p><b>29 Rabi:</b> 13 Sep 2026</p>
-  </div>
-</section>
-
-<!-- 10. FAMILY DAROOD GROUP -->
-<section class="section">
-  <h2>👨‍👩‍👧‍👦 FAMILY DAROOD GROUP 👨‍👩‍👧‍👦</h2>
-  <input id="familyName" placeholder="Family Member Name" style="padding:12px;">
-  <button class="download-btn" onclick="addFamily()">ADD MEMBER</button>
-  <div id="familyList"></div>
-  <h3>Total Family Darood: <span id="familyTotal">0</span></h3>
-</section>
-
-<!-- COUNTDOWN -->
-<section class="section" id="countdown">
-  <h2>🌙 COUNTDOWN TO 12 RABI UL AWAL 🌙</h2>
-  <div class="countdown" id="rabiCountdown"></div>
-</section>
-
-<!-- COMMUNITY TARGET -->
-<section class="section" id="target" style="background:#000;">
-  <h2>🎯 COMMUNITY TARGET: 12,000 DAROOD 🎯</h2>
-  <div class="progress-bar"><div class="progress-fill" id="communityBar" style="width:45%;"></div></div>
-  <div id="communityCount">5,432 / 12,000</div>
-  <button class="darood-btn" onclick="addCommunityDarood()">SEND 1 DAROOD ﷺ</button>
-</section>
-
-<!-- VIDEOS -->
+<!-- VIDEOS LOCKED -->
 <section class="section" id="videos">
   <h2>🔥 ALL 21 XD BROS VIDEOS 🔥</h2>
-  <div class="video-grid">
-    <div class="video-box"><h4>1. MERA PEHCHAAN</h4><iframe src="https://www.youtube.com/embed/oCTIhvfO9vU"></iframe></div>
-    <div class="video-box"><h4>2. 14 August</h4><iframe src="https://www.youtube.com/embed/2FexPZ-mATE"></iframe></div>
-    <div class="video-box"><h4>3. Gaming</h4><iframe src="https://www.youtube.com/embed/9CG6AaO6XN4"></iframe></div>
+  <div id="videoLock">
+    <div class="video-grid">
+      <div class="video-box"><h4>1. MERA PEHCHAAN</h4><iframe src="https://www.youtube.com/embed/oCTIhvfO9vU"></iframe></div>
+      <div class="video-box"><h4>2. 14 August</h4><iframe src="https://www.youtube.com/embed/2FexPZ-mATE"></iframe></div>
+      <div class="video-box"><h4>3. Gaming 1</h4><iframe src="https://www.youtube.com/embed/9CG6AaO6XN4"></iframe></div>
+      <div class="video-box"><h4>4. Gaming 2</h4><iframe src="https://www.youtube.com/embed/CdDWdc5ddQM"></iframe></div>
+      <div class="video-box"><h4>5. Funny</h4><iframe src="https://www.youtube.com/embed/lEmgFDwPnrQ"></iframe></div>
+      <div class="video-box"><h4>6-21. More Videos...</h4><iframe src="https://www.youtube.com/embed/dm27esRuqjw"></iframe></div>
+    </div>
   </div>
+  <div id="unlockMsg"><h2 style="color:red;">🔒 BUY TICKET TO UNLOCK ALL VIDEOS</h2></div>
 </section>
 
 <footer class="section" style="background:#000;"><h2>Sallu Alal Habeeb ﷺ</h2></footer>
+</div>
 
 <script>
 function showToast(msg){ let t=document.getElementById('toast'); t.innerText=msg; t.style.display='block'; setTimeout(()=>t.style.display='none',4000); }
 
-// 1. ZIKR
-let zikr = 0;
-function addZikr(){ zikr++; document.getElementById('zikrCount').innerText=zikr; if(zikr%100==0) showToast('100 Zikr Complete!'); }
-function resetZikr(){ zikr=0; document.getElementById('zikrCount').innerText=0; }
+// LOAD DATA
+let xdCoins = parseInt(localStorage.getItem('xdCoins')) || 0;
+let darood = parseInt(localStorage.getItem('darood')) || 0;
+let hasTicket = localStorage.getItem('hasTicket') === 'true';
 
-// PRAYER
-const prayers = [{name:"FAJR", time:"05:12 AM"},{name:"DHUHR", time:"12:45 PM"},{name:"ASR", time:"05:30 PM"},{name:"MAGHRIB", time:"06:45 PM"},{name:"ISHA", time:"08:00 PM"}];
-prayers.forEach(p=>{ document.getElementById('prayerGrid').innerHTML += `<div class="prayer-box"><h3>${p.name}</h3><p>${p.time}</p></div>`; });
-document.getElementById('nextPrayer').innerText = "Next: Maghrib at 6:45 PM";
+function updateUI(){
+  document.getElementById('xdCoins').innerText = xdCoins;
+  document.getElementById('navCoins').innerText = xdCoins;
+  document.getElementById('coinsDisplay').innerText = xdCoins + ' XD';
+  document.getElementById('daroodCount').innerText = darood;
+  if(hasTicket){
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('mainContent').style.display = 'block';
+    document.getElementById('videoLock').style.filter = 'none';
+    document.getElementById('videoLock').style.pointerEvents = 'auto';
+    document.getElementById('unlockMsg').style.display = 'none';
+  }
+}
+updateUI();
 
-// 4. 12 BAJE NOTIF
-function enableNotif(){ showToast('12 AM Darood Alert Enabled!'); }
+// EARN COINS FROM DAROOD
+function earnCoins(amount){
+  xdCoins += amount;
+  darood += 10;
+  localStorage.setItem('xdCoins', xdCoins);
+  localStorage.setItem('darood', darood);
+  updateUI();
+  showToast(`+${amount} XD Coins! 10 Darood Sent ﷺ`);
+}
 
-// 5. MASJID
-function findMasjid(){ document.getElementById('masjidList').innerHTML = `<p>1. Jamia Masjid Karachi - 1.2km</p><p>2. Noor Masjid - 2.5km</p><p>3. Milad Gah - 3km</p>`; }
-
-// 6. SHARE CARD
-function downloadShareCard(){ html2canvas(document.getElementById('shareCard')).then(c=>{let a=document.createElement('a'); a.download='Darood-Card.png'; a.href=c.toDataURL(); a.click();}); }
-function shareCard(){ window.open(`https://wa.me/?text=Send 12 Darood Today ﷺ`); }
-
-// 7. POETRY
-function genPoetry(){ let name=document.getElementById('poetryName').value; document.getElementById('poetryOutput').innerText = `${name}, tumhare dil me hai Noor e Mustafa\n12 Rabi ki aamad se jhoom utha ye jahan`; }
-
-// 10. FAMILY
-let familyTotal = 0;
-function addFamily(){ let name=document.getElementById('familyName').value; if(name){ familyTotal++; document.getElementById('familyList').innerHTML += `<p>${name}: <button onclick="familyTotal++; document.getElementById('familyTotal').innerText=familyTotal">+1 Darood</button></p>`; document.getElementById('familyTotal').innerText=familyTotal; } }
-
-// DATE + COUNTDOWN
-document.getElementById('hijriDate').innerText = "Today: " + new Date().toLocaleDateString('en-GB') + " | Rabi Ul Awwal 1448H"
-let rabiDate = new Date("Aug 27, 2026 00:00:00").getTime();
-setInterval(function(){
-  let gap = rabiDate - new Date().getTime();
-  let d = Math.floor(gap / (1000 * 60 * 60 * 24));
-  if(gap > 0){ document.getElementById('rabiCountdown').innerText = d+" DAYS LEFT"; }
-  else { document.getElementById('rabiCountdown').innerText = "12 RABI TODAY ﷺ"; document.body.classList.add('green-glow'); setInterval(()=>confetti({particleCount:300}), 300); }
-}, 1000);
-
-// COMMUNITY
-let community = 5432;
-setInterval(()=>{ community++; document.getElementById('communityCount').innerText = `${community} / 12,000`; document.getElementById('communityBar').style.width = (community/12000*100)+'%'; }, 5000);
-function addCommunityDarood(){ community++; showToast('JazakAllah!'); }
+// BUY TICKET
+function buyTicket(price){
+  if(xdCoins >= price){
+    xdCoins -= price;
+    hasTicket = true;
+    localStorage.setItem('xdCoins', xdCoins);
+    localStorage.setItem('hasTicket', 'true');
+    updateUI();
+    showToast('Ticket Purchased! Welcome to XD BROS Hub');
+  } else {
+    showToast('Not enough XD Coins! Send more Darood');
+  }
+}
 </script>
 </body>
   </html>
