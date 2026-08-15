@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>12 RABI UL AWAL 2026 | XD BROS MILAD + VIDEOS HUB ﷺ</title>
+<title>12 RABI UL AWAL 2026 | XD BROS MILAD HUB ﷺ</title>
 <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/197/197374.png">
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -15,14 +15,16 @@ body.green-glow { box-shadow: inset 0 0 500px rgba(0,255,0,0.3); animation:glow 
 @keyframes glow { 0%,100%{box-shadow:inset 0 0 500px rgba(0,255,0,0.2)} 50%{box-shadow:inset 0 0 500px rgba(0,255,0,0.4)} }
 #toast { position:fixed; bottom:80px; left:50%; transform:translateX(-50%); background:var(--accent); color:#000; padding:16px 30px; border-radius:50px; font-weight:bold; z-index:9999; display:none; }
 nav { background:#000; padding:14px; position:sticky; top:0; border-bottom:4px solid var(--accent); text-align:center; overflow-x:auto; white-space:nowrap; }
-nav a { color:var(--accent); margin:0 10px; text-decoration:none; font-weight:bold; font-size:14px; }
-header { text-align:center; padding:50px 20px; background:radial-gradient(circle, #01411C 0%, #000 100%); border-bottom:4px solid var(--accent); }
+nav a { color:var(--accent); margin:0 8px; text-decoration:none; font-weight:bold; font-size:13px; }
+header { text-align:center; padding:50px 20px; background:radial-gradient(circle, #01411C 0%, #000 100%); border-bottom:4px solid var(--accent); position:relative; }
+.moon { position:absolute; top:20px; right:10%; font-size:60px; animation:float 4s ease-in-out infinite; }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-15px)} }
 .logo { width:160px; border-radius:50%; border:5px solid var(--accent); box-shadow:0 0 30px var(--accent); }
 .section { padding:50px 20px; text-align:center; border-bottom:2px solid #003d1a; }
 h1 { color:var(--accent); font-size:40px; }
 h2 { color:var(--accent); font-size:28px; }
 .countdown { font-size:55px; color:var(--accent); font-weight:bold; text-shadow:0 0 20px var(--accent); }
-.darood-btn { background:var(--accent); color:#000; padding:25px 50px; border:none; border-radius:50px; font-size:24px; font-weight:bold; cursor:pointer; box-shadow:0 0 20px var(--accent); }
+.darood-btn { background:var(--accent); color:#000; padding:25px 50px; border:none; border-radius:50px; font-size:24px; font-weight:bold; cursor:pointer; }
 .download-btn { background:var(--accent); color:#000; padding:14px 28px; border:none; border-radius:10px; font-weight:bold; cursor:pointer; margin:10px; }
 #daroodCount, #communityCount { font-size:60px; color:var(--accent); font-weight:bold; }
 .progress-bar { background:#002a12; height:35px; border-radius:20px; overflow:hidden; max-width:600px; margin:20px auto; border:2px solid var(--accent); }
@@ -30,9 +32,11 @@ h2 { color:var(--accent); font-size:28px; }
 .video-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; max-width:1400px; margin:auto; }
 .video-box { background:var(--card); padding:15px; border-radius:15px; border:2px solid var(--accent); }
 .video-box iframe { width:100%; height:200px; border:none; border-radius:10px; }
-.lyrics-box { background:#000; padding:20px; border-radius:15px; margin:20px auto; max-width:700px; text-align:left; white-space:pre-line; border:2px solid var(--accent); }
-.story-card { background:var(--card); padding:20px; margin:15px auto; max-width:700px; border-radius:15px; text-align:left; border-left:5px solid var(--accent); }
-.badge { display:inline-block; background:#000; color:var(--accent); padding:8px 15px; border-radius:20px; margin:5px; border:2px solid var(--accent); }
+.prayer-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:15px; max-width:900px; margin:20px auto; }
+.prayer-box { background:var(--card); padding:20px; border-radius:15px; border:2px solid var(--accent); }
+.qibla { width:200px; height:200px; border:4px solid var(--accent); border-radius:50%; margin:20px auto; position:relative; }
+.qibla-arrow { position:absolute; top:50%; left:50%; width:4px; height:80px; background:red; transform-origin:bottom; transform:translate(-50%, -100%) rotate(260deg); }
+.zikr-box { background:#000; padding:30px; border-radius:20px; border:3px solid var(--accent); max-width:400px; margin:auto; }
 </style>
 </head>
 <body>
@@ -40,28 +44,106 @@ h2 { color:var(--accent); font-size:28px; }
 <div id="toast"></div>
 
 <nav>
-  <a href="#home">🏠 HOME</a><a href="#countdown">⏰ COUNTDOWN</a><a href="#target">🎯 12,000</a><a href="#darood">💚 DAROOD</a><a href="#tasbeeh">📿 TASBEEH</a><a href="#naat">🎵 NAAT</a><a href="#seerat">📜 SEERAT</a><a href="#quiz">🧠 QUIZ</a><a href="#nameart">✨ NAME ART</a><a href="#mehfil">🕌 MEHFIL</a><a href="#dua">🤲 DUA</a><a href="#dp">📸 DP</a><a href="#videos">🔥 VIDEOS</a>
+  <a href="#home">🏠 HOME</a><a href="#prayer">🕌 PRAYER</a><a href="#qibla">🧭 QIBLA</a><a href="#zikr">📿 ZIKR</a><a href="#countdown">⏰ COUNTDOWN</a><a href="#target">🎯 12,000</a><a href="#darood">💚 DAROOD</a><a href="#poetry">✍️ POETRY</a><a href="#masjid">📍 MASJID</a><a href="#calendar">📅 HIJRI</a><a href="#videos">🔥 VIDEOS</a>
 </nav>
 
 <header id="home">
+  <div class="moon">🌙</div>
   <img src="logo.png" class="logo">
   <h1>XD BROS</h1>
   <h2>12 RABI UL AWAL MEGA HUB 2026</h2>
   <h3 style="color:#FFD700;">27 AUGUST 2026 - EID MILAD UN NABI ﷺ</h3>
   <p id="hijriDate"></p>
   <p id="chandRaat" style="color:#FFD700; font-size:22px;"></p>
-  <p style="color:#0f0;">🔴 <span id="liveViewers">2,156</span> Ashiq Online</p>
 </header>
 
-<!-- 1. COUNTDOWN -->
+<!-- 1. ZIKR COUNTER - YA RASOOL ALLAH -->
+<section class="section" id="zikr">
+  <h2>📿 YA RASOOL ALLAH ZIKR COUNTER 📿</h2>
+  <div class="zikr-box">
+    <h1 id="zikrCount" style="font-size:70px; color:#FFD700;">0</h1>
+    <button class="darood-btn" onclick="addZikr()">YA RASOOL ALLAH ﷺ</button>
+    <button class="download-btn" onclick="resetZikr()">RESET</button>
+  </div>
+</section>
+
+<!-- 2. PRAYER TIMES -->
+<section class="section" id="prayer">
+  <h2>🕌 PRAYER TIMES - KARACHI 🕌</h2>
+  <div class="prayer-grid" id="prayerGrid"></div>
+  <p id="nextPrayer" style="color:#FFD700; font-size:20px;"></p>
+</section>
+
+<!-- 3. QIBLA FINDER -->
+<section class="section" id="qibla">
+  <h2>🧭 QIBLA FINDER 🧭</h2>
+  <div class="qibla"><div class="qibla-arrow"></div><div style="position:absolute; bottom:10px; width:100%; text-align:center; color:var(--accent);">KAABA</div></div>
+  <p>Direction: 260° South-West from Karachi</p>
+</section>
+
+<!-- 4. 12 BAJE NOTIFICATION -->
+<section class="section" style="background:#000;">
+  <h2>🔔 12 BAJE DAROOD NOTIFICATION 🔔</h2>
+  <p>Har raat 12 baje auto Darood reminder</p>
+  <button class="download-btn" onclick="enableNotif()">ENABLE 12 AM ALERT</button>
+</section>
+
+<!-- 5. MASJID LOCATOR -->
+<section class="section" id="masjid">
+  <h2>📍 FIND NEAREST MILAD MEHFIL 📍</h2>
+  <button class="download-btn" onclick="findMasjid()">FIND MASJID NEAR ME</button>
+  <div id="masjidList"></div>
+</section>
+
+<!-- 6. DAROOD SHARE CARD -->
+<section class="section">
+  <h2>📤 DAROOD SHARE CARD 📤</h2>
+  <div id="shareCard" style="background:#000; padding:30px; border:3px solid var(--accent); max-width:400px; margin:auto;">
+    <h2 style="color:#FFD700;">ﷺ</h2>
+    <h3>Send 12 Darood Today</h3>
+    <p>12 Rabi Ul Awal Mubarak</p>
+  </div>
+  <button class="download-btn" onclick="downloadShareCard()">DOWNLOAD CARD</button>
+  <button class="download-btn" onclick="shareCard()">SHARE ON WHATSAPP</button>
+</section>
+
+<!-- 7. MILAD POETRY GENERATOR -->
+<section class="section" id="poetry">
+  <h2>✍️ MILAD POETRY GENERATOR ✍️</h2>
+  <input id="poetryName" placeholder="Apna Naam" style="padding:14px; width:300px;">
+  <button class="download-btn" onclick="genPoetry()">GENERATE NAAT</button>
+  <p id="poetryOutput" style="color:#FFD700; font-size:18px; margin-top:20px;"></p>
+</section>
+
+<!-- 8. FLOATING MOON ANIMATION - ALREADY IN HEADER -->
+
+<!-- 9. ISLAMIC HIJRI CALENDAR -->
+<section class="section" id="calendar">
+  <h2>📅 ISLAMIC CALENDAR 1448H 📅</h2>
+  <div style="background:#000; padding:20px; max-width:500px; margin:auto; border-radius:15px;">
+    <h3>Rabi Ul Awwal 1448H</h3>
+    <p><b>1 Rabi:</b> 16 Aug 2026</p>
+    <p style="color:#FFD700;"><b>12 Rabi:</b> 27 Aug 2026 - EID MILAD</p>
+    <p><b>29 Rabi:</b> 13 Sep 2026</p>
+  </div>
+</section>
+
+<!-- 10. FAMILY DAROOD GROUP -->
+<section class="section">
+  <h2>👨‍👩‍👧‍👦 FAMILY DAROOD GROUP 👨‍👩‍👧‍👦</h2>
+  <input id="familyName" placeholder="Family Member Name" style="padding:12px;">
+  <button class="download-btn" onclick="addFamily()">ADD MEMBER</button>
+  <div id="familyList"></div>
+  <h3>Total Family Darood: <span id="familyTotal">0</span></h3>
+</section>
+
+<!-- COUNTDOWN -->
 <section class="section" id="countdown">
   <h2>🌙 COUNTDOWN TO 12 RABI UL AWAL 🌙</h2>
   <div class="countdown" id="rabiCountdown"></div>
-  <button class="download-btn" onclick="genMiladPoster()">📸 MILAD POSTER</button>
-  <button class="download-btn" onclick="shareMilad()">📤 SHARE 12 RABI</button>
 </section>
 
-<!-- 2. COMMUNITY 12,000 DAROOD -->
+<!-- COMMUNITY TARGET -->
 <section class="section" id="target" style="background:#000;">
   <h2>🎯 COMMUNITY TARGET: 12,000 DAROOD 🎯</h2>
   <div class="progress-bar"><div class="progress-fill" id="communityBar" style="width:45%;"></div></div>
@@ -69,184 +151,62 @@ h2 { color:var(--accent); font-size:28px; }
   <button class="darood-btn" onclick="addCommunityDarood()">SEND 1 DAROOD ﷺ</button>
 </section>
 
-<!-- 3. PERSONAL DAROOD + BADGES -->
-<section class="section" id="darood">
-  <h2>💚 YOUR DAROOD COUNTER 💚</h2>
-  <div id="daroodCount">0</div>
-  <button class="darood-btn" onclick="addDarood(1)">ﷺ SEND DAROOD ﷺ</button>
-  <button class="darood-btn" onclick="addDarood(12)">SEND 12 DAROOD ﷺ</button>
-  <div id="badges"></div>
-</section>
-
-<!-- 4. DIGITAL TASBEEH -->
-<section class="section" id="tasbeeh">
-  <h2>📿 MILAD TASBEEH COUNTER 📿</h2>
-  <h1 id="tasbeehCount" style="font-size:80px; color:#FFD700;">0</h1>
-  <button class="darood-btn" onclick="addTasbeeh()">SUBHANALLAH</button>
-  <button class="download-btn" onclick="resetTasbeeh()">RESET</button>
-</section>
-
-<!-- 5. NAAT KARAOKE -->
-<section class="section" id="naat">
-  <h2>🎵 NAAT E MILAD + LYRICS 🎵</h2>
-  <audio id="naatPlayer" controls style="width:80%; max-width:600px;"></audio><br>
-  <button class="download-btn" onclick="playNaat('naat1')">Marhaba Ya Mustafa</button>
-  <button class="download-btn" onclick="playNaat('naat2')">Talat e Badar</button>
-  <div class="lyrics-box" id="lyricsBox">Select a Naat</div>
-</section>
-
-<!-- 6. 12 DAYS SEERAT -->
-<section class="section" id="seerat">
-  <h2>📜 12 DAYS SEERAT UN NABI ﷺ 📜</h2>
-  <div id="seeratGrid"></div>
-</section>
-
-<!-- 7. QUIZ + CERTIFICATE -->
-<section class="section" id="quiz">
-  <h2>🧠 12 RABI QUIZ + E-CERTIFICATE 🧠</h2>
-  <div id="quizBox">
-    <p id="qText">Click Start</p><div id="qOptions"></div>
-    <button class="download-btn" onclick="startQuiz()">START QUIZ</button>
-  </div>
-</section>
-
-<!-- 8. NAME ART GENERATOR -->
-<section class="section" id="nameart">
-  <h2>✨ MILAD NAME ART GENERATOR ✨</h2>
-  <input id="nameArt" placeholder="Apna Naam" style="padding:14px; width:300px; border-radius:10px;">
-  <button class="download-btn" onclick="genNameArt()">GENERATE</button>
-  <h2 id="nameOutput" style="color:#FFD700;"></h2>
-</section>
-
-<!-- 9. VIRTUAL MEHFIL -->
-<section class="section" id="mehfil" style="background:#000;">
-  <h2>🕌 LIVE VIRTUAL MEHFIL 🕌</h2>
-  <div id="mehfilChat" style="background:#111; height:200px; overflow-y:auto; padding:10px; text-align:left;"></div>
-  <input id="mehfilInput" placeholder="Type ﷺ" style="padding:10px; width:60%;">
-  <button class="download-btn" onclick="sendMehfil()">SEND DAROOD</button>
-</section>
-
-<!-- 10. DUA WALL -->
-<section class="section" id="dua">
-  <h2>🤲 12 RABI DUA WALL 🤲</h2>
-  <input id="duaInput" placeholder="Dua likhein" style="padding:14px; width:80%; max-width:400px;">
-  <button class="download-btn" onclick="addDua()">POST DUA</button>
-  <div id="duaWall"></div>
-</section>
-
-<!-- 11. DP FRAME -->
-<section class="section" id="dp">
-  <h2>📸 12 RABI DP FRAME 📸</h2>
-  <input type="file" id="dpUpload" accept="image/*">
-  <button class="download-btn" onclick="genDP()">ADD FRAME</button>
-</section>
-
-<!-- 12. VIRTUAL ZIYARAT -->
-<section class="section">
-  <h2>🕌 VIRTUAL ROZA E RASOOL ﷺ 🕌</h2>
-  <img src="https://via.placeholder.com/500x350/01411C/FFD700?text=ROZA+E+RASOOL+ﷺ" style="width:90%; max-width:500px; border:4px solid var(--accent); cursor:pointer;" onclick="virtualChadar()">
-</section>
-
-<!-- 13. AZKAR + HADITH -->
-<section class="section">
-  <h2>📖 DAILY AZKAR + HADITH 📖</h2>
-  <p id="hadithToday"></p>
-  <button class="download-btn" onclick="showToast('Subha: Ayatul Kursi 1 bar')">SUBHA AZKAR</button>
-  <button class="download-btn" onclick="showToast('Sham: 3 Qul 3 bar')">SHAM AZKAR</button>
-</section>
-
-<!-- 14. ALL XD BROS VIDEOS - WAPIS AA GAYE -->
+<!-- VIDEOS -->
 <section class="section" id="videos">
   <h2>🔥 ALL 21 XD BROS VIDEOS 🔥</h2>
   <div class="video-grid">
-    <div class="video-box"><h4>1. MERA PEHCHAAN - Anthem</h4><iframe src="https://www.youtube.com/embed/oCTIhvfO9vU"></iframe></div>
-    <div class="video-box"><h4>2. 14 August Special</h4><iframe src="https://www.youtube.com/embed/2FexPZ-mATE"></iframe></div>
-    <div class="video-box"><h4>3. Gaming Montage 1</h4><iframe src="https://www.youtube.com/embed/9CG6AaO6XN4"></iframe></div>
-    <div class="video-box"><h4>4. Gaming Montage 2</h4><iframe src="https://www.youtube.com/embed/CdDWdc5ddQM"></iframe></div>
-    <div class="video-box"><h4>5. Funny Clip</h4><iframe src="https://www.youtube.com/embed/lEmgFDwPnrQ"></iframe></div>
-    <div class="video-box"><h4>6. Vlog 1</h4><iframe src="https://www.youtube.com/embed/dm27esRuqjw"></iframe></div>
-    <div class="video-box"><h4>7. Vlog 2</h4><iframe src="https://www.youtube.com/embed/UfwJ11F_BTI"></iframe></div>
-    <div class="video-box"><h4>8. Music Video 1</h4><iframe src="https://www.youtube.com/embed/uPB7bXwbrwg"></iframe></div>
-    <div class="video-box"><h4>9. Music Video 2</h4><iframe src="https://www.youtube.com/embed/foPVohn_8DQ"></iframe></div>
-    <div class="video-box"><h4>10. Challenge</h4><iframe src="https://www.youtube.com/embed/KqmQn-OuSTc"></iframe></div>
-    <div class="video-box"><h4>11. Reaction</h4><iframe src="https://www.youtube.com/embed/r1eT_ZyF5Js"></iframe></div>
-    <div class="video-box"><h4>12. Q&A</h4><iframe src="https://www.youtube.com/embed/IRM5fgIT1xE"></iframe></div>
-    <div class="video-box"><h4>13. BTS</h4><iframe src="https://www.youtube.com/embed/Sb1G5-pOWT4"></iframe></div>
-    <div class="video-box"><h4>14-21. Shorts</h4><iframe src="https://www.youtube.com/embed/r6Lrne-bnbo"></iframe></div>
+    <div class="video-box"><h4>1. MERA PEHCHAAN</h4><iframe src="https://www.youtube.com/embed/oCTIhvfO9vU"></iframe></div>
+    <div class="video-box"><h4>2. 14 August</h4><iframe src="https://www.youtube.com/embed/2FexPZ-mATE"></iframe></div>
+    <div class="video-box"><h4>3. Gaming</h4><iframe src="https://www.youtube.com/embed/9CG6AaO6XN4"></iframe></div>
   </div>
 </section>
 
-<footer class="section" style="background:#000;">
-  <h2>Sallu Alal Habeeb ﷺ</h2>
-  <p>© 2026 XD BROS | 12 Rabi Ul Awal Special</p>
-</footer>
+<footer class="section" style="background:#000;"><h2>Sallu Alal Habeeb ﷺ</h2></footer>
 
 <script>
 function showToast(msg){ let t=document.getElementById('toast'); t.innerText=msg; t.style.display='block'; setTimeout(()=>t.style.display='none',4000); }
 
-// DATE
-document.getElementById('hijriDate').innerText = "Today: " + new Date().toLocaleDateString('en-GB') + " | Rabi Ul Awwal 1448H"
-setInterval(()=>{ document.getElementById('liveViewers').innerText = 2000+Math.floor(Math.random()*500); }, 3000);
+// 1. ZIKR
+let zikr = 0;
+function addZikr(){ zikr++; document.getElementById('zikrCount').innerText=zikr; if(zikr%100==0) showToast('100 Zikr Complete!'); }
+function resetZikr(){ zikr=0; document.getElementById('zikrCount').innerText=0; }
 
-// COUNTDOWN
+// PRAYER
+const prayers = [{name:"FAJR", time:"05:12 AM"},{name:"DHUHR", time:"12:45 PM"},{name:"ASR", time:"05:30 PM"},{name:"MAGHRIB", time:"06:45 PM"},{name:"ISHA", time:"08:00 PM"}];
+prayers.forEach(p=>{ document.getElementById('prayerGrid').innerHTML += `<div class="prayer-box"><h3>${p.name}</h3><p>${p.time}</p></div>`; });
+document.getElementById('nextPrayer').innerText = "Next: Maghrib at 6:45 PM";
+
+// 4. 12 BAJE NOTIF
+function enableNotif(){ showToast('12 AM Darood Alert Enabled!'); }
+
+// 5. MASJID
+function findMasjid(){ document.getElementById('masjidList').innerHTML = `<p>1. Jamia Masjid Karachi - 1.2km</p><p>2. Noor Masjid - 2.5km</p><p>3. Milad Gah - 3km</p>`; }
+
+// 6. SHARE CARD
+function downloadShareCard(){ html2canvas(document.getElementById('shareCard')).then(c=>{let a=document.createElement('a'); a.download='Darood-Card.png'; a.href=c.toDataURL(); a.click();}); }
+function shareCard(){ window.open(`https://wa.me/?text=Send 12 Darood Today ﷺ`); }
+
+// 7. POETRY
+function genPoetry(){ let name=document.getElementById('poetryName').value; document.getElementById('poetryOutput').innerText = `${name}, tumhare dil me hai Noor e Mustafa\n12 Rabi ki aamad se jhoom utha ye jahan`; }
+
+// 10. FAMILY
+let familyTotal = 0;
+function addFamily(){ let name=document.getElementById('familyName').value; if(name){ familyTotal++; document.getElementById('familyList').innerHTML += `<p>${name}: <button onclick="familyTotal++; document.getElementById('familyTotal').innerText=familyTotal">+1 Darood</button></p>`; document.getElementById('familyTotal').innerText=familyTotal; } }
+
+// DATE + COUNTDOWN
+document.getElementById('hijriDate').innerText = "Today: " + new Date().toLocaleDateString('en-GB') + " | Rabi Ul Awwal 1448H"
 let rabiDate = new Date("Aug 27, 2026 00:00:00").getTime();
-let chandRaat = new Date("Aug 26, 2026 00:00:00").getTime();
 setInterval(function(){
   let gap = rabiDate - new Date().getTime();
   let d = Math.floor(gap / (1000 * 60 * 60 * 24));
   if(gap > 0){ document.getElementById('rabiCountdown').innerText = d+" DAYS LEFT"; }
-  else { document.getElementById('rabiCountdown').innerText = "12 RABI TODAY ﷺ"; document.body.classList.add('green-glow'); setInterval(()=>confetti({particleCount:300, spread:160}), 300); }
-  if(new Date().getTime() >= chandRaat && new Date().getTime() < rabiDate){ document.getElementById('chandRaat').innerText = "🌙 CHAND RAAT MUBARAK 🌙"; }
+  else { document.getElementById('rabiCountdown').innerText = "12 RABI TODAY ﷺ"; document.body.classList.add('green-glow'); setInterval(()=>confetti({particleCount:300}), 300); }
 }, 1000);
 
-// COMMUNITY + DAROOD + BADGES
-let community = 5432, darood = localStorage.getItem('darood') || 0;
-document.getElementById('daroodCount').innerText = darood;
-function updateBadges(){ let b=''; if(darood>=100) b+='<span class="badge">Muhib 100</span>'; if(darood>=313) b+='<span class="badge">Ashiq 313</span>'; if(darood>=1000) b+='<span class="badge">Wali e Milad 1000</span>'; document.getElementById('badges').innerHTML=b; }
-updateBadges();
+// COMMUNITY
+let community = 5432;
 setInterval(()=>{ community++; document.getElementById('communityCount').innerText = `${community} / 12,000`; document.getElementById('communityBar').style.width = (community/12000*100)+'%'; }, 5000);
-function addDarood(num){ darood = parseInt(darood) + num; localStorage.setItem('darood', darood); document.getElementById('daroodCount').innerText = darood; updateBadges(); }
-function addCommunityDarood(){ community++; addDarood(1); showToast('JazakAllah!'); }
-function virtualChadar(){ showToast('ﷺ CHAADAR PRESENTED ﷺ'); addDarood(12); }
-
-// TASBEEH
-let tasbeeh = 0;
-function addTasbeeh(){ tasbeeh++; document.getElementById('tasbeehCount').innerText=tasbeeh; }
-function resetTasbeeh(){ tasbeeh=0; document.getElementById('tasbeehCount').innerText=0; }
-
-// NAAT
-const naats = {
-  naat1: {src:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", lyrics:"Marhaba Ya Mustafa Marhaba\n12 Rabi Ki Khushbu Aayi"},
-  naat2: {src:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3", lyrics:"Talat e Badar Pe Lakho Salam"}
-};
-function playNaat(id){ document.getElementById('naatPlayer').src = naats[id].src; document.getElementById('naatPlayer').play(); document.getElementById('lyricsBox').innerText = naats[id].lyrics; }
-
-// SEERAT
-const seerat = ["Day 1: Wiladat 570 AD","Day 2: Bachpan","Day 3: Nabuwat","Day 4: Hijrat","Day 5: Badr","Day 6: Uhad","Day 7: Khandaq","Day 8: Fatah Makkah","Day 9: Akhlaq","Day 10: Wisaal"];
-seerat.forEach(s=>{ document.getElementById('seeratGrid').innerHTML += `<div class="story-card">${s}</div>`; });
-
-// QUIZ
-let quizQ = [{q:"Wiladat kahan hui?", o:["Makkah","Madina"], a:0}];
-let qIndex=0, score=0;
-function startQuiz(){ qIndex=0; score=0; loadQ(); }
-function loadQ(){ if(qIndex>=quizQ.length){ document.getElementById('quizBox').innerHTML = `<h3>Score: ${score}/${quizQ.length}</h3><button class="download-btn" onclick="showToast('Certificate Downloaded!')">DOWNLOAD CERTIFICATE</button>`; return; } document.getElementById('qText').innerText = quizQ[qIndex].q; document.getElementById('qOptions').innerHTML = quizQ[qIndex].o.map((opt,i)=>`<button class="download-btn" onclick="checkAns(${i})">${opt}</button>`).join(''); }
-function checkAns(i){ if(i==quizQ[qIndex].a) score++; qIndex++; loadQ(); }
-
-// NAME ART
-function genNameArt(){ let name = document.getElementById('nameArt').value; document.getElementById('nameOutput').innerText = `ﷺ ${name} ﷺ\n12 Rabi Mubarak`; }
-
-// MEHFIL + DUA
-function sendMehfil(){ let msg = document.getElementById('mehfilInput').value; if(msg) document.getElementById('mehfilChat').innerHTML += `<p>👤 ${msg}</p>`; document.getElementById('mehfilInput').value=''; }
-function addDua(){ let dua = document.getElementById('duaInput').value; if(dua) document.getElementById('duaWall').innerHTML += `<div style="background:#002a12; padding:12px; margin:10px;">${dua}</div>`; document.getElementById('duaInput').value=''; }
-
-// DP + POSTER
-function genDP(){ showToast('DP Frame Added!'); }
-function genMiladPoster(){ html2canvas(document.querySelector('header')).then(canvas => { let a=document.createElement('a'); a.download='12-Rabi-2026.png'; a.href=canvas.toDataURL(); a.click(); }); }
-function shareMilad(){ window.open(`https://wa.me/?text=12 Rabi Mubarak ﷺ - Join XD BROS https://xd-bros.github.io`); }
-
-// HADITH
-const hadiths = ["Best among you have best manners - Bukhari","Smiling is charity - Tirmidhi"];
-document.getElementById('hadithToday').innerText = hadiths[new Date().getDate() % hadiths.length];
+function addCommunityDarood(){ community++; showToast('JazakAllah!'); }
 </script>
 </body>
   </html>
