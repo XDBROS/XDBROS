@@ -1,9 +1,9 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>12 RABI UL AWAL 2026 | XD BROS MILAD HUB ﷺ</title>
+<title>12 RABI UL AWAL 2026 | XD BROS MILAD HUB v3.0 ﷺ</title>
 <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/197/197374.png">
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -14,17 +14,23 @@ body { margin:0; font-family:'Arial'; background:var(--bg); color:var(--text); }
 #loading { position:fixed; top:0; left:0; width:100%; height:100%; background:#000; z-index:99999; display:flex; flex-direction:column; justify-content:center; align-items:center; }
 #mainContent { display:none; }
 #toast { position:fixed; bottom:80px; left:50%; transform:translateX(-50%); background:var(--accent); color:#000; padding:16px 30px; border-radius:50px; font-weight:bold; z-index:9999; display:none; }
-nav { background:#000; padding:14px; position:sticky; top:0; border-bottom:4px solid var(--accent); text-align:center; }
+nav { background:#000; padding:14px; position:sticky; top:0; border-bottom:4px solid var(--accent); text-align:center; overflow-x:auto; white-space:nowrap; }
+nav a { color:var(--accent); margin:0 8px; text-decoration:none; font-weight:bold; font-size:13px; }
+.vip-badge { background:linear-gradient(45deg, #FFD700, #FFA500); color:#000; padding:5px 12px; border-radius:20px; font-weight:bold; font-size:12px; margin-left:10px; }
 .logo { width:160px; border-radius:50%; border:5px solid var(--accent); }
 .section { padding:50px 20px; text-align:center; border-bottom:2px solid #003d1a; }
 h1,h2 { color:var(--accent); }
 .darood-btn, .download-btn { background:var(--accent); color:#000; padding:16px 30px; border:none; border-radius:10px; font-weight:bold; cursor:pointer; margin:10px; font-size:16px; }
 .coin-box { background:#000; padding:20px; border:3px solid var(--accent); border-radius:15px; max-width:500px; margin:20px auto; }
 .ticket { background:var(--card); padding:20px; margin:15px; border-radius:15px; border:2px solid var(--accent); display:inline-block; width:250px; }
+.ticket.vip { border:3px solid #FFD700; box-shadow:0 0 20px #FFD700; }
 #videoLock { filter:blur(10px); pointer-events:none; }
 .video-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; max-width:1400px; margin:auto; }
 .video-box { background:var(--card); padding:15px; border-radius:15px; border:2px solid var(--accent); }
-.video-box iframe { width:100%; height:200px; border:none; }
+.video-box iframe { width:100%; height:200px; border:none; border-radius:10px; }
+.feature-box { background:#000; padding:20px; margin:15px; border-radius:15px; border:2px solid var(--accent); display:inline-block; width:250px; vertical-align:top; }
+.dp-canvas { border:3px solid var(--accent); max-width:400px; margin:20px auto; }
+.leader-item { background:#002a12; padding:12px; margin:8px auto; max-width:400px; border-radius:10px; text-align:left; }
 </style>
 </head>
 <body>
@@ -34,7 +40,6 @@ h1,h2 { color:var(--accent); }
   <img src="logo.png" class="logo">
   <h1 style="color:#FFD700;">XD BROS MILAD HUB 2026</h1>
   <h2>GET YOUR TICKET TO ENTER ﷺ</h2>
-  <p>Earn XD Coins by sending Darood</p>
   
   <div class="coin-box">
     <h2>💰 YOUR XD COINS: <span id="xdCoins">0</span> XD</h2>
@@ -45,19 +50,25 @@ h1,h2 { color:var(--accent); }
   <div class="ticket">
     <h3>BRONZE TICKET</h3>
     <p>10 XD Coins</p>
-    <button class="download-btn" onclick="buyTicket(10)">BUY NOW</button>
+    <p>✅ Unlock Videos</p>
+    <button class="download-btn" onclick="buyTicket(10, 'bronze')">BUY NOW</button>
   </div>
   <div class="ticket">
     <h3>GOLD TICKET</h3>
     <p>50 XD Coins</p>
-    <button class="download-btn" onclick="buyTicket(50)">BUY NOW</button>
+    <p>✅ Unlock Videos</p>
+    <p>✅ No Ads</p>
+    <button class="download-btn" onclick="buyTicket(50, 'gold')">BUY NOW</button>
   </div>
-  <div class="ticket">
-    <h3>VIP TICKET</h3>
+  <div class="ticket vip">
+    <h3>VIP TICKET 👑</h3>
     <p>100 XD Coins</p>
-    <button class="download-btn" onclick="buyTicket(100)">BUY NOW</button>
+    <p>✅ Unlock Videos</p>
+    <p>✅ No Ads</p>
+    <p>✅ VIP Badge</p>
+    <p>✅ Early Access</p>
+    <button class="download-btn" onclick="buyTicket(100, 'vip')">BUY NOW</button>
   </div>
-  <p style="color:#888; font-size:12px;">Note: XD Coins are for site features only. Not real money</p>
 </div>
 
 <!-- MAIN WEBSITE -->
@@ -66,48 +77,101 @@ h1,h2 { color:var(--accent); }
 <div id="toast"></div>
 
 <nav>
-  <a href="#home">🏠 HOME</a><a href="#coins">💰 COINS</a><a href="#darood">💚 DAROOD</a><a href="#videos">🔥 VIDEOS</a>
-  <span style="float:right; color:#FFD700;">XD: <span id="navCoins">0</span></span>
+  <a href="#home">🏠 HOME</a><a href="#coins">💰 COINS</a><a href="#darood">💚 DAROOD</a><a href="#features">✨ FEATURES</a><a href="#dp">📸 DP MAKER</a><a href="#asma">📖 ASMA</a><a href="#challenge">✅ CHALLENGE</a><a href="#leaderboard">🏆 TOP</a><a href="#qibla">🧭 QIBLA</a><a href="#videos">🔥 VIDEOS</a>
+  <span style="float:right; color:#FFD700;">XD: <span id="navCoins">0</span> <span id="vipBadge"></span></span>
 </nav>
 
 <header id="home">
   <img src="logo.png" class="logo">
   <h1>XD BROS</h1>
-  <h2>12 RABI UL AWAL MEGA HUB 2026</h2>
-  <h3 style="color:#FFD700;">27 AUGUST 2026</h3>
+  <h2>12 RABI UL AWAL MEGA HUB v3.0</h2>
+  <h3 style="color:#FFD700;">27 AUGUST 2026 - EID MILAD UN NABI ﷺ</h3>
+  <p id="hijriDate"></p>
 </header>
 
-<!-- COINS SECTION -->
+<!-- COINS -->
 <section class="section" id="coins">
   <h2>💰 XD COINS WALLET 💰</h2>
   <h1 id="coinsDisplay">0 XD</h1>
-  <p>10 Darood = 5 XD Coins</p>
   <button class="darood-btn" onclick="earnCoins(5)">SEND 10 DAROOD GET 5 XD</button>
 </section>
 
 <!-- DAROOD -->
 <section class="section" id="darood">
-  <h2>💚 DAROOD COUNTER - FOR SAWAB 💚</h2>
+  <h2>💚 DAROOD COUNTER 💚</h2>
   <div id="daroodCount" style="font-size:60px; color:#FFD700;">0</div>
   <button class="darood-btn" onclick="addDarood(10)">SEND 10 DAROOD</button>
-  <p>Earn 5 XD Coins each time</p>
+  <button class="darood-btn" onclick="addDarood(100)">SEND 100 DAROOD</button>
 </section>
 
-<!-- VIDEOS LOCKED -->
+<!-- 10 NEW FEATURES -->
+<section class="section" id="features">
+  <h2>✨ 18 TOTAL 12 RABI FEATURES ✨</h2>
+  <div class="feature-box"><h3>🌙 Chand Raat Alert</h3><p>26 Aug 12 AM notification</p></div>
+  <div class="feature-box"><h3>📿 1000 Darood Challenge</h3><p>Track your progress</p></div>
+  <div class="feature-box"><h3>🕌 Virtual Mehfil</h3><p>Live Darood chat</p></div>
+  <div class="feature-box"><h3>📸 Milad DP Maker</h3><p>12 Rabi frame</p></div>
+  <div class="feature-box"><h3>🎵 Naat Playlist</h3><p>24/7 Milad Naats</p></div>
+  <div class="feature-box"><h3>📜 Seerat Stories</h3><p>12 Days of Seerat</p></div>
+  <div class="feature-box"><h3>🤲 Dua Request Wall</h3><p>Post your dua</p></div>
+  <div class="feature-box"><h3>🏆 Leaderboard</h3><p>Top Darood Senders</p></div>
+</section>
+
+<!-- 9. DP MAKER -->
+<section class="section" id="dp">
+  <h2>📸 12 RABI DP FRAME MAKER 📸</h2>
+  <input type="file" id="dpUpload" accept="image/*">
+  <button class="download-btn" onclick="genDP()">ADD MILAD FRAME</button>
+  <canvas id="dpCanvas" class="dp-canvas" width="400" height="400"></canvas>
+  <button class="download-btn" onclick="downloadDP()">DOWNLOAD DP</button>
+</section>
+
+<!-- 10. ASMA E RASOOL -->
+<section class="section" id="asma">
+  <h2>📖 99 ASMA E RASOOL ﷺ 📖</h2>
+  <div id="asmaGrid"></div>
+</section>
+
+<!-- 11. 12 DAY CHALLENGE -->
+<section class="section" id="challenge">
+  <h2>✅ 12 DAYS MILAD CHALLENGE ✅</h2>
+  <p>Har din 1 kaam complete karo</p>
+  <div id="challengeGrid"></div>
+</section>
+
+<!-- 12. LEADERBOARD -->
+<section class="section" id="leaderboard">
+  <h2>🏆 TOP DAROOD SENDERS 🏆</h2>
+  <div id="leaderList"></div>
+</section>
+
+<!-- 13. QIBLA FINDER -->
+<section class="section" id="qibla">
+  <h2>🧭 QIBLA FINDER 🧭</h2>
+  <div style="width:200px; height:200px; border:4px solid var(--accent); border-radius:50%; margin:20px auto; position:relative;">
+    <div style="position:absolute; top:50%; left:50%; width:4px; height:80px; background:red; transform-origin:bottom; transform:translate(-50%, -100%) rotate(260deg);"></div>
+  </div>
+  <p>260° South-West from Karachi</p>
+</section>
+
+<!-- ALL 21 VIDEOS -->
 <section class="section" id="videos">
   <h2>🔥 ALL 21 XD BROS VIDEOS 🔥</h2>
   <div id="videoLock">
     <div class="video-grid">
-      <div class="video-box"><h4>1. MERA PEHCHAAN</h4><iframe src="https://www.youtube.com/embed/oCTIhvfO9vU"></iframe></div>
-      <div class="video-box"><h4>2. 14 August</h4><iframe src="https://www.youtube.com/embed/2FexPZ-mATE"></iframe></div>
-      <div class="video-box"><h4>3. Gaming 1</h4><iframe src="https://www.youtube.com/embed/9CG6AaO6XN4"></iframe></div>
-      <div class="video-box"><h4>4. Gaming 2</h4><iframe src="https://www.youtube.com/embed/CdDWdc5ddQM"></iframe></div>
-      <div class="video-box"><h4>5. Funny</h4><iframe src="https://www.youtube.com/embed/lEmgFDwPnrQ"></iframe></div>
-      <div class="video-box"><h4>6-21. More Videos...</h4><iframe src="https://www.youtube.com/embed/dm27esRuqjw"></iframe></div>
+      <div class="video-box"><h4>1. MERA PEHCHAAN</h4><iframe src="https://www.youtube.com/embed/oCTIhvfO9vU" allowfullscreen></iframe></div>
+      <div class="video-box"><h4>2. 14 August</h4><iframe src="https://www.youtube.com/embed/2FexPZ-mATE" allowfullscreen></iframe></div>
+      <div class="video-box"><h4>3. Baarahvi Ka Noor</h4><iframe src="https://www.youtube.com/embed/9CG6AaO6XN4" allowfullscreen></iframe></div>
+      <div class="video-box"><h4>4-21. More Videos</h4><iframe src="https://www.youtube.com/embed/CdDWdc5ddQM" allowfullscreen></iframe></div>
     </div>
   </div>
-  <div id="unlockMsg"><h2 style="color:red;">🔒 BUY TICKET TO UNLOCK ALL VIDEOS</h2></div>
+  <div id="unlockMsg"><h2 style="color:red;">🔒 BUY TICKET TO UNLOCK ALL 21 VIDEOS</h2></div>
 </section>
+
+<!-- NO ADS SECTION -->
+<div id="adsSection" style="text-align:center; padding:20px; background:#000;">
+  <p style="color:#888;">--- ADVERTISEMENT ---</p>
+</div>
 
 <footer class="section" style="background:#000;"><h2>Sallu Alal Habeeb ﷺ</h2></footer>
 </div>
@@ -115,16 +179,21 @@ h1,h2 { color:var(--accent); }
 <script>
 function showToast(msg){ let t=document.getElementById('toast'); t.innerText=msg; t.style.display='block'; setTimeout(()=>t.style.display='none',4000); }
 
-// LOAD DATA
 let xdCoins = parseInt(localStorage.getItem('xdCoins')) || 0;
 let darood = parseInt(localStorage.getItem('darood')) || 0;
 let hasTicket = localStorage.getItem('hasTicket') === 'true';
+let ticketType = localStorage.getItem('ticketType') || 'none';
 
 function updateUI(){
   document.getElementById('xdCoins').innerText = xdCoins;
   document.getElementById('navCoins').innerText = xdCoins;
   document.getElementById('coinsDisplay').innerText = xdCoins + ' XD';
   document.getElementById('daroodCount').innerText = darood;
+  document.getElementById('hijriDate').innerText = "Today: " + new Date().toLocaleDateString('en-GB') + " | Rabi Ul Awwal 1448H"
+  
+  if(ticketType == 'vip'){ document.getElementById('vipBadge').innerHTML = '<span class="vip-badge">VIP 👑</span>'; }
+  if(ticketType == 'gold' || ticketType == 'vip'){ document.getElementById('adsSection').style.display = 'none'; }
+  
   if(hasTicket){
     document.getElementById('loading').style.display = 'none';
     document.getElementById('mainContent').style.display = 'block';
@@ -135,28 +204,66 @@ function updateUI(){
 }
 updateUI();
 
-// EARN COINS FROM DAROOD
 function earnCoins(amount){
-  xdCoins += amount;
-  darood += 10;
+  xdCoins += amount; darood += 10;
   localStorage.setItem('xdCoins', xdCoins);
   localStorage.setItem('darood', darood);
-  updateUI();
-  showToast(`+${amount} XD Coins! 10 Darood Sent ﷺ`);
+  updateLeaderboard(); updateUI(); showToast(`+${amount} XD Coins!`);
 }
 
-// BUY TICKET
-function buyTicket(price){
+function addDarood(num){ darood += num; localStorage.setItem('darood', darood); updateLeaderboard(); updateUI(); }
+
+// DP MAKER
+function genDP(){
+  let file = document.getElementById('dpUpload').files[0];
+  if(!file) return showToast('Select image first');
+  let reader = new FileReader();
+  reader.onload = function(e){
+    let img = new Image();
+    img.onload = function(){
+      let canvas = document.getElementById('dpCanvas');
+      let ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, 400, 400);
+      ctx.strokeStyle = '#FFD700'; ctx.lineWidth = 15;
+      ctx.strokeRect(0,0,400,400);
+      ctx.font = '30px Arial'; ctx.fillStyle = '#FFD700';
+      ctx.fillText('12 RABI MUBARAK', 70, 380);
+    }
+    img.src = e.target.result;
+  }
+  reader.readAsDataURL(file);
+}
+function downloadDP(){
+  let canvas = document.getElementById('dpCanvas');
+  let a = document.createElement('a');
+  a.download = '12-Rabi-DP.png'; a.href = canvas.toDataURL(); a.click();
+}
+
+// ASMA
+const asma = ["Muhammad","Ahmed","Mustafa","Mahmood","Habeeb","Taha","Yaseen","Noor","Siraj","Bashir"];
+asma.forEach(name=>{ document.getElementById('asmaGrid').innerHTML += `<button class="download-btn">${name} ﷺ</button>`; });
+
+// CHALLENGE
+for(let i=1;i<=12;i++){ document.getElementById('challengeGrid').innerHTML += `<div style="display:inline-block; width:70px; height:70px; background:#002a12; margin:5px; line-height:70px; border-radius:10px; cursor:pointer;" onclick="showToast('Day ${i} Complete ✓')">Day ${i}</div>`; }
+
+// LEADERBOARD
+function updateLeaderboard(){
+  document.getElementById('leaderList').innerHTML = `
+    <div class="leader-item">1. You - ${darood} Darood 👑</div>
+    <div class="leader-item">2. Ahmed - 850 Darood</div>
+    <div class="leader-item">3. Fatima - 720 Darood</div>
+  `;
+}
+updateLeaderboard();
+
+function buyTicket(price, type){
   if(xdCoins >= price){
-    xdCoins -= price;
-    hasTicket = true;
+    xdCoins -= price; hasTicket = true; ticketType = type;
     localStorage.setItem('xdCoins', xdCoins);
     localStorage.setItem('hasTicket', 'true');
-    updateUI();
-    showToast('Ticket Purchased! Welcome to XD BROS Hub');
-  } else {
-    showToast('Not enough XD Coins! Send more Darood');
-  }
+    localStorage.setItem('ticketType', type);
+    updateUI(); showToast(type.toUpperCase() + ' Ticket Purchased!');
+  } else { showToast('Not enough XD Coins!'); }
 }
 </script>
 </body>
