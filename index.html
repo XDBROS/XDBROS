@@ -3,23 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>12 RABI UL AWAL 2026 | XD BROS MILAD HUB ﷺ</title>
+<title>12 RABI UL AWAL 2026 | XD BROS MILAD HUB v3.2 ﷺ</title>
 <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/197/197374.png">
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <style>
 :root{ --bg:#01411C; --card:#001f0d; --text:#fff; --accent:#FFD700; }
-body { margin:0; font-family:'Arial'; background:var(--bg); color:var(--text); }
+body { margin:0; font-family:'Arial'; background:var(--bg); color:var(--text); transition:0.3s; }
 #loading { position:fixed; top:0; left:0; width:100%; height:100%; background:#000; z-index:99999; display:flex; flex-direction:column; justify-content:center; align-items:center; }
 #mainContent { display:none; }
 #toast { position:fixed; bottom:80px; left:50%; transform:translateX(-50%); background:var(--accent); color:#000; padding:16px 30px; border-radius:50px; font-weight:bold; z-index:9999; display:none; }
-nav { background:#000; padding:14px; position:sticky; top:0; border-bottom:4px solid var(--accent); text-align:center; }
+nav { background:#000; padding:14px; position:sticky; top:0; border-bottom:4px solid var(--accent); text-align:center; overflow-x:auto; white-space:nowrap; }
+nav a { color:var(--accent); margin:0 8px; text-decoration:none; font-weight:bold; font-size:13px; }
 .vip-badge { background:linear-gradient(45deg, #FFD700, #FFA500); color:#000; padding:5px 12px; border-radius:20px; font-weight:bold; font-size:12px; margin-left:10px; }
+.avatar { width:35px; height:35px; border-radius:50%; border:2px solid var(--accent); object-fit:cover; vertical-align:middle; margin-right:5px; }
 .logo { width:160px; border-radius:50%; border:5px solid var(--accent); }
 .section { padding:50px 20px; text-align:center; border-bottom:2px solid #003d1a; }
 h1,h2 { color:var(--accent); }
-.darood-btn, .download-btn { background:var(--accent); color:#000; padding:16px 30px; border:none; border-radius:10px; font-weight:bold; cursor:pointer; margin:10px; font-size:16px; }
+.darood-btn,.download-btn { background:var(--accent); color:#000; padding:16px 30px; border:none; border-radius:10px; font-weight:bold; cursor:pointer; margin:10px; font-size:16px; }
 .coin-box { background:#000; padding:20px; border:3px solid var(--accent); border-radius:15px; max-width:500px; margin:20px auto; }
 .ticket { background:var(--card); padding:20px; margin:15px; border-radius:15px; border:2px solid var(--accent); display:inline-block; width:250px; }
 .ticket.vip { border:3px solid #FFD700; box-shadow:0 0 20px #FFD700; }
@@ -29,6 +30,10 @@ h1,h2 { color:var(--accent); }
 .video-box iframe { width:100%; height:200px; border:none; border-radius:10px; }
 .video-box h4 { color:var(--accent); margin:10px 0; font-size:14px; }
 .feature-box { background:#000; padding:20px; margin:15px; border-radius:15px; border:2px solid var(--accent); display:inline-block; width:250px; }
+.setting-box { background:#000; padding:20px; border:3px solid var(--accent); border-radius:15px; max-width:600px; margin:20px auto; text-align:left; }
+.setting-box input[type=text] { width:90%; padding:10px; border-radius:10px; background:#111; color:#fff; border:2px solid var(--accent); margin:10px 0; }
+.color-btn { width:40px; height:40px; border:none; margin:5px; cursor:pointer; border-radius:8px; }
+.friend-item { background:#002a12; padding:10px; margin:8px 0; border-radius:10px; display:flex; justify-content:space-between; }
 </style>
 </head>
 <body>
@@ -38,51 +43,29 @@ h1,h2 { color:var(--accent); }
   <img src="logo.png" class="logo">
   <h1 style="color:#FFD700;">XD BROS MILAD HUB 2026</h1>
   <h2>GET YOUR TICKET TO ENTER ﷺ</h2>
-  
   <div class="coin-box">
     <h2>💰 YOUR XD COINS: <span id="xdCoins">0</span> XD</h2>
     <button class="darood-btn" onclick="earnCoins(5)">SEND 10 DAROOD = +5 XD</button>
   </div>
-
   <h2>BUY ENTRY TICKET</h2>
-  <div class="ticket">
-    <h3>BRONZE TICKET</h3>
-    <p>10 XD Coins</p>
-    <p>✅ Unlock Videos</p>
-    <button class="download-btn" onclick="buyTicket(10, 'bronze')">BUY NOW</button>
-  </div>
-  <div class="ticket">
-    <h3>GOLD TICKET</h3>
-    <p>50 XD Coins</p>
-    <p>✅ Unlock Videos</p>
-    <p>✅ No Ads</p>
-    <button class="download-btn" onclick="buyTicket(50, 'gold')">BUY NOW</button>
-  </div>
-  <div class="ticket vip">
-    <h3>VIP TICKET 👑</h3>
-    <p>100 XD Coins</p>
-    <p>✅ Unlock Videos</p>
-    <p>✅ No Ads</p>
-    <p>✅ VIP Badge</p>
-    <p>✅ Early Access</p>
-    <button class="download-btn" onclick="buyTicket(100, 'vip')">BUY NOW</button>
-  </div>
+  <div class="ticket"><h3>BRONZE</h3><p>10 XD</p><button class="download-btn" onclick="buyTicket(10, 'bronze')">BUY</button></div>
+  <div class="ticket"><h3>GOLD</h3><p>50 XD</p><button class="download-btn" onclick="buyTicket(50, 'gold')">BUY</button></div>
+  <div class="ticket vip"><h3>VIP 👑</h3><p>100 XD</p><button class="download-btn" onclick="buyTicket(100, 'vip')">BUY</button></div>
 </div>
 
 <!-- MAIN WEBSITE -->
 <div id="mainContent">
-
 <div id="toast"></div>
 
 <nav>
-  <a href="#home">🏠 HOME</a><a href="#coins">💰 COINS</a><a href="#darood">💚 DAROOD</a><a href="#features">✨ FEATURES</a><a href="#videos">🔥 VIDEOS</a>
-  <span style="float:right; color:#FFD700;">XD: <span id="navCoins">0</span> <span id="vipBadge"></span></span>
+  <a href="#home">🏠 HOME</a><a href="#coins">💰 COINS</a><a href="#darood">💚 DAROOD</a><a href="#features">✨ FEATURES</a><a href="#settings">⚙️ SETTINGS</a><a href="#videos">🔥 VIDEOS</a>
+  <span style="float:right; color:#FFD700;"><img id="navAvatar" src="https://via.placeholder.com/35" class="avatar"><span id="navUsername">User</span> | XD: <span id="navCoins">0</span> <span id="vipBadge"></span></span>
 </nav>
 
 <header id="home">
   <img src="logo.png" class="logo">
   <h1>XD BROS</h1>
-  <h2>12 RABI UL AWAL MEGA HUB 2026</h2>
+  <h2>12 RABI UL AWAL MEGA HUB v3.2</h2>
   <h3 style="color:#FFD700;">27 AUGUST 2026</h3>
 </header>
 
@@ -100,17 +83,64 @@ h1,h2 { color:var(--accent); }
   <button class="darood-btn" onclick="addDarood(10)">SEND 10 DAROOD</button>
 </section>
 
-<!-- NEW 12 RABI FEATURES -->
+<!-- FEATURES -->
 <section class="section" id="features">
   <h2>✨ 12 RABI SPECIAL FEATURES ✨</h2>
-  <div class="feature-box"><h3>🌙 Chand Raat Alert</h3><p>26 Aug ko 12 baje notification</p></div>
-  <div class="feature-box"><h3>📿 1000 Darood Challenge</h3><p>12 Rabi se pehle complete karo</p></div>
-  <div class="feature-box"><h3>🕌 Virtual Mehfil</h3><p>Live Darood with others</p></div>
-  <div class="feature-box"><h3>📸 Milad DP Maker</h3><p>12 Rabi frame ke sath</p></div>
-  <div class="feature-box"><h3>🎵 Naat Playlist</h3><p>24/7 Milad Naats</p></div>
-  <div class="feature-box"><h3>📜 Seerat Stories</h3><p>12 Days of Seerat</p></div>
-  <div class="feature-box"><h3>🤲 Dua Request Wall</h3><p>12 Rabi ke sadqe dua</p></div>
-  <div class="feature-box"><h3>🏆 Leaderboard</h3><p>Top Darood Senders</p></div>
+  <div class="feature-box"><h3>🌙 Chand Raat Alert</h3></div>
+  <div class="feature-box"><h3>📿 1000 Darood Challenge</h3></div>
+  <div class="feature-box"><h3>🕌 Virtual Mehfil</h3></div>
+  <div class="feature-box"><h3>📸 Milad DP Maker</h3></div>
+</section>
+
+<!-- SETTINGS -->
+<section class="section" id="settings">
+  <h2>⚙️ SETTINGS ⚙️</h2>
+  <div class="setting-box">
+    <h3>👤 1. CHANGE USERNAME</h3>
+    <input type="text" id="usernameInput" placeholder="Enter Username">
+    <button class="download-btn" onclick="saveUsername()">SAVE NAME</button>
+  </div>
+  <div class="setting-box">
+    <h3>🖼️ 2. AVATAR UPLOAD</h3>
+    <input type="file" id="avatarUpload" accept="image/*" onchange="uploadAvatar()">
+    <img id="avatarPreview" src="https://via.placeholder.com/100" style="width:100px;height:100px;border-radius:50%;margin-top:10px;border:3px solid var(--accent);">
+  </div>
+  <div class="setting-box">
+    <h3>👥 3. ADD FRIENDS</h3>
+    <input type="text" id="friendInput" placeholder="Friend Username">
+    <button class="download-btn" onclick="addFriend()">ADD FRIEND</button>
+    <div id="friendList"></div>
+  </div>
+  <div class="setting-box">
+    <h3>🕌 4. PRAYER TIME ALERT</h3>
+    <label><input type="checkbox" id="prayerAlert" onchange="saveSettings()"> Enable Prayer Alerts</label>
+  </div>
+  <div class="setting-box">
+    <h3>🌙 5. 12 AM DAROOD REMINDER</h3>
+    <label><input type="checkbox" id="daroodAlert" onchange="saveSettings()"> Enable 12 AM Reminder</label>
+  </div>
+  <div class="setting-box">
+    <h3>🔤 6. FONT SIZE</h3>
+    <button class="download-btn" onclick="setFontSize('14px')">SMALL</button>
+    <button class="download-btn" onclick="setFontSize('16px')">MEDIUM</button>
+    <button class="download-btn" onclick="setFontSize('20px')">LARGE</button>
+  </div>
+  <div class="setting-box">
+    <h3>🎨 7. ACCENT COLOR</h3>
+    <button class="color-btn" style="background:#FFD700" onclick="changeAccent('#FFD700')"></button>
+    <button class="color-btn" style="background:#00FF00" onclick="changeAccent('#00FF00')"></button>
+    <button class="color-btn" style="background:#00BFFF" onclick="changeAccent('#00BFFF')"></button>
+    <button class="color-btn" style="background:#FF69B4" onclick="changeAccent('#FF69B4')"></button>
+  </div>
+  <div class="setting-box">
+    <h3>✨ 8. ANIMATIONS</h3>
+    <label><input type="checkbox" id="animToggle" onchange="toggleAnimation()"> Enable Animations</label>
+  </div>
+  <div class="setting-box">
+    <h3>🔄 9. RESET & EXPORT</h3>
+    <button class="download-btn" onclick="resetCoins()" style="background:red;">RESET ALL COINS</button>
+    <button class="download-btn" onclick="exportData()">EXPORT MY DATA</button>
+  </div>
 </section>
 
 <!-- ALL 21 VIDEOS -->
@@ -144,11 +174,7 @@ h1,h2 { color:var(--accent); }
   <div id="unlockMsg"><h2 style="color:red;">🔒 BUY TICKET TO UNLOCK ALL 21 VIDEOS</h2></div>
 </section>
 
-<!-- NO ADS SECTION FOR VIP/GOLD -->
-<div id="adsSection" style="text-align:center; padding:20px; background:#000;">
-  <p style="color:#888;">--- ADVERTISEMENT ---</p>
-</div>
-
+<div id="adsSection" style="text-align:center; padding:20px; background:#000;"><p style="color:#888;">--- ADVERTISEMENT ---</p></div>
 <footer class="section" style="background:#000;"><h2>Sallu Alal Habeeb ﷺ</h2></footer>
 </div>
 
@@ -165,10 +191,8 @@ function updateUI(){
   document.getElementById('navCoins').innerText = xdCoins;
   document.getElementById('coinsDisplay').innerText = xdCoins + ' XD';
   document.getElementById('daroodCount').innerText = darood;
-  
   if(ticketType == 'vip'){ document.getElementById('vipBadge').innerHTML = '<span class="vip-badge">VIP 👑</span>'; }
   if(ticketType == 'gold' || ticketType == 'vip'){ document.getElementById('adsSection').style.display = 'none'; }
-  
   if(hasTicket){
     document.getElementById('loading').style.display = 'none';
     document.getElementById('mainContent').style.display = 'block';
@@ -177,26 +201,41 @@ function updateUI(){
     document.getElementById('unlockMsg').style.display = 'none';
   }
 }
-updateUI();
 
-function earnCoins(amount){
-  xdCoins += amount; darood += 10;
-  localStorage.setItem('xdCoins', xdCoins);
-  localStorage.setItem('darood', darood);
-  updateUI(); showToast(`+${amount} XD Coins!`);
-}
+// SETTINGS FUNCTIONS
+function saveUsername(){ let name = document.getElementById('usernameInput').value; if(name){ localStorage.setItem('username', name); document.getElementById('navUsername').innerText = name; showToast('Username Saved!'); } }
+document.getElementById('navUsername').innerText = localStorage.getItem('username') || 'User';
+document.getElementById('usernameInput').value = localStorage.getItem('username') || '';
 
+function uploadAvatar(){ let file = document.getElementById('avatarUpload').files[0]; let reader = new FileReader(); reader.onload = function(e){ localStorage.setItem('avatar', e.target.result); document.getElementById('avatarPreview').src = e.target.result; document.getElementById('navAvatar').src = e.target.result; } reader.readAsDataURL(file); }
+if(localStorage.getItem('avatar')){ document.getElementById('avatarPreview').src = localStorage.getItem('avatar'); document.getElementById('navAvatar').src = localStorage.getItem('avatar'); }
+
+function addFriend(){ let name = document.getElementById('friendInput').value; if(!name) return; let friends = JSON.parse(localStorage.getItem('friends') || '[]'); friends.push(name); localStorage.setItem('friends', JSON.stringify(friends)); document.getElementById('friendInput').value = ''; loadFriends(); showToast('Friend Added!'); }
+function loadFriends(){ let friends = JSON.parse(localStorage.getItem('friends') || '[]'); let html = ''; friends.forEach((f,i)=>{ html += `<div class="friend-item">${f} <button onclick="removeFriend(${i})" style="background:red;color:#fff;border:none;border-radius:5px;">X</button></div>`; }); document.getElementById('friendList').innerHTML = html; }
+function removeFriend(i){ let friends = JSON.parse(localStorage.getItem('friends') || '[]'); friends.splice(i,1); localStorage.setItem('friends', JSON.stringify(friends)); loadFriends(); }
+loadFriends();
+
+function saveSettings(){ localStorage.setItem('prayerAlert', document.getElementById('prayerAlert').checked); localStorage.setItem('daroodAlert', document.getElementById('daroodAlert').checked); showToast('Settings Saved!'); }
+document.getElementById('prayerAlert').checked = localStorage.getItem('prayerAlert') === 'true';
+document.getElementById('daroodAlert').checked = localStorage.getItem('daroodAlert') === 'true';
+
+function setFontSize(size){ document.body.style.fontSize = size; localStorage.setItem('fontSize', size); }
+document.body.style.fontSize = localStorage.getItem('fontSize') || '16px';
+
+function changeAccent(color){ document.documentElement.style.setProperty('--accent', color); localStorage.setItem('accent', color); }
+document.documentElement.style.setProperty('--accent', localStorage.getItem('accent') || '#FFD700');
+
+function toggleAnimation(){ let enabled = document.getElementById('animToggle').checked; localStorage.setItem('animation', enabled); }
+document.getElementById('animToggle').checked = localStorage.getItem('animation')!== 'false';
+
+function resetCoins(){ if(confirm('Reset all coins to 0?')){ localStorage.setItem('xdCoins', 0); location.reload(); } }
+function exportData(){ let data = {username: localStorage.getItem('username'), coins: xdCoins, darood: darood, friends: JSON.parse(localStorage.getItem('friends') || '[]')}; let blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'}); let a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'XD-BROS-Data.json'; a.click(); }
+
+function earnCoins(amount){ xdCoins += amount; darood += 10; localStorage.setItem('xdCoins', xdCoins); localStorage.setItem('darood', darood); updateUI(); showToast(`+${amount} XD Coins!`); }
 function addDarood(num){ darood += num; localStorage.setItem('darood', darood); updateUI(); }
+function buyTicket(price, type){ if(xdCoins >= price){ xdCoins -= price; hasTicket = true; ticketType = type; localStorage.setItem('xdCoins', xdCoins); localStorage.setItem('hasTicket', 'true'); localStorage.setItem('ticketType', type); updateUI(); showToast(type.toUpperCase() + ' Ticket Purchased!'); } else { showToast('Not enough XD Coins!'); } }
 
-function buyTicket(price, type){
-  if(xdCoins >= price){
-    xdCoins -= price; hasTicket = true; ticketType = type;
-    localStorage.setItem('xdCoins', xdCoins);
-    localStorage.setItem('hasTicket', 'true');
-    localStorage.setItem('ticketType', type);
-    updateUI(); showToast(type.toUpperCase() + ' Ticket Purchased!');
-  } else { showToast('Not enough XD Coins!'); }
-}
+updateUI();
 </script>
 </body>
-        </html>
+  </html>
