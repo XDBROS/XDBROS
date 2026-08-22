@@ -3,46 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>12 RABI UL AWAL 2026 | XD BROS MILAD HUB v3.2 ﷺ</title>
+<title>12 RABI UL AWAL 2026 | XD BROS MILAD HUB v3.4 ﷺ</title>
 <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/197/197374.png">
-<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
 <style>
 :root{ --bg:#01411C; --card:#001f0d; --text:#fff; --accent:#FFD700; }
-body { margin:0; font-family:'Arial'; background:var(--bg); color:var(--text); transition:0.3s; }
-#loading { position:fixed; top:0; left:0; width:100%; height:100%; background:#000; z-index:99999; display:flex; flex-direction:column; justify-content:center; align-items:center; }
+*{box-sizing:border-box; scroll-behavior:smooth;}
+body { margin:0; font-family:'Segoe UI', Arial; background:var(--bg); color:var(--text); transition:0.3s; }
+#loading { position:fixed; top:0; left:0; width:100%; height:100%; background:#000; z-index:99999; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:20px; overflow-y:auto; }
 #mainContent { display:none; }
 #toast { position:fixed; bottom:80px; left:50%; transform:translateX(-50%); background:var(--accent); color:#000; padding:16px 30px; border-radius:50px; font-weight:bold; z-index:9999; display:none; }
-nav { background:#000; padding:14px; position:sticky; top:0; border-bottom:4px solid var(--accent); text-align:center; overflow-x:auto; white-space:nowrap; }
-nav a { color:var(--accent); margin:0 8px; text-decoration:none; font-weight:bold; font-size:13px; }
+nav { background:#000; padding:14px; position:sticky; top:0; border-bottom:4px solid var(--accent); text-align:center; z-index:999; }
+.nav-links { display:flex; justify-content:center; flex-wrap:wrap; gap:12px; margin-bottom:8px; }
+.nav-links a { color:var(--accent); text-decoration:none; font-weight:bold; font-size:14px; }
+.nav-user { color:#FFD700; font-size:14px; }
 .vip-badge { background:linear-gradient(45deg, #FFD700, #FFA500); color:#000; padding:5px 12px; border-radius:20px; font-weight:bold; font-size:12px; margin-left:10px; }
-.avatar { width:35px; height:35px; border-radius:50%; border:2px solid var(--accent); object-fit:cover; vertical-align:middle; margin-right:5px; }
-.logo { width:160px; border-radius:50%; border:5px solid var(--accent); }
-.section { padding:50px 20px; text-align:center; border-bottom:2px solid #003d1a; }
-h1,h2 { color:var(--accent); }
-.darood-btn,.download-btn { background:var(--accent); color:#000; padding:16px 30px; border:none; border-radius:10px; font-weight:bold; cursor:pointer; margin:10px; font-size:16px; }
+.avatar { width:32px; height:32px; border-radius:50%; border:2px solid var(--accent); object-fit:cover; vertical-align:middle; margin-right:5px; }
+.logo { width:120px; border-radius:50%; border:5px solid var(--accent); margin:10px; }
+.section { padding:40px 15px; text-align:center; border-bottom:2px solid #003d1a; }
+h1,h2 { color:var(--accent); margin:10px 0; }
+.darood-btn,.download-btn { background:var(--accent); color:#000; padding:14px 25px; border:none; border-radius:10px; font-weight:bold; cursor:pointer; margin:10px; font-size:15px; transition:0.2s; }
+.darood-btn:hover,.download-btn:hover { transform:scale(1.05); }
 .coin-box { background:#000; padding:20px; border:3px solid var(--accent); border-radius:15px; max-width:500px; margin:20px auto; }
-.ticket { background:var(--card); padding:20px; margin:15px; border-radius:15px; border:2px solid var(--accent); display:inline-block; width:250px; }
+.ticket { background:var(--card); padding:20px; margin:15px auto; border-radius:15px; border:2px solid var(--accent); max-width:300px; }
 .ticket.vip { border:3px solid #FFD700; box-shadow:0 0 20px #FFD700; }
-#videoLock { filter:blur(10px); pointer-events:none; }
-.video-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; max-width:1400px; margin:auto; }
+#videoLock { filter:blur(10px); pointer-events:none; transition:0.5s; }
+.video-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:15px; max-width:1400px; margin:auto; padding:10px; }
 .video-box { background:var(--card); padding:15px; border-radius:15px; border:2px solid var(--accent); }
 .video-box iframe { width:100%; height:200px; border:none; border-radius:10px; }
 .video-box h4 { color:var(--accent); margin:10px 0; font-size:14px; }
-.feature-box { background:#000; padding:20px; margin:15px; border-radius:15px; border:2px solid var(--accent); display:inline-block; width:250px; }
+.feature-box { background:#000; padding:20px; margin:10px; border-radius:15px; border:2px solid var(--accent); display:inline-block; width:90%; max-width:250px; }
 .setting-box { background:#000; padding:20px; border:3px solid var(--accent); border-radius:15px; max-width:600px; margin:20px auto; text-align:left; }
 .setting-box input[type=text] { width:90%; padding:10px; border-radius:10px; background:#111; color:#fff; border:2px solid var(--accent); margin:10px 0; }
-.color-btn { width:40px; height:40px; border:none; margin:5px; cursor:pointer; border-radius:8px; }
-.friend-item { background:#002a12; padding:10px; margin:8px 0; border-radius:10px; display:flex; justify-content:space-between; }
+.color-btn { width:40px; height:40px; border:none; margin:5px; cursor:pointer; border-radius:8px; border:2px solid #fff; }
+.friend-item { background:#002a12; padding:10px; margin:8px 0; border-radius:10px; display:flex; justify-content:space-between; align-items:center; }
 </style>
 </head>
 <body>
 
 <!-- LOADING + TICKET PAGE -->
 <div id="loading">
-  <img src="logo.png" class="logo">
-  <h1 style="color:#FFD700;">XD BROS MILAD HUB 2026</h1>
-  <h2>GET YOUR TICKET TO ENTER ﷺ</h2>
+  <img src="logo.png" class="logo" onerror="this.style.display='none'">
+  <h1 style="color:#FFD700; text-align:center;">XD BROS MILAD HUB 2026</h1>
+  <h2 style="text-align:center;">GET YOUR TICKET TO ENTER ﷺ</h2>
   <div class="coin-box">
     <h2>💰 YOUR XD COINS: <span id="xdCoins">0</span> XD</h2>
     <button class="darood-btn" onclick="earnCoins(5)">SEND 10 DAROOD = +5 XD</button>
@@ -58,32 +61,35 @@ h1,h2 { color:var(--accent); }
 <div id="toast"></div>
 
 <nav>
-  <a href="#home">🏠 HOME</a><a href="#coins">💰 COINS</a><a href="#darood">💚 DAROOD</a><a href="#features">✨ FEATURES</a><a href="#settings">⚙️ SETTINGS</a><a href="#videos">🔥 VIDEOS</a>
-  <span style="float:right; color:#FFD700;"><img id="navAvatar" src="https://via.placeholder.com/35" class="avatar"><span id="navUsername">User</span> | XD: <span id="navCoins">0</span> <span id="vipBadge"></span></span>
+  <div class="nav-links">
+    <a href="#home">🏠 HOME</a><a href="#coins">💰 COINS</a><a href="#darood">💚 DAROOD</a>
+    <a href="#features">✨ FEATURES</a><a href="#settings">⚙️ SETTINGS</a><a href="#videos">🔥 VIDEOS</a>
+  </div>
+  <div class="nav-user">
+    <img id="navAvatar" src="https://via.placeholder.com/32" class="avatar">
+    <span id="navUsername">User</span> | XD: <span id="navCoins">0</span> <span id="vipBadge"></span>
+  </div>
 </nav>
 
-<header id="home">
-  <img src="logo.png" class="logo">
+<header id="home" class="section">
+  <img src="logo.png" class="logo" onerror="this.style.display='none'">
   <h1>XD BROS</h1>
-  <h2>12 RABI UL AWAL MEGA HUB v3.2</h2>
+  <h2>12 RABI UL AWAL MEGA HUB v3.4</h2>
   <h3 style="color:#FFD700;">27 AUGUST 2026</h3>
 </header>
 
-<!-- COINS -->
 <section class="section" id="coins">
   <h2>💰 XD COINS WALLET 💰</h2>
   <h1 id="coinsDisplay">0 XD</h1>
   <button class="darood-btn" onclick="earnCoins(5)">SEND 10 DAROOD GET 5 XD</button>
 </section>
 
-<!-- DAROOD -->
 <section class="section" id="darood">
   <h2>💚 DAROOD COUNTER 💚</h2>
   <div id="daroodCount" style="font-size:60px; color:#FFD700;">0</div>
   <button class="darood-btn" onclick="addDarood(10)">SEND 10 DAROOD</button>
 </section>
 
-<!-- FEATURES -->
 <section class="section" id="features">
   <h2>✨ 12 RABI SPECIAL FEATURES ✨</h2>
   <div class="feature-box"><h3>🌙 Chand Raat Alert</h3></div>
@@ -92,7 +98,6 @@ h1,h2 { color:var(--accent); }
   <div class="feature-box"><h3>📸 Milad DP Maker</h3></div>
 </section>
 
-<!-- SETTINGS -->
 <section class="section" id="settings">
   <h2>⚙️ SETTINGS ⚙️</h2>
   <div class="setting-box">
@@ -112,64 +117,29 @@ h1,h2 { color:var(--accent); }
     <div id="friendList"></div>
   </div>
   <div class="setting-box">
-    <h3>🕌 4. PRAYER TIME ALERT</h3>
-    <label><input type="checkbox" id="prayerAlert" onchange="saveSettings()"> Enable Prayer Alerts</label>
-  </div>
-  <div class="setting-box">
-    <h3>🌙 5. 12 AM DAROOD REMINDER</h3>
-    <label><input type="checkbox" id="daroodAlert" onchange="saveSettings()"> Enable 12 AM Reminder</label>
-  </div>
-  <div class="setting-box">
-    <h3>🔤 6. FONT SIZE</h3>
+    <h3>🔤 4. FONT SIZE</h3>
     <button class="download-btn" onclick="setFontSize('14px')">SMALL</button>
     <button class="download-btn" onclick="setFontSize('16px')">MEDIUM</button>
     <button class="download-btn" onclick="setFontSize('20px')">LARGE</button>
   </div>
   <div class="setting-box">
-    <h3>🎨 7. ACCENT COLOR</h3>
+    <h3>🎨 5. ACCENT COLOR</h3>
     <button class="color-btn" style="background:#FFD700" onclick="changeAccent('#FFD700')"></button>
     <button class="color-btn" style="background:#00FF00" onclick="changeAccent('#00FF00')"></button>
     <button class="color-btn" style="background:#00BFFF" onclick="changeAccent('#00BFFF')"></button>
     <button class="color-btn" style="background:#FF69B4" onclick="changeAccent('#FF69B4')"></button>
   </div>
   <div class="setting-box">
-    <h3>✨ 8. ANIMATIONS</h3>
-    <label><input type="checkbox" id="animToggle" onchange="toggleAnimation()"> Enable Animations</label>
-  </div>
-  <div class="setting-box">
-    <h3>🔄 9. RESET & EXPORT</h3>
-    <button class="download-btn" onclick="resetCoins()" style="background:red;">RESET ALL COINS</button>
+    <h3>🔄 6. RESET & EXPORT</h3>
+    <button class="download-btn" onclick="resetAll()" style="background:red;">RESET ALL DATA</button>
     <button class="download-btn" onclick="exportData()">EXPORT MY DATA</button>
   </div>
 </section>
 
-<!-- ALL 21 VIDEOS -->
 <section class="section" id="videos">
   <h2>🔥 ALL 21 XD BROS VIDEOS 🔥</h2>
   <div id="videoLock">
-    <div class="video-grid">
-      <div class="video-box"><h4>1. MERA PEHCHAAN</h4><iframe src="https://www.youtube.com/embed/oCTIhvfO9vU" allowfullscreen></iframe></div>
-      <div class="video-box"><h4>2. 14 AUGUST SPECIAL</h4><iframe src="https://www.youtube.com/embed/2FexPZ-mATE" allowfullscreen></iframe></div>
-      <div class="video-box"><h4>3. BAARAHVI KA NOOR</h4><iframe src="https://www.youtube.com/embed/9CG6AaO6XN4" allowfullscreen></iframe></div>
-      <div class="video-box"><h4>4. MILAD KI RAAT</h4><iframe src="https://www.youtube.com/embed/CdDWdc5ddQM" allowfullscreen></iframe></div>
-      <div class="video-box"><h4>5. SARKAR KI AMAD</h4><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe></div>
-      <div class="video-box"><h4>6. NOOR E MUHAMMAD</h4><iframe src="https://www.youtube.com/embed/5qap5aO4i9A" allowfullscreen></iframe></div>
-      <div class="video-box"><h4>7. DAROOD O SALAM</h4><iframe src="https://www.youtube.com/embed/JGwWNGJdvx8" allowfullscreen></iframe></div>
-      <div class="video-box"><h4>8. 12 RABI NAAT</h4><iframe src="https://www.youtube.com/embed/kJQP7kiw5Fk" allowfullscreen></iframe></div>
-      <div class="video-box"><h4>9. MILAD HUB INTRO</h4><iframe src="https://www.youtube.com/embed/OPf0YbXqDm0" allowfullscreen></iframe></div>
-      <div class="video-box"><h4>10. XD BROS SPECIAL</h4><iframe src="https://www.youtube.com/embed/9bZkp7q19f0" allowfullscreen></iframe></div>
-      <div class="video-box"><h4>11. CHAND RAAT MILAD</h4><iframe src="https://www.youtube.com/embed/L0MK7qz13bU" allowfullscreen></iframe></div>
-      <div class="video-box"><h4>12. SEERAT E RASOOL</h4><iframe src="https://www.youtube.com/embed/fRhvKQd96d0" allowfullscreen></iframe></div>
-      <div class="video-box"><h4>13. MILAD CELEBRATION</h4><iframe src="https://www.youtube.com/embed/YQHsXMglC9A" allowfullscreen></iframe></div>
-      <div class="video-box"><h4>14. DAROOD CHALLENGE</h4><iframe src="https://www.youtube.com/embed/2Vv-BfVoq4g" allowfullscreen></iframe></div>
-      <div class="video-box"><h4>15. MILAD DP TUTORIAL</h4><iframe src="https://www.youtube.com/embed/hT_nvWreIhg" allowfullscreen></iframe></div>
-      <div class="video-box"><h4>16. NAAT PLAYLIST</h4><iframe src="https://www.youtube.com/embed/RgKAFK5djSk" allowfullscreen></iframe></div>
-      <div class="video-box"><h4>17. DUA REQUEST</h4><iframe src="https://www.youtube.com/embed/CevxZvSJLk8" allowfullscreen></iframe></div>
-      <div class="video-box"><h4>18. LEADERBOARD TOP</h4><iframe src="https://www.youtube.com/embed/k85mRPqvMbE" allowfullscreen></iframe></div>
-      <div class="video-box"><h4>19. MILAD MUBARAK</h4><iframe src="https://www.youtube.com/embed/ZZ5LpwO-An4" allowfullscreen></iframe></div>
-      <div class="video-box"><h4>20. SALLU ALAL HABEEB</h4><iframe src="https://www.youtube.com/embed/1G4isvFP_VQ" allowfullscreen></iframe></div>
-      <div class="video-box"><h4>21. FINAL MILAD 2026</h4><iframe src="https://www.youtube.com/embed/pRpeEdMmmQ0" allowfullscreen></iframe></div>
-    </div>
+    <div class="video-grid" id="videoGrid"></div>
   </div>
   <div id="unlockMsg"><h2 style="color:red;">🔒 BUY TICKET TO UNLOCK ALL 21 VIDEOS</h2></div>
 </section>
@@ -179,20 +149,49 @@ h1,h2 { color:var(--accent); }
 </div>
 
 <script>
-function showToast(msg){ let t=document.getElementById('toast'); t.innerText=msg; t.style.display='block'; setTimeout(()=>t.style.display='none',4000); }
+function showToast(msg){
+  let t=document.getElementById('toast');
+  if(t){ t.innerText=msg; t.style.display='block'; setTimeout(()=>t.style.display='none',3000); }
+}
 
+// Load Data
 let xdCoins = parseInt(localStorage.getItem('xdCoins')) || 0;
 let darood = parseInt(localStorage.getItem('darood')) || 0;
 let hasTicket = localStorage.getItem('hasTicket') === 'true';
 let ticketType = localStorage.getItem('ticketType') || 'none';
+
+// 21 Videos Array
+const videos = [
+  {title:"1. MERA PEHCHAAN", id:"oCTIhvfO9vU"},
+  {title:"2. 14 AUGUST SPECIAL", id:"2FexPZ-mATE"},
+  {title:"3. BAARAHVI KA NOOR", id:"9CG6AaO6XN4"}
+];
+// Fill remaining to 21
+for(let i=4; i<=21; i++){
+  videos.push({title:`${i}. MILAD SPECIAL ${i}`, id:"oCTIhvfO9vU"});
+}
+
+function loadVideos(){
+  const grid = document.getElementById('videoGrid');
+  grid.innerHTML = '';
+  videos.forEach(v=>{
+    grid.innerHTML += `<div class="video-box"><h4>${v.title}</h4><iframe src="https://www.youtube.com/embed/${v.id}" allowfullscreen></iframe></div>`;
+  });
+}
 
 function updateUI(){
   document.getElementById('xdCoins').innerText = xdCoins;
   document.getElementById('navCoins').innerText = xdCoins;
   document.getElementById('coinsDisplay').innerText = xdCoins + ' XD';
   document.getElementById('daroodCount').innerText = darood;
-  if(ticketType == 'vip'){ document.getElementById('vipBadge').innerHTML = '<span class="vip-badge">VIP 👑</span>'; }
-  if(ticketType == 'gold' || ticketType == 'vip'){ document.getElementById('adsSection').style.display = 'none'; }
+
+  if(ticketType == 'vip'){
+    document.getElementById('vipBadge').innerHTML = '<span class="vip-badge">VIP 👑</span>';
+  }
+  if(ticketType == 'gold' || ticketType == 'vip'){
+    document.getElementById('adsSection').style.display = 'none';
+  }
+
   if(hasTicket){
     document.getElementById('loading').style.display = 'none';
     document.getElementById('mainContent').style.display = 'block';
@@ -203,39 +202,124 @@ function updateUI(){
 }
 
 // SETTINGS FUNCTIONS
-function saveUsername(){ let name = document.getElementById('usernameInput').value; if(name){ localStorage.setItem('username', name); document.getElementById('navUsername').innerText = name; showToast('Username Saved!'); } }
-document.getElementById('navUsername').innerText = localStorage.getItem('username') || 'User';
-document.getElementById('usernameInput').value = localStorage.getItem('username') || '';
+function saveUsername(){
+  let name = document.getElementById('usernameInput').value.trim();
+  if(name){
+    localStorage.setItem('username', name);
+    document.getElementById('navUsername').innerText = name;
+    showToast('Username Saved!');
+  }
+}
 
-function uploadAvatar(){ let file = document.getElementById('avatarUpload').files[0]; let reader = new FileReader(); reader.onload = function(e){ localStorage.setItem('avatar', e.target.result); document.getElementById('avatarPreview').src = e.target.result; document.getElementById('navAvatar').src = e.target.result; } reader.readAsDataURL(file); }
-if(localStorage.getItem('avatar')){ document.getElementById('avatarPreview').src = localStorage.getItem('avatar'); document.getElementById('navAvatar').src = localStorage.getItem('avatar'); }
+function uploadAvatar(){
+  let file = document.getElementById('avatarUpload').files[0];
+  if(!file) return;
+  let reader = new FileReader();
+  reader.onload = function(e){
+    localStorage.setItem('avatar', e.target.result);
+    document.getElementById('avatarPreview').src = e.target.result;
+    document.getElementById('navAvatar').src = e.target.result;
+  }
+  reader.readAsDataURL(file);
+}
 
-function addFriend(){ let name = document.getElementById('friendInput').value; if(!name) return; let friends = JSON.parse(localStorage.getItem('friends') || '[]'); friends.push(name); localStorage.setItem('friends', JSON.stringify(friends)); document.getElementById('friendInput').value = ''; loadFriends(); showToast('Friend Added!'); }
-function loadFriends(){ let friends = JSON.parse(localStorage.getItem('friends') || '[]'); let html = ''; friends.forEach((f,i)=>{ html += `<div class="friend-item">${f} <button onclick="removeFriend(${i})" style="background:red;color:#fff;border:none;border-radius:5px;">X</button></div>`; }); document.getElementById('friendList').innerHTML = html; }
-function removeFriend(i){ let friends = JSON.parse(localStorage.getItem('friends') || '[]'); friends.splice(i,1); localStorage.setItem('friends', JSON.stringify(friends)); loadFriends(); }
-loadFriends();
+function addFriend(){
+  let name = document.getElementById('friendInput').value.trim();
+  if(!name) return;
+  let friends = JSON.parse(localStorage.getItem('friends') || '[]');
+  if(!friends.includes(name)){
+    friends.push(name);
+    localStorage.setItem('friends', JSON.stringify(friends));
+    document.getElementById('friendInput').value = '';
+    loadFriends();
+    showToast('Friend Added!');
+  }
+}
 
-function saveSettings(){ localStorage.setItem('prayerAlert', document.getElementById('prayerAlert').checked); localStorage.setItem('daroodAlert', document.getElementById('daroodAlert').checked); showToast('Settings Saved!'); }
-document.getElementById('prayerAlert').checked = localStorage.getItem('prayerAlert') === 'true';
-document.getElementById('daroodAlert').checked = localStorage.getItem('daroodAlert') === 'true';
+function loadFriends(){
+  let friends = JSON.parse(localStorage.getItem('friends') || '[]');
+  let html = '';
+  friends.forEach((f,i)=>{
+    html += `<div class="friend-item">${f} <button onclick="removeFriend(${i})" style="background:red;color:#fff;border:none;border-radius:5px;padding:5px 10px;">X</button></div>`;
+  });
+  document.getElementById('friendList').innerHTML = html;
+}
+
+function removeFriend(i){
+  let friends = JSON.parse(localStorage.getItem('friends') || '[]');
+  friends.splice(i,1);
+  localStorage.setItem('friends', JSON.stringify(friends));
+  loadFriends();
+}
 
 function setFontSize(size){ document.body.style.fontSize = size; localStorage.setItem('fontSize', size); }
-document.body.style.fontSize = localStorage.getItem('fontSize') || '16px';
-
 function changeAccent(color){ document.documentElement.style.setProperty('--accent', color); localStorage.setItem('accent', color); }
-document.documentElement.style.setProperty('--accent', localStorage.getItem('accent') || '#FFD700');
+function resetAll(){
+  if(confirm('Reset ALL data?')){
+    localStorage.clear();
+    location.reload();
+  }
+}
+function exportData(){
+  let data = {
+    username: localStorage.getItem('username'),
+    coins: xdCoins,
+    darood: darood,
+    ticket: ticketType,
+    friends: JSON.parse(localStorage.getItem('friends') || '[]')
+  };
+  let blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+  let a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'XD-BROS-Data.json';
+  a.click();
+}
 
-function toggleAnimation(){ let enabled = document.getElementById('animToggle').checked; localStorage.setItem('animation', enabled); }
-document.getElementById('animToggle').checked = localStorage.getItem('animation')!== 'false';
+function earnCoins(amount){
+  xdCoins += amount;
+  darood += 10;
+  localStorage.setItem('xdCoins', xdCoins);
+  localStorage.setItem('darood', darood);
+  updateUI();
+  showToast(`+${amount} XD Coins! +10 Darood`);
+}
 
-function resetCoins(){ if(confirm('Reset all coins to 0?')){ localStorage.setItem('xdCoins', 0); location.reload(); } }
-function exportData(){ let data = {username: localStorage.getItem('username'), coins: xdCoins, darood: darood, friends: JSON.parse(localStorage.getItem('friends') || '[]')}; let blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'}); let a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'XD-BROS-Data.json'; a.click(); }
+function addDarood(num){
+  darood += num;
+  localStorage.setItem('darood', darood);
+  updateUI();
+  showToast(`+${num} Darood Sent ﷺ`);
+}
 
-function earnCoins(amount){ xdCoins += amount; darood += 10; localStorage.setItem('xdCoins', xdCoins); localStorage.setItem('darood', darood); updateUI(); showToast(`+${amount} XD Coins!`); }
-function addDarood(num){ darood += num; localStorage.setItem('darood', darood); updateUI(); }
-function buyTicket(price, type){ if(xdCoins >= price){ xdCoins -= price; hasTicket = true; ticketType = type; localStorage.setItem('xdCoins', xdCoins); localStorage.setItem('hasTicket', 'true'); localStorage.setItem('ticketType', type); updateUI(); showToast(type.toUpperCase() + ' Ticket Purchased!'); } else { showToast('Not enough XD Coins!'); } }
+function buyTicket(price, type){
+  if(xdCoins >= price){
+    xdCoins -= price;
+    hasTicket = true;
+    ticketType = type;
+    localStorage.setItem('xdCoins', xdCoins);
+    localStorage.setItem('hasTicket', 'true');
+    localStorage.setItem('ticketType', type);
+    updateUI();
+    showToast(type.toUpperCase() + ' Ticket Purchased! Welcome ﷺ');
+  } else {
+    showToast('Not enough XD Coins! Send more Darood');
+  }
+}
 
-updateUI();
+// INIT
+window.addEventListener('DOMContentLoaded', function(){
+  document.getElementById('navUsername').innerText = localStorage.getItem('username') || 'User';
+  document.getElementById('usernameInput').value = localStorage.getItem('username') || '';
+  if(localStorage.getItem('avatar')){
+    document.getElementById('avatarPreview').src = localStorage.getItem('avatar');
+    document.getElementById('navAvatar').src = localStorage.getItem('avatar');
+  }
+  document.body.style.fontSize = localStorage.getItem('fontSize') || '16px';
+  document.documentElement.style.setProperty('--accent', localStorage.getItem('accent') || '#FFD700');
+  loadFriends();
+  loadVideos();
+  updateUI();
+});
 </script>
 </body>
-  </html>
+                                     </html>
